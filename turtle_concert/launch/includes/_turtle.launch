@@ -1,0 +1,12 @@
+<!--
+  Launches the infrastructure running on a robot (turtle). 
+ -->
+<launch>
+  <arg name="turtle_name" default="turtle" />
+  <arg name="concert_name" value="turtle_concert"/>
+  <include file="$(find concert_client)/launch/client.launch">
+    <arg name="robot_name" value="$(arg turtle_name)"/>
+    <arg name="robot_type" value="pc"/>
+    <arg name="concert_name" value="$(arg concert_name)"/>
+  </include>
+</launch>

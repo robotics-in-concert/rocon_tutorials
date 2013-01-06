@@ -1,0 +1,33 @@
+digraph hierarchy {
+
+	nodesep=1.0 // increases the separation between nodes
+
+	node [color=Red]
+	edge [color=Blue, style=dashed] //setup options
+
+    // concert clients
+    kobuki [color=blue, shape=ellipse, label="linux.ros.pc\n[kobuki/turtle_stroll]"]
+    guimul [color=blue, shape=ellipse, label="linux.ros.pc\n[guimul/turtle_stroll]"]
+    turtlesim [color=blue, shape=ellipse, label="linux.ros.pc\nturtlesim"]
+ 
+    // topics
+    kobuki_pose [color=red, shape=box, label="pose\n[turtlesim/Pose]"]
+    kobuki_command_velocity [color=red, shape=box, label="command_velocity\n[turtlesim/Velocity]"]
+    guimul_pose [color=red, shape=box, label="pose\n[turtlesim/Pose]"]
+    guimul_command_velocity [color=red, shape=box, label="command_velocity\n[turtlesim/Velocity]"]
+    
+    // links
+	{rank = same; kobuki guimul }
+	//{rank = same; clear_cmd_list set_cmd_list recognized_cmd}
+	kobuki->{ kobuki_command_velocity }
+    guimul->{ guimul_command_velocity }
+    kobuki_command_velocity->turtlesim
+    guimul_command_velocity->turtlesim
+    turtlesim->kobuki_pose
+    turtlesim->guimul_pose
+	kobuki_pose->kobuki
+    guimul_pose->guimul
+	
+	//{rank=same; John Jack} //they have the same rank
+	//John->Jack [dir=both] // but is still on the same level as Jack
+}

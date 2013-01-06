@@ -1,0 +1,56 @@
+# Concert client tuples are of the platform-system-robot-name-app where
+# the name is just a placemarker for the eventual concert client name.
+# All other parts of the tuple are fixed.
+
+name: "Turtle Concert"
+nodes:
+  - id: kobuki
+    tuple: linux.ros.pc.turtle_stroll
+  - id: guimul
+    tuple: linux.ros.pc.turtle_stroll
+#  - id: turtlesim
+#    tuple: linux.ros.pc.turtle_stroll_sim
+topics:
+  - id: kobuki_command_velocity
+    type: turtlesim/Velocity
+  - id: guimul_command_velocity
+    type: turtlesim/Velocity
+  - id: kobuki_pose
+    type: turtlesim/Pose
+  - id: guimul_pose
+    type: turtlesim/Pose
+actions: []
+edges:
+  - start: kobuki
+    finish: kobuki_command_velocity
+    remap_from: command_velocity
+    remap_to: kobuki/command_velocity
+  - start: guimul
+    finish: guimul_command_velocity
+    remap_from: command_velocity
+    remap_to: guimul/command_velocity
+  - start: kobuki_command_velocity
+    finish: turtlesim
+    remap_from: turtle_one/command_velocity
+    remap_to: kobuki/command_velocity
+  - start: guimul_command_velocity
+    finish: turtlesim
+    remap_from: turtle_two/command_velocity
+    remap_to: guimul/command_velocity
+  - start: turtlesim
+    finish: kobuki_pose
+    remap_from: turtle_one/pose
+    remap_to: kobuki/pose
+  - start: turtlesim
+    finish: guimul_pose
+    remap_from: turtle_two/pose
+    remap_to: guimul/pose
+  - start: kobuki_pose
+    finish: kobuki
+    remap_from: pose
+    remap_to: kobuki/pose
+  - start: guimul_pose
+    finish: guimul
+    remap_from: pose
+    remap_to: guimul/pose
+    

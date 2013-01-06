@@ -1,0 +1,3 @@
+#!/bin/bash
+
+kgraphviewer `rospack find turtle_concert`/orchestration/implementation.dot

@@ -1,0 +1,6 @@
+<!--
+  Orchestration
+ -->
+<launch>
+  <node ns="concert" name="qorchestra" pkg="rocon_qorchestra" type="rocon_qorchestra" output="screen"/>
+</launch>
