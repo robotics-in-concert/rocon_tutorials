@@ -10,5 +10,6 @@
   <url>http://ros.org/wiki/rocon_gateway_tutorials</url>
   <depend package="rocon_hub"/>
   <depend package="rocon_gateway"/>
-
+  <depend package="rocon_gateway_graph"/>
+  <depend package="zeroconf_avahi"/>
 </package>

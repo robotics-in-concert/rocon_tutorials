@@ -8,8 +8,8 @@ nodes:
     tuple: linux.ros.pc.turtle_stroll
   - id: guimul
     tuple: linux.ros.pc.turtle_stroll
-#  - id: turtlesim
-#    tuple: linux.ros.pc.turtle_stroll_sim
+  - id: turtlesim
+    tuple: linux.ros.pc.turtle_stroll_sim
 topics:
   - id: kobuki_command_velocity
     type: turtlesim/Velocity

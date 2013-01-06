@@ -17,4 +17,5 @@
   <depend stack="rocon_rqt_plugins"/> <!-- rocon_gateway_graph -->
   <depend stack="common_tutorials"/> <!-- actionlib_tutorials -->
   <depend stack="ros_tutorials"/> <!-- roscpp_tutorials -->
+  <depend stack="zeroconf_avahi_suite"/> <!-- zeroconf_avahi -->
 </stack>

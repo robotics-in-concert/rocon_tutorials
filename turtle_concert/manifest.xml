@@ -12,10 +12,9 @@
   <depend package="concert_master"/>
   <depend package="rocon_apps"/>
   <depend package="rocon_orchestra"/>
-  <!-- 
-  <depend package="rocon_qorchestra"/>
-   -->
   <depend package="turtle_stroll"/>
+  <depend package="zeroconf_avahi"/>
+  <depend package="rocon_gateway_graph"/>
 </package>
 
 
