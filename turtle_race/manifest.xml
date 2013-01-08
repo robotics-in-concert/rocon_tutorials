@@ -1,0 +1,14 @@
+<package>
+  <catkin/>
+  <description brief="turtle_race">
+
+     turtle_race
+
+  </description>
+  <author>Daniel Stonier</author>
+  <license>BSD</license>
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/turtle_race</url>
+
+
+</package>
