@@ -4,5 +4,6 @@
     <arg name="robot_name" value="turtlesim"/>
     <arg name="robot_type" value="pc"/>
     <arg name="concert_name" value="turtle_concert"/>
+    <arg name="app_lists" value="$(find turtle_concert)/apps/turtle_concert.apps"/>
   </include>
 </launch>

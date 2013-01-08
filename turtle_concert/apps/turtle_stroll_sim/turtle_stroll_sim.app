@@ -1,0 +1,6 @@
+display: Turtle Stroll
+description: The turtle strolls around the tank, drawing out a square.
+platform: linux.ros.pc
+launch: turtle_concert/turtle_stroll_sim.launch
+interface: turtle_concert/turtle_stroll_sim.interface
+icon: turtle_concert/turtle_stroll_sim.png
