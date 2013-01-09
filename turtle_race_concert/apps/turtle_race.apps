@@ -1,0 +1,3 @@
+apps:
+ - rocon_apps/chirp
+ - turtle_race_concert/turtle_race

@@ -1,14 +1,14 @@
 <package>
   <catkin/>
-  <description brief="turtle_race">
+  <description brief="Controllers for turtle racing.">
 
-     turtle_race
+     Various controllers for turtle racing.
 
   </description>
   <author>Daniel Stonier</author>
   <license>BSD</license>
   <review status="experimental" notes=""/>
-  <url>http://ros.org/wiki/turtle_race</url>
+  <url>http://ros.org/wiki/turtle_race_controllers</url>
 
 
 </package>
