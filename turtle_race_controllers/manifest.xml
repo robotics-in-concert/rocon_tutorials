@@ -1,5 +1,4 @@
 <package>
-  <catkin/>
   <description brief="Controllers for turtle racing.">
 
      Various controllers for turtle racing.
@@ -9,6 +8,10 @@
   <license>BSD</license>
   <review status="experimental" notes=""/>
   <url>http://ros.org/wiki/turtle_race_controllers</url>
-
-
+  <depend package="rospy"/>
+  <depend package="roslib"/>
+  <depend package="tf"/>
+  <depend package="geometry_msgs"/>
+  <depend package="nav_msgs"/>
+  <depend package="std_msgs"/>
 </package>
