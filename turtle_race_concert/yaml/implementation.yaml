@@ -83,7 +83,7 @@ edges:
   - start: donizetti
     finish: race_winner_three
     remap_from: race_winner
-    remap_to: turtles/race_winner
+    remap_to: donizetti/race_winner
 
   - start: race_winner_one
     finish: announcer

@@ -59,7 +59,6 @@ class DoinTheWal(threading.Thread):
         twist.angular.z = 0.5
         while not self.shutdown and not rospy.is_shutdown():
             duration = rospy.Time.now() - start_time
-            print("Duration %s" % duration)
             if duration > total_duration:
                 break
             if duration > progress_landmark:
