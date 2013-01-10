@@ -1,6 +1,6 @@
-display: Turtle Stroll
-description: The turtle strolls around the tank, drawing out a square.
-platform: linux.ros.pc
-launch: turtle_concert/turtle_stroll.launch
-interface: turtle_concert/turtle_stroll.interface
-icon: turtle_concert/turtle_stroll.png
+display: Turtle Race
+description: The turtle race.
+platform: linux.ros.turtlebot
+launch: turtle_race_concert/turtle_race.launch
+interface: turtle_race_concert/turtle_race.interface
+icon: turtle_race_concert/turtle_race.png

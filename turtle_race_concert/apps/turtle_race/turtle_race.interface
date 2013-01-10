@@ -1,5 +1,6 @@
 subscribers:
-  - pose
+  - race_start
+  - race_winner
 publishers:
-  - command_velocity
+  - race_finished
 services: []

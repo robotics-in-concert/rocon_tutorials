@@ -5,8 +5,8 @@
   <arg name="turtle_name" default="turtle" />
   <include file="$(find concert_client)/launch/client.launch">
     <arg name="robot_name" value="$(arg turtle_name)"/>
-    <arg name="robot_type" value="pc"/>
+    <arg name="robot_type" value="turtlebot"/>
     <arg name="concert_name" value="turtle_concert"/>
-    <arg name="app_lists" value="$(find turtle_concert)/apps/turtle_concert.apps"/>
+    <arg name="app_lists" value="$(find turtle_race_concert)/apps/turtle_race.apps"/>
   </include>
 </launch>

@@ -1,0 +1,6 @@
+<launch>
+  <env name="ROS_MASTER_URI" value="http://localhost:11313"/>
+  <include file="$(find turtle_race_concert)/launch/includes/_turtle.launch">
+    <arg name="turtle_name" value="chopin" />
+  </include>
+</launch>

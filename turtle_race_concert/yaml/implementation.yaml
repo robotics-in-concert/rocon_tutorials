@@ -4,55 +4,57 @@
 
 name: "Turtle Race Concert"
 nodes:
-  - id: kobuki
-    tuple: linux.ros.pc.turtle_race_concert/turtle_race
-  - id: guimul
-    tuple: linux.ros.pc.turtle_race_concert/turtle_race
-  - id: godzilla
-    tuple: linux.ros.pc.turtle_race_concert/turtle_race
+  - id: bach
+    tuple: linux.ros.turtlebot.turtle_race_concert/turtle_race
+  - id: chopin
+    tuple: linux.ros.turtlebot.turtle_race_concert/turtle_race
+  - id: donizetti
+    tuple: linux.ros.turtlebot.turtle_race_concert/turtle_race
 #  - id: announcer
 #    tuple: linux.ros.pc.turtle_race_concert/turtle_race_announcer
 topics:
-  - id: kobuki_command_velocity
-    type: turtlesim/Velocity
-  - id: guimul_command_velocity
-    type: turtlesim/Velocity
-  - id: kobuki_pose
-    type: turtlesim/Pose
-  - id: guimul_pose
-    type: turtlesim/Pose
+  - id: race_start
+    type: std_msgs/Empty
+  - id: race_finished
+    type: std_msgs/Empty
+  - id: race_winner
+    type: std_msgs/Empty
 actions: []
 edges:
-  - start: kobuki
-    finish: kobuki_command_velocity
-    remap_from: command_velocity
-    remap_to: kobuki/command_velocity
-  - start: guimul
-    finish: guimul_command_velocity
-    remap_from: command_velocity
-    remap_to: guimul/command_velocity
-  - start: kobuki_command_velocity
-    finish: turtlesim
-    remap_from: turtle_one/command_velocity
-    remap_to: kobuki/command_velocity
-  - start: guimul_command_velocity
-    finish: turtlesim
-    remap_from: turtle_two/command_velocity
-    remap_to: guimul/command_velocity
-  - start: turtlesim
-    finish: kobuki_pose
-    remap_from: turtle_one/pose
-    remap_to: kobuki/pose
-  - start: turtlesim
-    finish: guimul_pose
-    remap_from: turtle_two/pose
-    remap_to: guimul/pose
-  - start: kobuki_pose
-    finish: kobuki
-    remap_from: pose
-    remap_to: kobuki/pose
-  - start: guimul_pose
-    finish: guimul
-    remap_from: pose
-    remap_to: guimul/pose
+  - start: race_start
+    finish: bach
+    remap_from: race_start
+    remap_to: turtles/race_start
+  - start: race_start
+    finish: chopin
+    remap_from: race_start
+    remap_to: turtles/race_start
+  - start: race_start
+    finish: donizetti
+    remap_from: race_start
+    remap_to: turtles/race_start
+  - start: bach
+    finish: race_finished
+    remap_from: race_finished
+    remap_to: turtles/race_finished
+  - start: chopin
+    finish: race_finished
+    remap_from: race_finished
+    remap_to: turtles/race_finished
+  - start: donizetti
+    finish: race_finished
+    remap_from: race_finished
+    remap_to: turtles/race_finished
+  - start: race_winner
+    finish: bach
+    remap_from: race_winner
+    remap_to: turtles/race_winner
+  - start: race_winner
+    finish: chopin
+    remap_from: race_winner
+    remap_to: turtles/race_winner
+  - start: race_winner
+    finish: donizetti
+    remap_from: race_winner
+    remap_to: turtles/race_winner
     
