@@ -7,7 +7,6 @@
 # Imports
 ##############################################################################
 
-import copy
 import math
 import threading
 import random
@@ -16,7 +15,6 @@ roslib.load_manifest('turtle_race_controllers')
 import rospy
 import tf
 from geometry_msgs.msg import Twist, Pose
-from nav_msgs.msg import Odometry
 from std_msgs.msg import Empty
 
 ##############################################################################
