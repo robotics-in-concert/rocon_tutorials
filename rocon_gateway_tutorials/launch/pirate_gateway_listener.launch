@@ -1,0 +1,8 @@
+<!--
+  Works with rocon_gateway_tutorials/pirate_hub.launch - uses a non-default hub
+  name so we can test hubs in parallel. 
+-->
+<launch>
+  <include file="$(find rocon_gateway_tutorials)/launch/pirate_gateway.launch"/>
+  <node pkg="roscpp_tutorials" type="listener" name="listener"/>
+</launch>
