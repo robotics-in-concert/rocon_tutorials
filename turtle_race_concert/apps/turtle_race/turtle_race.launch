@@ -1,3 +1,5 @@
 <launch>
-  <node pkg="turtle_stroll" type="turtle_stroll" name="turtle_stroll" output="screen" />
+  <node pkg="turtle_race_controllers" type="turtle_race" name="turtle_race" output="screen">
+    <remap from="turtle_race/cmd_vel" to="cmd_vel_mux/input/navi"/>
+  </node>
 </launch>

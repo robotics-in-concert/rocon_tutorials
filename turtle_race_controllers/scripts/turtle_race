@@ -30,9 +30,8 @@ def parse_arguments():
 ##############################################################################
 
 if __name__ == '__main__':
-    
+    #args = parse_arguments()
     rospy.init_node('turtle_race')
-    args = parse_arguments()
     race_controller = turtle_race_controllers.RaceController()
     rospy.spin()
     race_controller.shutdown()
