@@ -6,28 +6,37 @@ digraph hierarchy {
 	edge [color=Blue, style=dashed] //setup options
 
     // concert clients
-    kobuki [color=blue, shape=ellipse, label="linux.ros.pc\n[kobuki/turtle_stroll]"]
-    guimul [color=blue, shape=ellipse, label="linux.ros.pc\n[guimul/turtle_stroll]"]
-    turtlesim [color=blue, shape=ellipse, label="linux.ros.pc\nturtlesim"]
+    bach [color=blue, shape=ellipse, label="linux.ros.turtlebot\n[bach/race]"]
+    chopin [color=blue, shape=ellipse, label="linux.ros.turtlebot\n[chopin/race]"]
+    donizetti [color=blue, shape=ellipse, label="linux.ros.turtlebot\n[chopin/race]"]
+    announcer [color=blue, shape=ellipse, label="linux.ros.pc\nrace_announcer"]
  
     // topics
-    kobuki_pose [color=red, shape=box, label="pose\n[turtlesim/Pose]"]
-    kobuki_command_velocity [color=red, shape=box, label="command_velocity\n[turtlesim/Velocity]"]
-    guimul_pose [color=red, shape=box, label="pose\n[turtlesim/Pose]"]
-    guimul_command_velocity [color=red, shape=box, label="command_velocity\n[turtlesim/Velocity]"]
+    race_start [color=red, shape=box, label="race_start\n[std_msgs/Empty]"]
+    bach_race_finished [color=red, shape=box, label="bach/race_finished\n[std_msgs/Empty]"]
+    chopin_race_finished [color=red, shape=box, label="chopin/race_finished\n[std_msgs/Empty]"]
+    donizetti_race_finished [color=red, shape=box, label="donizetti/race_finished\n[std_msgs/Empty]"]
+    bach_race_winner [color=red, shape=box, label="bach/race_winner\n[std_msgs/Empty]"]
+    chopin_race_winner [color=red, shape=box, label="chopin/race_winner\n[std_msgs/Empty]"]
+    donizetti_race_winner [color=red, shape=box, label="donizetti/race_winner\n[std_msgs/Empty]"]
     
     // links
-	{rank = same; kobuki guimul }
+	{rank = same; bach chopin donizetti }
 	//{rank = same; clear_cmd_list set_cmd_list recognized_cmd}
-	kobuki->{ kobuki_command_velocity }
-    guimul->{ guimul_command_velocity }
-    kobuki_command_velocity->turtlesim
-    guimul_command_velocity->turtlesim
-    turtlesim->kobuki_pose
-    turtlesim->guimul_pose
-	kobuki_pose->kobuki
-    guimul_pose->guimul
-	
-	//{rank=same; John Jack} //they have the same rank
-	//John->Jack [dir=both] // but is still on the same level as Jack
+	announcer->{ race_start }
+	race_start->{ bach }
+    race_start->{ chopin }
+    race_start->{ donizetti }
+    bach->{ bach_race_finished }
+    chopin->{ chopin_race_finished }
+    donizetti->{ donizetti_race_finished }
+    bach_race_finished->{ announcer }
+    chopin_race_finished->{ announcer }
+    donizetti_race_finished->{ announcer }
+    bach_race_winner->{ bach }
+    chopin_race_winner->{ chopin }
+    donizetti_race_winner->{ donizetti }
+    announcer->{ bach_race_winner }
+    announcer->{ chopin_race_winner }
+    announcer->{ donizetti_race_winner }
 }

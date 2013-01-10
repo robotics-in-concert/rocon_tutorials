@@ -1,0 +1,11 @@
+subscribers:
+  - race_finished
+publishers:
+  - race_winner_one
+  - race_winner_two
+  - race_winner_three
+  - race_start
+  - race_finished_one
+  - race_finished_two
+  - race_finished_three
+services: []

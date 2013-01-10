@@ -84,7 +84,7 @@ class DragRace(threading.Thread):
         self._transform_listener = tf.TransformListener()
         # Ros api
         self._cmd_vel_publisher = rospy.Publisher("~cmd_vel", Twist)
-        self._finished_publisher = rospy.Publisher("~race_finished", Empty)
+        self._finished_publisher = rospy.Publisher("race_finished", Empty)
         self.shutdown = False
 
     def run(self):
@@ -163,8 +163,8 @@ class RaceController(object):
       @type strings
     '''
     def __init__(self):
-        self._start_subscriber = rospy.Subscriber("~race_start", Empty, self._start_callback)
-        self._won_subscriber = rospy.Subscriber("~race_won", Empty, self._race_won_callback)
+        self._start_subscriber = rospy.Subscriber("race_start", Empty, self._start_callback)
+        self._won_subscriber = rospy.Subscriber("race_winner", Empty, self._race_won_callback)
 
         self._doin_the_wal = None
         self._race = None
