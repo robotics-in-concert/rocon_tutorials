@@ -4,5 +4,6 @@
 -->
 <launch>
   <include file="$(find rocon_gateway_tutorials)/launch/pirate_gateway.launch"/>
-  <node pkg="roscpp_tutorials" type="talker" name="talker"/>
+  <node pkg="rospy_tutorials" type="talker.py" name="talker"/>
+  <!-- <node pkg="roscpp_tutorials" type="talker" name="talker"/>  -->
 </launch>
