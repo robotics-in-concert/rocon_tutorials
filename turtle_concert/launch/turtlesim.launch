@@ -1,5 +1,5 @@
 <launch>
-  <env name="ROS_MASTER_URI" value="http://localhost:11314"/>
+  <!-- <env name="ROS_MASTER_URI" value="http://localhost:11314"/> -->
   <include file="$(find concert_client)/launch/client.launch">
     <arg name="robot_name" value="turtlesim"/>
     <arg name="robot_type" value="pc"/>
