@@ -4,7 +4,6 @@
 #   https://raw.github.com/robotics-in-concert/rocon_multimaster/master/rocon_gateway_tutorials/LICENSE 
 #
 
-import roslib; roslib.load_manifest('rocon_gateway_tutorials')
 import rospy
 import rocon_gateway
 import rocon_gateway_tutorials

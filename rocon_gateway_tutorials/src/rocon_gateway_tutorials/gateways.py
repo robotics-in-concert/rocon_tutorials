@@ -8,7 +8,6 @@
 # Imports
 ##############################################################################
 
-import roslib; roslib.load_manifest('rocon_gateway_tutorials')
 import rospy
 import rocon_gateway
 from gateway_msgs.srv import *

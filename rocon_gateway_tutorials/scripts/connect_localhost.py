@@ -4,7 +4,6 @@
 #   https://raw.github.com/robotics-in-concert/rocon_multimaster/master/rocon_gateway_tutorials/LICENSE 
 #
 
-import roslib; roslib.load_manifest('rocon_gateway_tutorials')
 import rospy
 import gateway_msgs.srv
 from gateway_msgs.srv import ConnectHub
