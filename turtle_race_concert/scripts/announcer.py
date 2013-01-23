@@ -7,8 +7,6 @@
 # Imports
 ##############################################################################
 
-import roslib
-roslib.load_manifest('turtle_race_concert')
 import rospy
 from std_msgs.msg import Empty
 

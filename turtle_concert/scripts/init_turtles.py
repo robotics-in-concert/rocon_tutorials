@@ -9,8 +9,6 @@
 
 # Simple script to clear the turtlesim display on startup.
 
-import roslib
-roslib.load_manifest('turtle_concert')
 import rospy
 import turtlesim.srv as turtlesim_srvs
 

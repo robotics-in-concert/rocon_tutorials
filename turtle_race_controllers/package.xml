@@ -1,0 +1,24 @@
+<package>
+  <name>turtle_race_controllers</name>
+  <version>0.2.0</version>
+  <description>
+    Controllers for the turtlebot race concert.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <maintainer email="jihoonl@rnd.yujinrobot.com">Jihoon Lee</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/turtle_race_controllers</url>
+  <url type="repository">https://github.com/robotics-in-concert/rocon_tutorials</url>
+  <url type="bugtracker">https://github.com/robotics-in-concert/rocon_tutorials/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author>
+  <author email="jihoonl@rnd.yujinrobot.com">Jihoon Lee</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!--
+  <run_depend>redis</run_depend>
+  -->
+  <export>
+    <rosdoc config="rosdoc.yaml"/>
+  </export>
+</package>

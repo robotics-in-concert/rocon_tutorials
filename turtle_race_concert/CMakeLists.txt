@@ -3,7 +3,7 @@
 ##############################################################################
 
 cmake_minimum_required(VERSION 2.8.3)
-project(turtle_concert)
+project(turtle_race_concert)
 
 ##############################################################################
 # Catkin
@@ -18,7 +18,7 @@ catkin_package()
 
 install(
     PROGRAMS 
-        scripts/init_turtles.py
+        scripts/announcer.py
         scripts/view_implementation
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
     )

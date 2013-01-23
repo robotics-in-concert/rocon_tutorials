@@ -10,8 +10,6 @@
 import math
 import threading
 import random
-import roslib
-roslib.load_manifest('turtle_race_controllers')
 import rospy
 import tf
 from geometry_msgs.msg import Twist, Pose
