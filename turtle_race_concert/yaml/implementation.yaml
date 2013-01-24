@@ -12,6 +12,7 @@ nodes:
     tuple: linux.ros.turtlebot.turtle_race_concert/race
   - id: announcer
     tuple: linux.ros.pc.turtle_race_concert/race_announcer
+
 topics:
   - id: race_start
     type: std_msgs/Empty

@@ -61,7 +61,7 @@ class Announcer(object):
 if __name__ == '__main__':
     rospy.init_node('turtle_race_announcer')
     announcer = Announcer()
-    for num in range(20):
+    for num in range(5):
         rospy.loginfo("Turtle Race Announcer : start in %s" % (20 - num))
         rospy.sleep(1)
     announcer.start()

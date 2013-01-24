@@ -1,0 +1,8 @@
+<concert>
+  <launch package="turtle_race_concert" name="concert.launch" port="11311"/>
+  <launch package="turtle_race_concert" name="bach.launch" port="11312"/>
+  <launch package="turtle_race_concert" name="chopin.launch" port="11313"/>
+  <!-- --> 
+  <launch package="turtle_race_concert" name="donizetti.launch" port="11314"/>
+  <launch package="turtle_race_concert" name="announcer.launch" port="11315"/>
+</concert>
