@@ -1,5 +1,4 @@
 <launch>
-  <!-- <env name="ROS_MASTER_URI" value="http://localhost:11311"/> -->
   <group ns="concert">
     <include file="$(find chatter_concert)/launch/includes/_master.launch"/>
     <include file="$(find chatter_concert)/launch/includes/_orchestra.launch"/>
