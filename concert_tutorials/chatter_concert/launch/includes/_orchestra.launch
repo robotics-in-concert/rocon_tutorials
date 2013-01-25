@@ -1,0 +1,6 @@
+<launch>
+  <node name="orchestration" pkg="rocon_orchestra" type="orchestra.py" output="screen">
+    <param name="dot_graph" textfile="$(find chatter_concert)/orchestration/implementation.dot" />
+    <rosparam file="$(find chatter_concert)/yaml/implementation.yaml" command="load"/>
+  </node>
+</launch>

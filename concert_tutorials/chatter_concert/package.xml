@@ -1,0 +1,20 @@
+<package>
+  <name>chatter_concert</name>
+  <version>0.2.0</version>
+  <description>
+    A very simple software concert with talker/listener apps.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/chatter_concert</url>
+  <url type="repository">https://github.com/robotics-in-concert/rocon_tutorials</url>
+  <url type="bugtracker">https://github.com/robotics-in-concert/rocon_tutorials/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rospy_tutorials</run_depend>
+  <run_depend>concert_client</run_depend>
+  <run_depend>concert_master</run_depend>
+  <run_depend>rocon_apps</run_depend>
+</package>

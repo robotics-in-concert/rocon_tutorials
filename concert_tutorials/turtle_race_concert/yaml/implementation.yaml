@@ -8,8 +8,8 @@ nodes:
     tuple: linux.ros.turtlebot.turtle_race_concert/race
   - id: chopin
     tuple: linux.ros.turtlebot.turtle_race_concert/race
-  - id: donizetti
-    tuple: linux.ros.turtlebot.turtle_race_concert/race
+#  - id: donizetti
+#    tuple: linux.ros.turtlebot.turtle_race_concert/race
   - id: announcer
     tuple: linux.ros.pc.turtle_race_concert/race_announcer
 

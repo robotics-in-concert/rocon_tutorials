@@ -1,0 +1,8 @@
+<!--
+  The concert master/conductor components only
+ -->
+<launch>
+  <include file="$(find concert_master)/launch/master.launch">
+    <arg name="concert_name" value="chatter_concert"/>
+  </include>
+</launch>

@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find chatter_concert)/launch/includes/_concert_client.launch">
+    <arg name="concert_client_name" value="dudette" />
+  </include>
+</launch>

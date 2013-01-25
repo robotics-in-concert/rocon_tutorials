@@ -1,0 +1,21 @@
+digraph hierarchy {
+
+	nodesep=1.0 // increases the separation between nodes
+
+	node [color=Red]
+	edge [color=Blue, style=dashed] //setup options
+
+    // concert clients
+    dude_foo [color=blue, shape=ellipse, label="linux.ros.pc\n[rocon_apps/listener]"]
+    dude_bar [color=blue, shape=ellipse, label="linux.ros.pc\n[rocon_apps/listener]"]
+    dudette  [color=blue, shape=ellipse, label="linux.ros.pc\n[rocon_apps/talker]"]
+ 
+    // topics
+    chatter [color=red, shape=box, label="chatter\n[std_msgs/String]"]
+    
+    // links
+	{rank = same; dude_foo dude_bar }
+	dudette->{ chatter }
+    chatter->{ dude_foo }
+    chatter->{ dude_bar }
+}
