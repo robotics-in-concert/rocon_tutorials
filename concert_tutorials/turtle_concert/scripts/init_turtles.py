@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 # License: BSD
-#   https://raw.github.com/robotics-in-concert/rocon_demo/turtle_concert/master/LICENSE
+#   https://raw.github.com/robotics-in-concert/rocon_tutorials/turtle_concert/master/LICENSE
 #
 ##############################################################################
 # Imports

@@ -14,6 +14,12 @@
   <author email="d.stonier@gmail.com">Daniel Stonier</author>
   <author email="jihoonl@rnd.yujinrobot.com">Jihoon Lee</author>
 
+  <run_depend>rocon_msgs</run_depend>
+  <run_depend>rocon_multimaster</run_depend>
+  <run_depend>rocon_app_platform</run_depend>
+  <run_depend>rocon_concert</run_depend>
+  <run_depend>rocon_rqt_plugins</run_depend>
+
   <run_depend>rocon_gateway_tutorials</run_depend>
   <run_depend>turtle_concert</run_depend>
   <run_depend>turtle_stroll</run_depend>

@@ -3,7 +3,7 @@
  -->
 <launch>
   <arg name="concert_client_name" default="dude" />
-  <include file="$(find concert_client)/launch/client.launch">
+  <include file="$(find rocon_app_manager)/launch/concert_client.launch">
     <arg name="robot_name" value="$(arg concert_client_name)"/>
     <arg name="robot_type" value="pc"/>
     <arg name="concert_name" value="chatter_concert"/>
