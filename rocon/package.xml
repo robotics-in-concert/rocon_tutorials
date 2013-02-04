@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package>
+  <name>rocon</name>
+  <version>0.2.0</version>
+  <description>
+     Metapackage bringing all the rocon software together.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://www.ros.org/wiki/rocon_tutorials</url>
+  <url type="repository">https://github.com/robotics-in-concert/rocon_tutorials</url>
+  <url type="bugtracker">https://github.com/robotics-in-concert/rocon_tutorials/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author>
+
+  <run_depend>rocon_msgs</run_depend>
+  <run_depend>rocon_multimaster</run_depend>
+  <run_depend>rocon_rqt_plugins</run_depend>
+  <run_depend>rocon_app_platform</run_depend>
+  <run_depend>rocon_concert</run_depend>
+  <run_depend>rocon_tutorials</run_depend>
+  
+  <export>
+    <metapackage/>
+  </export>
+</package>
+
