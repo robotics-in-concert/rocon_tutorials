@@ -9,9 +9,9 @@ project(turtle_stroll)
 # Catkin
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS roscpp std_srvs)
+find_package(catkin REQUIRED COMPONENTS roscpp std_srvs geometry_msgs)
 include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
-catkin_package(CATKIN_DEPENDS roscpp std_srvs)
+catkin_package(CATKIN_DEPENDS roscpp std_srvs geometry_msgs)
 
 ##############################################################################
 # Project

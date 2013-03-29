@@ -12,9 +12,9 @@ digraph hierarchy {
  
     // topics
     kobuki_pose [color=red, shape=box, label="pose\n[turtlesim/Pose]"]
-    kobuki_command_velocity [color=red, shape=box, label="command_velocity\n[turtlesim/Velocity]"]
+    kobuki_command_velocity [color=red, shape=box, label="command_velocity\n[geometry_msgs/Twist]"]
     guimul_pose [color=red, shape=box, label="pose\n[turtlesim/Pose]"]
-    guimul_command_velocity [color=red, shape=box, label="command_velocity\n[turtlesim/Velocity]"]
+    guimul_command_velocity [color=red, shape=box, label="command_velocity\n[geometry_msgs/Twist]"]
     
     // links
 	{rank = same; kobuki guimul }
