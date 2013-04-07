@@ -1,6 +1,6 @@
 <package>
   <name>turtle_stroll</name>
-  <version>0.3.0</version>
+  <version>0.3.2</version>
   <description>
     Drives the turtlesim in turtle_concert.
   </description>
