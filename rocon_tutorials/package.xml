@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>rocon_tutorials</name>
-  <version>0.3.0</version>
+  <version>0.3.1</version>
   <description>
      Various tutorials to demonstrate in simulation, the rocon framework.
   </description>
