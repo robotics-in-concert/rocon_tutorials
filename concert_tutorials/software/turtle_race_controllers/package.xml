@@ -1,6 +1,6 @@
 <package>
   <name>turtle_race_controllers</name>
-  <version>0.3.2</version>
+  <version>0.3.3</version>
   <description>
     Controllers for the turtlebot race concert.
   </description>
