@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>rocon</name>
-  <version>0.3.4</version>
+  <version>0.4.0</version>
   <description>
      Metapackage bringing all the rocon software together.
   </description>
