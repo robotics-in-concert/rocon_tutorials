@@ -15,10 +15,11 @@ from gateway_msgs.msg import *
 # Functions
 ##############################################################################
 
+
 def createTutorialDictionaries(regex):
     '''
       Creates and returns names and nodes dictionaries for the xxx_tutorials.
-      
+
       @param regex : true if it should test regex patterns instead of strings
       @type bool
       @return names, nodes : two dictionaries with connection type keys and names, node string values
