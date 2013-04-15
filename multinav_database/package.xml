@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <name>multinav_database</name>
+  <version>0.0.0</version>
+  <description>The multinav_database package</description>
+
+  <maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
+  <license>BSD</license>
+
+  <!-- <url type="website">http://ros.org/wiki/shared_map_client</url> -->
+  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>rocon_app_manager</run_depend>
+  <run_depend>yujin_maps</run_depend>
+</package>

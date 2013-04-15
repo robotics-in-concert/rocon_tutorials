@@ -1,0 +1,10 @@
+<launch>
+  <group ns="concert">
+    <include file="$(find multinav_concert)/launch/includes/_master.launch"/>
+    <include file="$(find multinav_concert)/launch/includes/_orchestration.launch"/>
+    <node pkg="rocon_tf_reconstructor" name="rocon_tf_reconstructor" type="rocon_tf_reconstructor">
+    </node>
+
+    <node pkg="rviz" name="rviz" type="rviz" args="-d $(find multinav_concert)/rviz/multi_robot.rviz"/>
+  </group>
+</launch>

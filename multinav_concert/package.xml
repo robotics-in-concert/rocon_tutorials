@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>multinav_concert</name>
+  <version>0.0.0</version>
+  <description>The multinav_concert package</description>
+
+  <maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
+  <license>BSD</license>
+
+  <!-- <url type="website">http://ros.org/wiki/multinav_concert</url> -->
+  <!-- <author email="jane.doe@example.com">Jane Doe</author> -->
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>concert_master</build_depend>
+  <build_depend>rocon_orchestra</build_depend>
+  <run_depend>concert_master</run_depend>
+  <run_depend>rocon_orchestra</run_depend>
+</package>

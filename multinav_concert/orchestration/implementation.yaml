@@ -1,0 +1,142 @@
+# Concert client tuples are of the platform-system-robot-name-app where
+# the name is just a placemarker for the eventual concert client name.
+# All other parts of the tuple are fixed.
+
+name: "Multinav Concert"
+nodes:
+  - id: softbot
+    tuple: linux.ros.pc.soft_navbot/nav_demo
+  - id: softbot2
+    tuple: linux.ros.pc.soft_navbot/nav_demo
+  - id: softbot3
+    tuple: linux.ros.pc.soft_navbot/nav_demo
+  - id: multinav_database
+    tuple: linux.ros.pc.multinav_database/map_sharing
+topics:
+
+# Shared Database
+  - id: shared_database_map
+    type: nav_msgs/OccupancyGrid
+  - id: shared_database_map_metadata
+    type: nav_msgs/MapMetaData
+
+
+# Softbot 1
+  - id: softbot_pose
+    type: geometry_msgs/PoseStamped
+  - id: softbot_map
+    type: nav_msgs/OccupancyGrid
+  - id: softbot_map_metadata
+    type: nav_msgs/MapMetaData
+  - id: softbot_simple_goal
+    type: geometry_msgs/PoseStamped
+  - id: softbot_initialpose
+    type: geometry_msgs/PoseStamped
+
+  - id: softbot2_pose
+    type: geometry_msgs/PoseStamped
+  - id: softbot2_map
+    type: nav_msgs/OccupancyGrid
+  - id: softbot2_map_metadata
+    type: nav_msgs/MapMetaData
+  - id: softbot2_simple_goal
+    type: geometry_msgs/PoseStamped
+  - id: softbot2_initialpose
+    type: geometry_msgs/PoseStamped
+
+  - id: softbot3_pose
+    type: geometry_msgs/PoseStamped
+  - id: softbot3_map
+    type: nav_msgs/OccupancyGrid
+  - id: softbot3_map_metadata
+    type: nav_msgs/MapMetaData
+  - id: softbot3_simple_goal
+    type: geometry_msgs/PoseStamped
+  - id: softbot3_initialpose
+    type: geometry_msgs/PoseStamped
+
+actions:
+  - id: softbot_movebase
+    type: move_base_msgs/MoveBase
+  - id: softbot2_movebase
+    type: move_base_msgs/MoveBase
+  - id: softbot3_movebase
+    type: move_base_msgs/MoveBase
+
+edges:
+
+## multinav database
+  - start: multinav_database
+    finish: multinav_database_map 
+    remap_from: map
+    remap_to: map
+  - start: multinav_database
+    finish: multinav_database_map_metadata
+    remap_from: map_metadata
+    remap_to: map_metadata
+
+## Softbot 
+  - start: softbot
+    finish: softbot_pose
+    remap_from: robot_pose
+    remap_to: softbot/robot_pose
+  - start: softbot
+    finish: softbot_map
+    remap_from: map
+    remap_to: map
+  - start: softbot
+    finish: softbot_movebase
+    remap_from: move_base
+    remap_to: softbot/move_base
+  - start: softbot
+    finish: softbot_simple_goal
+    remap_from: move_base_simple/goal
+    remap_to: softbot/goal_simple
+  - start: softbot
+    finish: softbot_initialpose
+    remap_from: initialpose
+    remap_to: softbot/initialpose
+
+## Softbot2 
+  - start: softbot2
+    finish: softbot2_pose
+    remap_from: robot_pose
+    remap_to: softbot2/robot_pose
+  - start: softbot2
+    finish: softbot2_map
+    remap_from: map
+    remap_to: map
+  - start: softbot2
+    finish: softbot2_movebase
+    remap_from: move_base
+    remap_to: softbot2/move_base
+  - start: softbot2
+    finish: softbot2_simple_goal
+    remap_from: move_base_simple/goal
+    remap_to: softbot2/goal_simple
+  - start: softbot2
+    finish: softbot2_initialpose
+    remap_from: initialpose
+    remap_to: softbot2/initialpose
+
+## Softbot3 
+  - start: softbot3
+    finish: softbot3_pose
+    remap_from: robot_pose
+    remap_to: softbot3/robot_pose
+  - start: softbot3
+    finish: softbot3_map
+    remap_from: map
+    remap_to: map
+  - start: softbot3
+    finish: softbot3_movebase
+    remap_from: move_base
+    remap_to: softbot3/move_base
+  - start: softbot3
+    finish: softbot3_simple_goal
+    remap_from: move_base_simple/goal
+    remap_to: softbot3/goal_simple
+  - start: softbot3
+    finish: softbot3_initialpose
+    remap_from: initialpose
+    remap_to: softbot3/initialpose

@@ -1,0 +1,7 @@
+<concert>
+  <launch package="multinav_concert" name="concert.launch" port="11311" />
+  <launch package="multinav_database" name="multinav_database_client.launch" port="11312" />
+  <launch package="soft_navbot" name="soft_navbot_client.launch" port="11313" />
+  <launch package="soft_navbot" name="soft_navbot_client.launch" port="11314" /> 
+  <launch package="soft_navbot" name="soft_navbot_client.launch" port="11315" /> 
+</concert>

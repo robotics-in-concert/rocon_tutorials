@@ -1,0 +1,4 @@
+<launch>
+  <arg name="map_name" default="$(find yujin_maps)/maps/6th_floor_plan.yaml"/>
+  <node pkg="map_server" type="map_server" name="map_server" output="screen" args="$(arg map_name)"> </node>
+</launch>
