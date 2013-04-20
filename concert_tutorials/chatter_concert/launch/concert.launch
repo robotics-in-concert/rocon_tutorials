@@ -1,6 +1,16 @@
 <launch>
   <group ns="concert">
-    <include file="$(find chatter_concert)/launch/includes/_master.xml"/>
-    <include file="$(find chatter_concert)/launch/includes/_orchestra.xml"/>
+  
+    <!-- ********************* Conductor and Gateway ***************************** -->
+    <include file="$(find concert_conductor)/launch/conductor.launch">
+      <arg name="concert_name" value="chatter_concert"/>
+    </include>
+    
+    <!-- ******************************* Orchestra ******************************* -->
+    <node name="orchestration" pkg="rocon_orchestra" type="orchestra.py">
+      <param name="dot_graph" textfile="$(find chatter_concert)/orchestration/implementation.dot" />
+      <rosparam file="$(find chatter_concert)/yaml/implementation.yaml" command="load"/>
+      <param name="auto_start" value="true"/>
+    </node>
   </group>
 </launch>
