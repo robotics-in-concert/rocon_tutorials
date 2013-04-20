@@ -1,9 +1,8 @@
 <launch>
-  <!-- <env name="ROS_MASTER_URI" value="http://localhost:11314"/> -->
   <include file="$(find rocon_app_manager)/launch/concert_client.launch">
     <arg name="robot_name" value="turtlesim"/>
     <arg name="robot_type" value="pc"/>
-    <arg name="concert_name" value="turtle_concert"/>
+    <arg name="concert_name" value="turtle_concert"/>  <!-- This becomes a gateway hub whitelist variable -->
     <arg name="app_lists" value="$(find turtle_concert)/apps/turtle_concert.rapps"/>
   </include>
 </launch>
