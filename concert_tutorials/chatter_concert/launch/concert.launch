@@ -1,6 +1,6 @@
 <launch>
   <group ns="concert">
-    <include file="$(find chatter_concert)/launch/includes/_master.launch"/>
-    <include file="$(find chatter_concert)/launch/includes/_orchestra.launch"/>
+    <include file="$(find chatter_concert)/launch/includes/_master.xml"/>
+    <include file="$(find chatter_concert)/launch/includes/_orchestra.xml"/>
   </group>
 </launch>
