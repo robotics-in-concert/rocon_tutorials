@@ -12,5 +12,6 @@
     <rosparam command="load" file="$(find rocon_gateway)/param/default_blacklist.yaml" />
     <rosparam param="hub_uri">http://localhost:6380</rosparam>
     <rosparam param="name">buccaneer_gateway</rosparam>
+    <rosparam param="disable_zeroconf">true</rosparam>
   </node>
 </launch>
