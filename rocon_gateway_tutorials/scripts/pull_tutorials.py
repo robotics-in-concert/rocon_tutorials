@@ -9,7 +9,6 @@
 
 import rospy
 import rocon_gateway
-import rocon_gateway_tutorials
 from gateway_msgs.msg import *
 from gateway_msgs.srv import *
 import argparse
@@ -30,7 +29,7 @@ class Context(object):
         self.req = RemoteRequest() 
         self.req.cancel = cancel_flag
         self.req.remotes = []
-        self.names, self.nodes = rocon_gateway_tutorials.createTutorialDictionaries(regex)
+        self.names, self.nodes = rocon_gateway.samples.create_tutorial_dictionaries(use_regex_patterns=regex)
 
     def pull(self, type):
         rule = gateway_msgs.msg.Rule()

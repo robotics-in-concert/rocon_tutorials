@@ -1,3 +1,6 @@
+<!-- 
+  Sets up a few gateways and tutorials, ready for flipping and advertising.
+ -->
 <concert>
   <launch package="rocon_gateway_tutorials" name="pirate_hub.launch" port="11311"/>
   <launch package="rocon_gateway_tutorials" name="pirate_gateway_tutorials.launch" port="11312"/>
