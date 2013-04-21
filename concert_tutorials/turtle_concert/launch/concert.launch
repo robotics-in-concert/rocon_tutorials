@@ -7,7 +7,7 @@
     </include>
     
     <!-- ******************************* Orchestra ******************************* -->
-    <node name="orchestration" pkg="rocon_orchestra" type="orchestra.py">
+    <node name="orchestration" pkg="concert_orchestra" type="orchestra.py">
       <param name="dot_graph" textfile="$(find turtle_concert)/orchestration/implementation.dot" />
       <rosparam file="$(find turtle_concert)/yaml/implementation.yaml" command="load"/>
       <param name="auto_start" value="true"/>
