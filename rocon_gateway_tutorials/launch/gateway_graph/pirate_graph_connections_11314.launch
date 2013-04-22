@@ -1,0 +1,9 @@
+<!--
+  Fires up gateway connections for the third gateway in the graph. 
+-->
+<launch>
+  <include file="$(find rocon_gateway_tutorials)/launch/pirate_gateway.launch">
+    <arg name="gateway_name" value="pirate_gateway_11314" />
+  </include>
+  <node pkg="rocon_gateway_tutorials" type="pull_tutorials.py" name="pull_subscriber" args="--subonly"/>
+</launch>

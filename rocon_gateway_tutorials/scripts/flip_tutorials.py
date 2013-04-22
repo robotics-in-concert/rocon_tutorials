@@ -73,7 +73,8 @@ if __name__ == '__main__':
     parser.add_argument('--actionserveronly', action='store_true', help='flip /averaging action server only')
     parser.add_argument('--regex', action='store_true', help='test with a regex pattern')
     parser.add_argument('--cancel', action='store_true', help='cancel the flip')
-    args = parser.parse_args()
+    argv = rospy.myargv(sys.argv)
+    args = parser.parse_args(argv[1:])
     flip_all_connection_types = (not args.pubonly) and (not args.subonly) and (not args.serviceonly) and (not args.actionclientonly) and (not args.actionserveronly)
     if args.cancel:
         action_text = "cancelling"
@@ -82,9 +83,9 @@ if __name__ == '__main__':
 
     rospy.init_node('flip_tutorials')
 
-    gateway = "pirate_gateway.*"
-
-    context = Context(gateway, args.cancel, args.regex)
+    rocon_gateway.samples.wait_for_gateway()
+    remote_gateway = rocon_gateway.samples.find_first_remote_gateway()
+    context = Context(remote_gateway, args.cancel, args.regex)
 
     if args.pubonly or flip_all_connection_types:
         context.flip(ConnectionType.PUBLISHER)

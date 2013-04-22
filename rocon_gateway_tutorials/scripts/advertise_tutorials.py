@@ -70,12 +70,14 @@ if __name__ == '__main__':
     parser.add_argument('--actionserveronly', action='store_true', help='advertise /averaging action server only')
     parser.add_argument('--regex', action='store_true', help='test with a regex pattern')
     parser.add_argument('--cancel', action='store_true', help='cancel the advertisement')
-    args = parser.parse_args()
+    argv = rospy.myargv(sys.argv)
+    args = parser.parse_args(argv[1:])
 
     advertise_all_connection_types = (not args.pubonly) and (not args.subonly) and (not args.serviceonly) and (not args.actionclientonly) and (not args.actionserveronly)
 
     rospy.init_node('advertise_tutorials')
 
+    rocon_gateway.samples.wait_for_gateway()
     context = Context(args.cancel, args.regex)
 
     if args.pubonly or advertise_all_connection_types:
