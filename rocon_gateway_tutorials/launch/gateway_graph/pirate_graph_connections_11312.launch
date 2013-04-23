@@ -1,0 +1,12 @@
+<!--
+  Fires up gateway connections for the first gateway in the graph. 
+-->
+<launch>
+  <include file="$(find rocon_gateway_tutorials)/launch/pirate_gateway_tutorials.launch">
+    <arg name="gateway_name" value="pirate_gateway_11312" />
+  </include>
+  <node pkg="rocon_gateway_tutorials" type="advertise_tutorials.py" name="advertise_publisher" args="--pubonly"/>
+  <node pkg="rocon_gateway_tutorials" type="advertise_tutorials.py" name="advertise_subscriber" args="--subonly"/>
+  <node pkg="rocon_gateway_tutorials" type="advertise_tutorials.py" name="advertise_service" args="--serviceonly"/>
+  <node pkg="rocon_gateway_tutorials" type="flip_tutorials.py" name="flip_tutorials"/>
+</launch>

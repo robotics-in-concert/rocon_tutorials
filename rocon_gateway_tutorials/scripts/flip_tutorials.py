@@ -9,7 +9,6 @@
 
 import rospy
 import rocon_gateway
-import rocon_gateway_tutorials
 from gateway_msgs.msg import *
 from gateway_msgs.srv import *
 import argparse
@@ -30,7 +29,7 @@ class Context(object):
         self.req = RemoteRequest() 
         self.req.cancel = cancel_flag
         self.req.remotes = []
-        self.names, self.nodes = rocon_gateway_tutorials.createTutorialDictionaries(regex)
+        self.names, self.nodes = rocon_gateway.samples.create_tutorial_dictionaries(use_regex_patterns=regex)
 
     def flip(self, type):
         rule = gateway_msgs.msg.Rule()
@@ -56,14 +55,12 @@ class Context(object):
   Tests flips, either for all tutorials (default) or one by one (via args).
   
   Usage:
-    1 > roslaunch rocon_gateway_tutorials pirate_hub.launch
-    2a> roslaunch rocon_gateway_tutorials pirate_gateway_tutorials.launch
-    3a> roslaunch rocon_gateway_tutorials pirate_gateway.launch
-    2b> rosrun rocon_gateway_tutorials flip_tutorials.py
-    3b> rostopic list
-    2c> rosrun rocon_gateway_tutorials flip_tutorials.py --cancel
-    2d> rosrun rocon_gateway_tutorials flip_tutorials.py --regex
-    2e> rosrun rocon_gateway_tutorials flip_tutorials.py --regex --cancel
+    > rocon_launch rocon_gateway_tutorials gateway_tutorials.concert
+    2> rosrun rocon_gateway_tutorials flip_tutorials.py
+    3> rostopic list
+    2> rosrun rocon_gateway_tutorials flip_tutorials.py --cancel
+    2> rosrun rocon_gateway_tutorials flip_tutorials.py --regex
+    2> rosrun rocon_gateway_tutorials flip_tutorials.py --regex --cancel
 """
 
 if __name__ == '__main__':
@@ -76,7 +73,8 @@ if __name__ == '__main__':
     parser.add_argument('--actionserveronly', action='store_true', help='flip /averaging action server only')
     parser.add_argument('--regex', action='store_true', help='test with a regex pattern')
     parser.add_argument('--cancel', action='store_true', help='cancel the flip')
-    args = parser.parse_args()
+    argv = rospy.myargv(sys.argv)
+    args = parser.parse_args(argv[1:])
     flip_all_connection_types = (not args.pubonly) and (not args.subonly) and (not args.serviceonly) and (not args.actionclientonly) and (not args.actionserveronly)
     if args.cancel:
         action_text = "cancelling"
@@ -85,9 +83,9 @@ if __name__ == '__main__':
 
     rospy.init_node('flip_tutorials')
 
-    gateway = "pirate_gateway.*"
-
-    context = Context(gateway, args.cancel, args.regex)
+    rocon_gateway.samples.wait_for_gateway()
+    remote_gateway = rocon_gateway.samples.find_first_remote_gateway()
+    context = Context(remote_gateway, args.cancel, args.regex)
 
     if args.pubonly or flip_all_connection_types:
         context.flip(ConnectionType.PUBLISHER)

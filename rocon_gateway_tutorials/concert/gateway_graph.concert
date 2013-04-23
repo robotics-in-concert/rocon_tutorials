@@ -1,0 +1,9 @@
+<!-- 
+  Sets up a few gateways and tutorials, along with some scripts to fire up some graph connections.
+ -->
+<concert>
+  <launch package="rocon_gateway_tutorials" name="pirate_hub.launch" port="11311"/>
+  <launch package="rocon_gateway_tutorials" name="pirate_graph_connections_11312.launch" port="11312"/>
+  <launch package="rocon_gateway_tutorials" name="pirate_graph_connections_11313.launch" port="11313"/>
+  <launch package="rocon_gateway_tutorials" name="pirate_graph_connections_11314.launch" port="11314"/>
+</concert>

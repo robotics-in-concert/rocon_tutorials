@@ -6,7 +6,6 @@
 
 import rospy
 import rocon_gateway
-import rocon_gateway_tutorials
 from gateway_msgs.msg import *
 from gateway_msgs.srv import *
 import argparse

@@ -9,9 +9,8 @@
 
 import rospy
 import rocon_gateway
-import rocon_gateway_tutorials
-from gateway_msgs.msg import *
-from gateway_msgs.srv import *
+import gateway_msgs.msg as gateway_msgs
+import gateway_msgs.srv as gateway_srvs
 import argparse
 import sys
 
@@ -26,26 +25,28 @@ class Context(object):
             self.action_text = "cancelling"
         else:
             self.action_text = "pulling"
-        self.pull_service = rospy.ServiceProxy('/gateway/pull',Remote)
-        self.req = RemoteRequest() 
+        self.pull_service = rospy.ServiceProxy('/gateway/pull', gateway_srvs.Remote)
+        rospy.wait_for_service('/gateway/pull')
+        self.req = gateway_srvs.RemoteRequest() 
         self.req.cancel = cancel_flag
         self.req.remotes = []
-        self.names, self.nodes = rocon_gateway_tutorials.createTutorialDictionaries(regex)
+        self.names, self.nodes = rocon_gateway.samples.create_tutorial_dictionaries(use_regex_patterns=regex)
 
     def pull(self, type):
-        rule = gateway_msgs.msg.Rule()
+        rule = gateway_msgs.Rule()
         rule.name = self.names[type]
         rule.type = type
         rule.node = self.nodes[type]
-        self.req.remotes.append(RemoteRule(self.gateway, rule))
-        rospy.loginfo("Pull : %s [%s,%s,%s,%s]."%(self.action_text, 
+        self.req.remotes.append(gateway_msgs.RemoteRule(self.gateway, rule))
+        resp = self.pull_service(self.req)
+        if resp.result == gateway_msgs.ErrorCodes.SUCCESS:
+            rospy.loginfo("Pull : %s [%s,%s,%s,%s]."%(self.action_text, 
                                                   self.gateway, 
                                                   rule.type, 
                                                   rule.name, 
-                                                  rule.node or 'None')) 
-        resp = self.pull_service(self.req)
-        if resp.result != 0:
-            rospy.logerr("Pull : %s"%resp.error_message)
+                                                  rule.node or 'None'))
+        else:
+            rospy.logerr("Pull : pull failed [%s]" % str(resp.error_message))
         self.req.remotes = []
 
 ##############################################################################
@@ -81,7 +82,8 @@ if __name__ == '__main__':
     parser.add_argument('--actionserveronly', action='store_true', help='pull /averaging action server only')
     parser.add_argument('--regex', action='store_true', help='test with a regex pattern')
     parser.add_argument('--cancel', action='store_true', help='cancel the pull')
-    args = parser.parse_args()
+    argv = rospy.myargv(sys.argv)
+    args = parser.parse_args(argv[1:])
     pull_all_connection_types = (not args.pubonly) and (not args.subonly) and (not args.serviceonly) and (not args.actionclientonly) and (not args.actionserveronly)
     if args.cancel:
         action_text = "cancelling"
@@ -89,26 +91,22 @@ if __name__ == '__main__':
         action_text = "pulling"
 
     rospy.init_node('pull_tutorials')
-
-    try:
-        gateway = "pirate_gateway.*"
-    except rocon_gateway.GatewayError as e:
-        rospy.logerr("Pull Test : %s, aborting."%(str(e)))
-        sys.exit(1)
-
-    context = Context(gateway, args.cancel, args.regex)
+    rocon_gateway.samples.wait_for_gateway()
+    remote_gateway = 'pirate_gateway.*'
+    #rocon_gateway.samples.wait_for_remote_gateway(remote_gateway)
+    context = Context(remote_gateway, args.cancel, args.regex)
 
     if args.pubonly or pull_all_connection_types:
-        context.pull(ConnectionType.PUBLISHER)
+        context.pull(gateway_msgs.ConnectionType.PUBLISHER)
     
     if args.subonly or pull_all_connection_types:
-        context.pull(ConnectionType.SUBSCRIBER)
+        context.pull(gateway_msgs.ConnectionType.SUBSCRIBER)
 
     if args.serviceonly or pull_all_connection_types:
-        context.pull(ConnectionType.SERVICE)
+        context.pull(gateway_msgs.ConnectionType.SERVICE)
 
     if args.actionclientonly or pull_all_connection_types:
-        context.pull(ConnectionType.ACTION_CLIENT)
+        context.pull(gateway_msgs.ConnectionType.ACTION_CLIENT)
 
     if args.actionserveronly or pull_all_connection_types:
-        context.pull(ConnectionType.ACTION_SERVER)
+        context.pull(gateway_msgs.ConnectionType.ACTION_SERVER)

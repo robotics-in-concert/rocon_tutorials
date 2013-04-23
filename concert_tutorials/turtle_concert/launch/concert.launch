@@ -1,8 +1,17 @@
 <launch>
-  <!-- <env name="ROS_MASTER_URI" value="http://localhost:11311"/> -->
   <group ns="concert">
-    <include file="$(find turtle_concert)/launch/includes/_master.launch"/>
-    <include file="$(find turtle_concert)/launch/includes/_orchestra.launch"/>
+  
+    <!-- ********************* Conductor and Gateway ***************************** -->
+    <include file="$(find concert_conductor)/launch/conductor.launch">
+      <arg name="concert_name" value="turtle_concert"/>
+    </include>
+    
+    <!-- ******************************* Orchestra ******************************* -->
+    <node name="orchestration" pkg="concert_orchestra" type="orchestra.py">
+      <param name="dot_graph" textfile="$(find turtle_concert)/orchestration/implementation.dot" />
+      <rosparam file="$(find turtle_concert)/yaml/implementation.yaml" command="load"/>
+      <param name="auto_start" value="true"/>
+    </node>
+
   </group>
-  <!-- <include file="$(find turtle_concert)/launch/includes/_turtlesim.launch"/> -->
 </launch>
