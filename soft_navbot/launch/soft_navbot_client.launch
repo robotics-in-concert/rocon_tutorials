@@ -4,5 +4,6 @@
     <arg name="robot_type" value="pc"/>
     <arg name="concert_name" value="multinav_concert"/>
     <arg name="app_lists" value="$(find soft_navbot)/rapps/soft_navbot.rapps"/>
+    <arg name="gateway_watch_loop_period" value="1"/>
   </include>
 </launch>

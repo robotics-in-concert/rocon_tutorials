@@ -2,7 +2,7 @@
   The concert master/conductor components only
  -->
 <launch>
-  <include file="$(find concert_master)/launch/master.launch">
+  <include file="$(find concert_conductor)/launch/conductor.launch">
     <arg name="concert_name" value="multinav_concert"/>
   </include>
 </launch>
