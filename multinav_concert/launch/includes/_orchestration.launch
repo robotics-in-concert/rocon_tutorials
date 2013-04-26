@@ -1,6 +1,0 @@
-<launch>
-  <node name="orchestration" pkg="concert_orchestra" type="orchestra.py" output="screen">
-<!--    <param name="dot_graph" textfile="$(find cafe_concert)/orchestration/implementation.dot" />-->
-    <rosparam file="$(find multinav_concert)/orchestration/implementation.yaml" command="load"/>
-  </node>
-</launch>
