@@ -1,10 +1,20 @@
 <launch>
   <group ns="concert">
-    <include file="$(find multinav_concert)/launch/includes/_master.launch"/>
-    <include file="$(find multinav_concert)/launch/includes/_orchestration.launch"/>
+  
+    <!-- ********************* Conductor and Gateway ***************************** -->
+    <include file="$(find concert_conductor)/launch/conductor.launch">
+      <arg name="concert_name" value="multinav_concert"/>
+    </include>
+
+    <!-- ******************************* Orchestra ******************************* -->
+    <node name="orchestration" pkg="concert_orchestra" type="orchestra.py" output="screen">
+    <!-- <param name="dot_graph" textfile="$(find cafe_concert)/orchestration/implementation.dot" />-->
+    <rosparam file="$(find multinav_concert)/orchestration/implementation.yaml" command="load"/>
+    </node>
     <node pkg="rocon_tf_reconstructor" name="rocon_tf_reconstructor" type="rocon_tf_reconstructor">
     </node>
 
+    <!-- ********************************** TF *********************************** -->
     <node pkg="rviz" name="rviz" type="rviz" args="-d $(find multinav_concert)/rviz/multi_robot.rviz"/>
   </group>
 </launch>

@@ -1,10 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(multinav_concert)
 
-## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS concert_master rocon_orchestra)
+find_package(catkin REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -24,7 +21,7 @@ find_package(catkin REQUIRED COMPONENTS concert_master rocon_orchestra)
 #   FILES
 #   Message1.msg
 #   Message2.msg
-# )
+# )sdfsdf
 
 ## Generate services in the 'srv' folder
 # add_service_files(
