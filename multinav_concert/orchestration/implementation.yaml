@@ -85,6 +85,10 @@ edges:
     remap_from: map
     remap_to: map
   - start: softbot
+    finish: softbot_map_metadatap
+    remap_from: map_metadata
+    remap_to: map_metadata
+  - start: softbot
     finish: softbot_movebase
     remap_from: move_base
     remap_to: softbot/move_base
@@ -107,6 +111,10 @@ edges:
     remap_from: map
     remap_to: map
   - start: softbot2
+    finish: softbot2_map_metadatap
+    remap_from: map_metadata
+    remap_to: map_metadata
+  - start: softbot2
     finish: softbot2_movebase
     remap_from: move_base
     remap_to: softbot2/move_base
@@ -128,6 +136,10 @@ edges:
     finish: softbot3_map
     remap_from: map
     remap_to: map
+  - start: softbot3
+    finish: softbot3_map_metadatap
+    remap_from: map_metadata
+    remap_to: map_metadata
   - start: softbot3
     finish: softbot3_movebase
     remap_from: move_base
