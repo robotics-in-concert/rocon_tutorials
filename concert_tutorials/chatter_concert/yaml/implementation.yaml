@@ -4,10 +4,10 @@
 
 name: "Chatter Concert"
 nodes:
-  - id: dude_foo
+  - id: dude
     tuple: linux.ros.pc.rocon_apps/listener
-  - id: dude_bar
-    tuple: linux.ros.pc.rocon_apps/listener
+    min: 0
+    max: 2
   - id: dudette
     tuple: linux.ros.pc.rocon_apps/talker
 topics:
@@ -16,14 +16,38 @@ topics:
 actions: []
 edges:
   - start: chatter
-    finish: dude_foo
-    remap_from: chatter
-    remap_to: conversation/chatter
-  - start: chatter
-    finish: dude_bar
+    finish: dude
     remap_from: chatter
     remap_to: conversation/chatter
   - start: dudette
     finish: chatter
     remap_from: chatter
     remap_to: conversation/chatter
+
+#name: "Chatter Concert"
+#nodes:
+#  - id: dude
+#    tuple: linux.ros.pc.rocon_apps/listener
+#    min: 0
+#    max: 2
+#  - id: dude_bar
+#    tuple: linux.ros.pc.rocon_apps/listener
+#  - id: dudette
+#    tuple: linux.ros.pc.rocon_apps/talker
+#topics:
+#  - id: chatter
+#    type: std_msgs/String
+#actions: []
+#edges:
+#  - start: chatter
+#    finish: dude_foo
+#    remap_from: chatter
+#    remap_to: conversation/chatter
+#  - start: chatter
+#    finish: dude_bar
+#    remap_from: chatter
+#    remap_to: conversation/chatter
+#  - start: dudette
+#    finish: chatter
+#    remap_from: chatter
+#    remap_to: conversation/chatter
