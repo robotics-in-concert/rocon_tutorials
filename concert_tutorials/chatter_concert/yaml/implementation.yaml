@@ -10,6 +10,7 @@ nodes:
     max: 2
   - id: dudette
     tuple: linux.ros.pc.rocon_apps/talker
+    force_name_matching: true
 topics:
   - id: chatter
     type: std_msgs/String
