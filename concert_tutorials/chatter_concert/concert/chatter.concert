@@ -1,6 +1,11 @@
 <concert>
   <launch package="chatter_concert" name="concert.launch" port="11311"/>
   <launch package="chatter_concert" name="dudette.launch" port="11312"/>
-  <launch package="chatter_concert" name="dude_foo.launch" port="11313"/>
-  <launch package="chatter_concert" name="dude_bar.launch" port="11314"/>
+  <launch package="chatter_concert" name="dude.launch" port="11313"/>
+  <launch package="chatter_concert" name="dude.launch" port="11314"/>
 </concert>
+
+<!--
+  Can take that last one out and dynamically launch it manually for testing.
+  <launch package="chatter_concert" name="dude.launch" port="11314"/>
+-->
