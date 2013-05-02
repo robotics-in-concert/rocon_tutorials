@@ -4,12 +4,14 @@
     <!-- ********************* Conductor and Gateway ***************************** -->
     <include file="$(find concert_conductor)/launch/conductor.launch">
       <arg name="concert_name" value="multinav_concert"/>
+      <arg name="gateway_watch_loop_period" value="1"/> <!-- flip faster, convenient -->
     </include>
 
     <!-- ******************************* Orchestra ******************************* -->
     <node name="orchestration" pkg="concert_orchestra" type="orchestra.py" output="screen">
-    <!-- <param name="dot_graph" textfile="$(find cafe_concert)/orchestration/implementation.dot" />-->
-    <rosparam file="$(find multinav_concert)/orchestration/implementation.yaml" command="load"/>
+      <!-- <param name="dot_graph" textfile="$(find cafe_concert)/orchestration/implementation.dot" />-->
+      <rosparam file="$(find multinav_concert)/orchestration/implementation.yaml" command="load"/>
+      <param name="auto_start" value="true"/>
     </node>
     <node pkg="rocon_tf_reconstructor" name="rocon_tf_reconstructor" type="rocon_tf_reconstructor">
     </node>
