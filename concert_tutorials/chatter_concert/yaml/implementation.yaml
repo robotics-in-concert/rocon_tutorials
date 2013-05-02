@@ -19,8 +19,8 @@ edges:
   - start: chatter
     finish: dudes
     remap_from: chatter
-    remap_to: conversation/chatter
+    remap_to: /conversation/chatter
   - start: dudette
     finish: chatter
     remap_from: chatter
-    remap_to: conversation/chatter
+    remap_to: /conversation/chatter
