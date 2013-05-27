@@ -15,12 +15,11 @@
   <author email="jihoonlee.in@gmail.com">Jihoon Lee</author>
 
   <buildtool_depend>catkin</buildtool_depend>
-
   <run_depend>rocon_gateway_tutorials</run_depend>
   <run_depend>turtle_concert</run_depend>
   <run_depend>turtle_stroll</run_depend>
   <run_depend>chatter_concert</run_depend>
-  
+
   <export>
     <metapackage/>
   </export>

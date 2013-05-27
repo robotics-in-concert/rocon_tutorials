@@ -13,7 +13,6 @@
   <author email="d.stonier@gmail.com">Daniel Stonier</author>
 
   <buildtool_depend>catkin</buildtool_depend>
-
   <run_depend>rocon_msgs</run_depend>
   <run_depend>rocon_multimaster</run_depend>
   <run_depend>rocon_rqt_plugins</run_depend>
