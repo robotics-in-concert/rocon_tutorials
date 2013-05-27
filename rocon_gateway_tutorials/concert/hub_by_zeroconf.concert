@@ -1,0 +1,4 @@
+<concert>
+  <launch package="rocon_gateway_tutorials" name="buccaneer_hub.launch" port="11311"/>
+  <launch package="rocon_gateway_tutorials" name="buccaneer_gateway_zeroconf.launch" port="11312"/>
+</concert>

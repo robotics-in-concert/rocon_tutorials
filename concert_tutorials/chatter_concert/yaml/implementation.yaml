@@ -4,26 +4,23 @@
 
 name: "Chatter Concert"
 nodes:
-  - id: dude_foo
+  - id: dudes
     tuple: linux.ros.pc.rocon_apps/listener
-  - id: dude_bar
-    tuple: linux.ros.pc.rocon_apps/listener
+    min: 0
+    max: 5
   - id: dudette
     tuple: linux.ros.pc.rocon_apps/talker
+    force_name_matching: true
 topics:
   - id: chatter
     type: std_msgs/String
 actions: []
 edges:
   - start: chatter
-    finish: dude_foo
+    finish: dudes
     remap_from: chatter
-    remap_to: conversation/chatter
-  - start: chatter
-    finish: dude_bar
-    remap_from: chatter
-    remap_to: conversation/chatter
+    remap_to: /conversation/chatter
   - start: dudette
     finish: chatter
     remap_from: chatter
-    remap_to: conversation/chatter
+    remap_to: /conversation/chatter

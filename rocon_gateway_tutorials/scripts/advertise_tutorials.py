@@ -9,7 +9,6 @@
 
 import rospy
 import rocon_gateway
-import rocon_gateway_tutorials
 from gateway_msgs.msg import *
 from gateway_msgs.srv import *
 import argparse
@@ -29,7 +28,7 @@ class Context(object):
         self.req = AdvertiseRequest() 
         self.req.cancel = cancel_flag
         self.rule = Rule()
-        self.names, self.nodes = rocon_gateway_tutorials.createTutorialDictionaries(regex)
+        self.names, self.nodes = rocon_gateway.samples.create_tutorial_dictionaries(use_regex_patterns=regex)
         
     def advertise(self, type):
         self.req.rules = []
@@ -71,12 +70,14 @@ if __name__ == '__main__':
     parser.add_argument('--actionserveronly', action='store_true', help='advertise /averaging action server only')
     parser.add_argument('--regex', action='store_true', help='test with a regex pattern')
     parser.add_argument('--cancel', action='store_true', help='cancel the advertisement')
-    args = parser.parse_args()
+    argv = rospy.myargv(sys.argv)
+    args = parser.parse_args(argv[1:])
 
     advertise_all_connection_types = (not args.pubonly) and (not args.subonly) and (not args.serviceonly) and (not args.actionclientonly) and (not args.actionserveronly)
 
     rospy.init_node('advertise_tutorials')
 
+    rocon_gateway.samples.wait_for_gateway()
     context = Context(args.cancel, args.regex)
 
     if args.pubonly or advertise_all_connection_types:

@@ -3,8 +3,7 @@
   it via zeroconf (avahi/bonjour/jmdns).
 -->
 <launch>
-  <node pkg="rocon_hub" type="hub.py" name="gateway_hub">
-    <rosparam command="load" file="$(find rocon_hub)/param/default.yaml" />
-    <rosparam param="name">Buccaneer Hub</rosparam>
-  </node>
+  <include file="$(find rocon_hub)/launch/hub.launch">
+    <arg name="hub_name" value="Buccaneer Hub" />
+  </include>
 </launch>

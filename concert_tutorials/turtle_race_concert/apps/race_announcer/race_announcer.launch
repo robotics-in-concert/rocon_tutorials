@@ -1,3 +1,0 @@
-<launch>
-  <node pkg="turtle_race_concert" type="announcer.py" name="announcer" output="screen"/>
-</launch>

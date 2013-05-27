@@ -1,6 +1,6 @@
 <package>
   <name>turtle_concert</name>
-  <version>0.3.5</version>
+  <version>0.4.0</version>
   <description>
     A very simple software concert.
   </description>
@@ -24,7 +24,7 @@
   <run_depend>rocon_app_manager</run_depend>
   <run_depend>turtle_stroll</run_depend>
   <run_depend>rocon_apps</run_depend>
-  <run_depend>rocon_orchestra</run_depend>
+  <run_depend>concert_orchestra</run_depend>
   <!-- 
     Hardcode this dependency for now since we only test it on linux 
     Ideally, I wouldn't hardcode the zeroconf implementation though.

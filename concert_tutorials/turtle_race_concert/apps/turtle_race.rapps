@@ -1,4 +1,0 @@
-apps:
- - rocon_apps/chirp
- - turtle_race_concert/race
- - turtle_race_concert/race_announcer

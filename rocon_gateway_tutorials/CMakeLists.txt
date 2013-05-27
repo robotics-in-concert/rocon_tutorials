@@ -12,8 +12,6 @@ project(rocon_gateway_tutorials)
 find_package(catkin REQUIRED)
 catkin_package()
 
-catkin_python_setup()
-
 ##############################################################################
 # Installs
 ##############################################################################
@@ -22,7 +20,7 @@ install(
     PROGRAMS 
         scripts/advertise_all.py
         scripts/advertise_tutorials.py
-        scripts/connect_localhost.py
+        scripts/connect_hub_by_service.py
         scripts/flip_all.py
         scripts/flip_tutorials.py
         scripts/pull_all.py
@@ -33,3 +31,5 @@ install(
 install(DIRECTORY launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
+install(DIRECTORY concert
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})

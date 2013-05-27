@@ -6,7 +6,6 @@
 
 import rospy
 import rocon_gateway
-import rocon_gateway_tutorials
 from gateway_msgs.msg import *
 from gateway_msgs.srv import *
 import argparse
@@ -36,8 +35,8 @@ if __name__ == '__main__':
     rospy.init_node('pull_all')
 
     try:
-        gateway = rocon_gateway_tutorials.findFirstRemoteGateway()
-    except rocon_gateway.GatewayError as e:
+        gateway = rocon_gateway.samples.find_first_remote_gateway()
+    except rocon_gateway.GatewaySampleRuntimeError as e:
         rospy.logerr("Pull All : %s, aborting."%(str(e)))
         sys.exit(1)
     

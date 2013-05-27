@@ -1,6 +1,6 @@
 <package>
   <name>turtle_stroll</name>
-  <version>0.3.5</version>
+  <version>0.4.0</version>
   <description>
     Drives the turtlesim in turtle_concert.
   </description>
@@ -16,10 +16,12 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>turtlesim</build_depend>
+  <build_depend>geometry_msgs</build_depend>
   <build_depend>std_srvs</build_depend>
   <build_depend>roscpp</build_depend>
 
   <run_depend>turtlesim</run_depend>
+  <run_depend>geometry_msgs</run_depend>
   <run_depend>std_srvs</run_depend>
   <run_depend>roscpp</run_depend>
   <export>

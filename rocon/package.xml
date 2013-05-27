@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>rocon</name>
-  <version>0.3.5</version>
+  <version>0.4.0</version>
   <description>
      Metapackage bringing all the rocon software together.
   </description>
@@ -13,7 +13,6 @@
   <author email="d.stonier@gmail.com">Daniel Stonier</author>
 
   <buildtool_depend>catkin</buildtool_depend>
-
   <run_depend>rocon_msgs</run_depend>
   <run_depend>rocon_multimaster</run_depend>
   <run_depend>rocon_rqt_plugins</run_depend>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>rocon_tutorials</name>
-  <version>0.3.5</version>
+  <version>0.4.0</version>
   <description>
      Various tutorials to demonstrate in simulation, the rocon framework.
   </description>
@@ -15,14 +15,11 @@
   <author email="jihoonlee.in@gmail.com">Jihoon Lee</author>
 
   <buildtool_depend>catkin</buildtool_depend>
-
   <run_depend>rocon_gateway_tutorials</run_depend>
   <run_depend>turtle_concert</run_depend>
   <run_depend>turtle_stroll</run_depend>
   <run_depend>chatter_concert</run_depend>
-  <run_depend>turtle_race_concert</run_depend>
-  <run_depend>turtle_race_controllers</run_depend>
-  
+
   <export>
     <metapackage/>
   </export>

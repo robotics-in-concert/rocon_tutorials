@@ -1,6 +1,6 @@
 subscribers:
-  - turtle_one/command_velocity
-  - turtle_two/command_velocity
+  - turtle_one/cmd_vel
+  - turtle_two/cmd_vel
 publishers:
   - turtle_one/pose
   - turtle_two/pose

@@ -1,5 +1,5 @@
 subscribers:
   - pose
 publishers:
-  - command_velocity
+  - cmd_vel
 services: []
