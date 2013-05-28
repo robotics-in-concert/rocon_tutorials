@@ -1,6 +1,6 @@
 <package>
   <name>chatter_concert</name>
-  <version>0.5.1</version>
+  <version>0.5.2</version>
   <description>
     A very simple software concert with talker/listener apps.
   </description>
