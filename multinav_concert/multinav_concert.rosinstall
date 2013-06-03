@@ -1,0 +1,6 @@
+#
+# Install instructions:
+#
+#  https://github.com/robotics-in-concert/rocon_multirobot_experimental/blob/hydro-devel/README.md
+
+- git: {local-name: rocon_multirobot_experimental, version: hydro-devel, uri: 'https://github.com/robotics-in-concert/rocon_multirobot_experimental.git'}
