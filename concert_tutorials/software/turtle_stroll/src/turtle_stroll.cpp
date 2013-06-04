@@ -1,8 +1,7 @@
 #include <boost/bind.hpp>
 #include <ros/ros.h>
 #include <turtlesim/Pose.h>
-//#include <turtlesim/Velocity.h>
-#include <geometry_msgs/Twist.h>
+#include <turtlesim/Velocity.h>
 #include <turtlesim/Spawn.h>
 #include <std_srvs/Empty.h>
 
@@ -43,16 +42,15 @@ void printGoal()
   ROS_INFO("New goal [%f %f, %f]", g_goal.x, g_goal.y, g_goal.theta);
 }
 
-void commandTurtle(ros::Publisher twist_pub, float linear, float angular)
+void commandTurtle(ros::Publisher vel_pub, float linear, float angular)
 {
-  //turtlesim::Velocity vel;
-  geometry_msgs::Twist twist;
-  twist.linear.x = linear;
-  twist.angular.z = angular;
-  twist_pub.publish(twist);
+  turtlesim::Velocity vel;
+  vel.linear = linear;
+  vel.angular = angular;
+  vel_pub.publish(vel);
 }
 
-void stopForward(ros::Publisher twist_pub)
+void stopForward(ros::Publisher vel_pub)
 {
   if (hasStopped())
   {
@@ -65,11 +63,11 @@ void stopForward(ros::Publisher twist_pub)
   }
   else
   {
-    commandTurtle(twist_pub, 0, 0);
+    commandTurtle(vel_pub, 0, 0);
   }
 }
 
-void stopTurn(ros::Publisher twist_pub)
+void stopTurn(ros::Publisher vel_pub)
 {
   if (hasStopped())
   {
@@ -82,38 +80,38 @@ void stopTurn(ros::Publisher twist_pub)
   }
   else
   {
-    commandTurtle(twist_pub, 0, 0);
+    commandTurtle(vel_pub, 0, 0);
   }
 }
 
 
-void forward(ros::Publisher twist_pub)
+void forward(ros::Publisher vel_pub)
 {
   if (hasReachedGoal())
   {
     g_state = STOP_FORWARD;
-    commandTurtle(twist_pub, 0, 0);
+    commandTurtle(vel_pub, 0, 0);
   }
   else
   {
-    commandTurtle(twist_pub, 1.0, 0.0);
+    commandTurtle(vel_pub, 1.0, 0.0);
   }
 }
 
-void turn(ros::Publisher twist_pub)
+void turn(ros::Publisher vel_pub)
 {
   if (hasReachedGoal())
   {
     g_state = STOP_TURN;
-    commandTurtle(twist_pub, 0, 0);
+    commandTurtle(vel_pub, 0, 0);
   }
   else
   {
-    commandTurtle(twist_pub, 0.0, 0.4);
+    commandTurtle(vel_pub, 0.0, 0.4);
   }
 }
 
-void timerCallback(const ros::TimerEvent&, ros::Publisher twist_pub)
+void timerCallback(const ros::TimerEvent&, ros::Publisher vel_pub)
 {
   if (!g_pose)
   {
@@ -132,19 +130,19 @@ void timerCallback(const ros::TimerEvent&, ros::Publisher twist_pub)
 
   if (g_state == FORWARD)
   {
-    forward(twist_pub);
+    forward(vel_pub);
   }
   else if (g_state == STOP_FORWARD)
   {
-    stopForward(twist_pub);
+    stopForward(vel_pub);
   }
   else if (g_state == TURN)
   {
-    turn(twist_pub);
+    turn(vel_pub);
   }
   else if (g_state == STOP_TURN)
   {
-    stopTurn(twist_pub);
+    stopTurn(vel_pub);
   }
 }
 
@@ -153,7 +151,7 @@ int main(int argc, char** argv)
   ros::init(argc, argv, "turtle_stroll");
   ros::NodeHandle nh;
   ros::Subscriber pose_sub = nh.subscribe("pose", 1, poseCallback);
-  ros::Publisher twist_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
+  ros::Publisher vel_pub = nh.advertise<turtlesim::Velocity>("command_velocity", 1);
 
   // current app manager can't expose services. master_sync can, am just didn't get around to this
 
@@ -167,7 +165,7 @@ int main(int argc, char** argv)
   //  spawn.request.name = name;
   //  spawn_service.call(spawn);
 
-  ros::Timer timer = nh.createTimer(ros::Duration(0.016), boost::bind(timerCallback, _1, twist_pub));
+  ros::Timer timer = nh.createTimer(ros::Duration(0.016), boost::bind(timerCallback, _1, vel_pub));
 
   ros::spin();
 }
