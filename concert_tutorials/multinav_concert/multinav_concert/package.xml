@@ -12,6 +12,6 @@
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>concert_conductorr</build_depend>
   <build_depend>concert_orchestra</build_depend>
-  <run_depend>concert_conductorr</run_depend>
+  <run_depend>concert_conductor</run_depend>
   <run_depend>concert_orchestra</run_depend>
 </package>
