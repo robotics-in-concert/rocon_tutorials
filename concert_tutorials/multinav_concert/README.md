@@ -1,7 +1,9 @@
 rocon_multirobot_experimental
 =============================
 
-Multi robot visualization and navigation testing repo 
+Multi robot visualization and navigation testing repo. Disabled with a CATKIN_IGNORE for now since
+all the rosinstallers are broken and this should(?) perhaps be better placed on its own because of
+the huge dependency hit.
 
 * Works in Hydro!!!
 
