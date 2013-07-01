@@ -3,7 +3,7 @@
     <arg name="robot_name" value="shared_database"/>
     <arg name="robot_type" value="pc"/>
     <arg name="concert_name" value="multinav_concert"/>
-    <arg name="rapp_lists" value="$(find multinav_database)/rapps/shared_database.rapps"/>
+    <arg name="rapp_lists" value="multinav_database/shared_database.rapps"/>
     <arg name="gateway_watch_loop_period" value="1"/>
   </include>
 </launch>
