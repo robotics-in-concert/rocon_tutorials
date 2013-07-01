@@ -3,6 +3,6 @@
     <arg name="robot_name" value="turtlesim"/>
     <arg name="robot_type" value="pc"/>
     <arg name="concert_name" value="turtle_concert"/>  <!-- This becomes a gateway hub whitelist variable -->
-    <arg name="rapp_lists" value="$(find turtle_concert)/apps/turtle_concert.rapps"/>
+    <arg name="rapp_lists" value="turtle_concert/turtle_concert.rapps"/>
   </include>
 </launch>
