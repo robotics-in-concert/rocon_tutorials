@@ -5,12 +5,12 @@
 name: "Multinav Concert"
 nodes:
   - id: softbot
-    tuple: linux.ros.pc.soft_navbot/nav_demo
+    tuple: linux.ros.pc.multinav_concert/nav_demo
     min: 0
     max: 4
     force_name_matching: true
   - id: multinav_database
-    tuple: linux.ros.pc.multinav_database/map_sharing
+    tuple: linux.ros.pc.multinav_concert/map_sharing
 topics:
 
 # Shared Database

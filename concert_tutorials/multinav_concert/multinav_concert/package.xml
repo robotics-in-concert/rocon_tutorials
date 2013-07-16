@@ -10,8 +10,13 @@
   <author email="jihoonlee.in@gmail.com">Jihoon Lee</author>
 
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>concert_conductorr</build_depend>
-  <build_depend>concert_orchestra</build_depend>
   <run_depend>concert_conductor</run_depend>
   <run_depend>concert_orchestra</run_depend>
+  <run_depend>map_server</run_depend>
+  <run_depend>rocon_app_manager</run_depend>
+  <run_depend>rocon_tf_reconstructor</run_depend>
+  <run_depend>robot_pose_publisher</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>kobuki_softapps</run_depend>
+  <run_depend>yujin_maps</run_depend>
 </package>
