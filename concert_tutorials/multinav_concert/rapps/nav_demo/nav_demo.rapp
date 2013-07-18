@@ -1,5 +1,5 @@
 display: Soft Navigation Bot
 description: The boy navigates around the map. Fake version
 platform: linux.ros.pc
-launch: soft_navbot/nav_demo.launch
-interface: soft_navbot/nav_demo.interface
+launch: multinav_concert/nav_demo.launch
+interface: multinav_concert/nav_demo.interface
