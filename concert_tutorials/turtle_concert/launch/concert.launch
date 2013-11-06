@@ -1,18 +1,15 @@
 <launch>
+  <!-- **************************** Legacy Master ******************************** -->
+  <include file="$(find concert_master)/launch/legacy_master.launch">
+    <arg name="concert_name" value="turtle_concert"/>
+  </include>
+
   <group ns="concert">
-  
-    <!-- ********************* Conductor and Gateway ***************************** -->
-    <include file="$(find concert_conductor)/launch/conductor.launch">
-      <arg name="concert_name" value="turtle_concert"/>
-      <arg name="gateway_watch_loop_period" value="1"/> <!-- flip faster, convenient -->
-    </include>
-    
     <!-- ******************************* Orchestra ******************************* -->
     <node name="orchestration" pkg="concert_orchestra" type="orchestra.py">
       <param name="dot_graph" textfile="$(find turtle_concert)/orchestration/implementation.dot" />
       <rosparam file="$(find turtle_concert)/yaml/implementation.yaml" command="load"/>
       <param name="auto_start" value="true"/>
     </node>
-
   </group>
 </launch>

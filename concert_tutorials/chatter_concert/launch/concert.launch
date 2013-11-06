@@ -1,11 +1,9 @@
 <launch>
+  <!-- **************************** Legacy Master ******************************** -->
+  <include file="$(find concert_master)/launch/legacy_master.launch">
+    <arg name="concert_name" value="chatter_concert"/>
+  </include>
   <group ns="concert">
-  
-    <!-- ********************* Conductor and Gateway ***************************** -->
-    <include file="$(find concert_conductor)/launch/conductor.launch">
-      <arg name="concert_name" value="chatter_concert"/>
-    </include>
-    
     <!-- ******************************* Orchestra ******************************* -->
     <node name="orchestration" pkg="concert_orchestra" type="orchestra.py">
       <param name="dot_graph" textfile="$(find chatter_concert)/orchestration/implementation.dot" />
