@@ -5,11 +5,11 @@
 name: "Chatter Concert"
 nodes:
   - id: dudes
-    tuple: linux.ros.pc.rocon_apps/listener
+    tuple: linux.*.ros.pc.rocon_apps/listener
     min: 0
     max: 5
   - id: dudette
-    tuple: linux.ros.pc.rocon_apps/talker
+    tuple: linux.*.ros.pc.rocon_apps/talker
     force_name_matching: true
 topics:
   - id: chatter
