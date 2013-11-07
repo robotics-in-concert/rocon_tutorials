@@ -1,8 +1,8 @@
 <concert>
-  <launch package="chatter_concert" name="concert.launch" port="11311"/>
-  <launch package="chatter_concert" name="dudette.launch" port="11312"/>
-  <launch package="chatter_concert" name="dude.launch" port="11313"/>
-  <launch package="chatter_concert" name="dude.launch" port="11314"/>
+  <launch title="concert:11311" package="chatter_concert" name="concert.launch" port="11311"/>
+  <launch title="dudette:11312" package="chatter_concert" name="dudette.launch" port="11312"/>
+  <launch title="dude:11313" package="chatter_concert" name="dude.launch" port="11313"/>
+  <launch title="dude:11314" package="chatter_concert" name="dude.launch" port="11314"/>
 </concert>
 
 <!--
