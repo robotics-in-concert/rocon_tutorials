@@ -5,13 +5,13 @@
 name: "Turtle Concert"
 nodes:
   - id: kobuki
-    tuple: linux.ros.pc.turtle_concert/turtle_stroll
+    tuple: linux.*.ros.pc.turtle_concert/turtle_stroll
     force_name_matching: true
   - id: guimul
-    tuple: linux.ros.pc.turtle_concert/turtle_stroll
+    tuple: linux.*.ros.pc.turtle_concert/turtle_stroll
     force_name_matching: true
   - id: turtlesim
-    tuple: linux.ros.pc.turtle_concert/turtle_stroll_sim
+    tuple: linux.*.ros.pc.turtle_concert/turtle_stroll_sim
     force_name_matching: true
 topics:
   - id: kobuki_cmd_vel
