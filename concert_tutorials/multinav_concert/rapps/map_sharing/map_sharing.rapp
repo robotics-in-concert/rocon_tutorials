@@ -1,5 +1,0 @@
-display: Shared map Database
-description: Provides shared map for the given environment 
-platform: linux.ros.pc
-launch:     multinav_concert/map_sharing.launch
-interface:  multinav_concert/map_sharing.interface

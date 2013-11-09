@@ -1,0 +1,21 @@
+<package>
+  <name>concert_tutorial</name>
+  <version>0.5.6</version>
+  <description>
+    Introductory soft tutorial for the rocon concert.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/concert_tutorial</url>
+  <url type="repository">https://github.com/robotics-in-concert/rocon_tutorials</url>
+  <url type="bugtracker">https://github.com/robotics-in-concert/rocon_tutorials/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>concert_master</run_depend>
+  <run_depend>rocon_app_manager</run_depend>
+  <run_depend>rocon_apps</run_depend>
+  <run_depend>rospy_tutorials</run_depend>
+  <run_depend>zeroconf_avahi</run_depend> 
+</package>

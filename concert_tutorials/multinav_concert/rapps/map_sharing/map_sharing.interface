@@ -1,7 +1,0 @@
-subscribers: []
-publishers:
-  - map
-  - map_metadata
-services: []
-action_clients: []
-action_servers: []
