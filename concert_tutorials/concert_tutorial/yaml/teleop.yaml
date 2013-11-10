@@ -1,0 +1,9 @@
+name: "Teleop"
+nodes:
+  - id: robot
+    tuple: linux.*.ros.turtlebot.turtlebot_core_apps/android_teleop
+topics:
+  - id: teleop
+    type: geometry_msgs/Twist
+actions: []
+edges: []
