@@ -1,5 +1,0 @@
-<launch>
-  <node pkg="concert_service" name="teleop_service_node" type="static_link_graph_service.py">
-    <param name="filename" value="$(find concert_tutorial)/yaml/teleop.yaml"/>
-  </node>
-</launch>
