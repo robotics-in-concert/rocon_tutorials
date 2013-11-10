@@ -1,5 +1,0 @@
-name: Teleop
-description: Teleop robot 
-author: YujinRobot
-priority: 2
-launcher: 'roslaunch concert_tutorial teleop.launch'
