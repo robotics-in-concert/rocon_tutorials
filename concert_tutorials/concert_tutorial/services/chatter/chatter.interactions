@@ -1,0 +1,11 @@
+- role: 'Pirate'
+  remocon_apps:
+    - name: rocon_interactions/listener
+      platform_info:
+        os: "*"
+        version: "*"
+        system: ros
+        platform: pc
+      display_name: Listener
+      description: For dudes wanting to listen to dudettes.
+      max: -1
