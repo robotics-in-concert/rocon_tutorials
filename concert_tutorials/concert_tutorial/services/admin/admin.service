@@ -1,0 +1,7 @@
+name: Admin
+description: Administrative services and tools 
+author: YujinRobot
+priority: 1
+launcher_type: roslaunch
+launcher: concert_tutorial/admin
+interactions: "concert_tutorial/admin"
