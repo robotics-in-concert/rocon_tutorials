@@ -5,15 +5,4 @@
         <arg name="concert_auto_invite" value="true" />
         <arg name="auto_enable_services" value="true" />
     </include>
-    <!-- 
-    <group ns="concert">
-        <node pkg="concert_service_manager" name="add_service" type="add_service_from_file.py">
-            <param name="filename" value="$(find concert_tutorial)/services/turtles/turtles.service"/>
-        </node>
-
-        <node pkg="concert_service_manager" name="add_service2" type="add_service_from_file.py">
-            <param name="filename" value="$(find concert_tutorial)/services/chatter/chatter.service"/>
-        </node>
-    </group>
-     -->
 </launch>
