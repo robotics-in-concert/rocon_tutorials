@@ -9,3 +9,18 @@
       display_name: Listener
       description: For dudes wanting to listen to dudettes.
       max: -1
+
+- role: 'Pirate'
+  remocon_apps:
+    - name: rocon_qt_remocon_apps/listener
+      platform_info:
+        os: "*"
+        version: "*"
+        system: ros
+        platform: pc
+      display_name: Sample Listener
+      description: qt remocon test app.
+      max: -1
+      remappings:
+        - remap_from: chatter
+          remap_to: /conversation/chatter
