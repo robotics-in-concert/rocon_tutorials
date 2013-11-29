@@ -24,3 +24,18 @@
       remappings:
         - remap_from: chatter
           remap_to: /conversation/chatter
+
+- role: 'Pirate'
+  remocon_apps:
+    - name: com.github.rosjava.android_apps.listener.Listener
+      platform_info:
+        os: android
+        version: "*"
+        system: ros
+        platform: smart_device
+      display_name: Android Listener
+      description: Android listener 
+      max: -1
+      remappings:
+        - remap_from: chatter
+          remap_to: /conversation/chatter
