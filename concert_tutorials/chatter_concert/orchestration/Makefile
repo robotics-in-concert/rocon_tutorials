@@ -1,7 +1,7 @@
 
-implementation:
-	dot -Tpng implementation.dot -o implementation.png
-	eog implementation.png
+link_graph:
+	dot -Tpng implementation.dot -o link_graph.png
+	eog link_graph.png
 	
 clean:
-	rm implementation.png
+	rm link_graph.png

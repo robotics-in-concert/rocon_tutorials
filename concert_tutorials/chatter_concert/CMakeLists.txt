@@ -18,7 +18,7 @@ catkin_package()
 
 install(
     PROGRAMS 
-        scripts/view_implementation
+        scripts/view_link_graph
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
     )
 
@@ -31,6 +31,6 @@ install(DIRECTORY concert
 install(DIRECTORY orchestration
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
-install(DIRECTORY yaml
+install(DIRECTORY services
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
   

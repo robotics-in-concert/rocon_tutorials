@@ -1,3 +1,0 @@
-#!/bin/bash
-
-kgraphviewer `rospack find chatter_concert`/orchestration/implementation.dot

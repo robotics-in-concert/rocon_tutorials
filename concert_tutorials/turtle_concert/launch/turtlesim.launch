@@ -2,8 +2,9 @@
   <include file="$(find rocon_app_manager)/launch/concert_client.launch">
     <arg name="robot_name" value="turtlesim"/>
     <arg name="robot_type" value="pc"/>
-    <arg name="concert_whitelist" value="turtle_concert"/>  <!-- This becomes a gateway hub whitelist variable -->
+    <arg name="concert_whitelist" value="Turtle Concert;Concert Tutorial"/>  <!-- This becomes a gateway hub whitelist variable -->
     <arg name="rapp_lists" value="turtle_concert/turtle_concert.rapps"/>
+    <arg name="gateway_watch_loop_period" value="1"/> <!-- flip faster, convenient -->
     <arg name="local_remote_controllers_only" value="true"/>
   </include>
 </launch>

@@ -1,15 +1,9 @@
 <launch>
-  <!-- **************************** Legacy Master ******************************** -->
-  <include file="$(find concert_master)/launch/legacy_master.launch">
-    <arg name="concert_name" value="turtle_concert"/>
-  </include>
-
-  <group ns="concert">
-    <!-- ******************************* Orchestra ******************************* -->
-    <node name="orchestration" pkg="concert_orchestra" type="orchestra.py">
-      <param name="dot_graph" textfile="$(find turtle_concert)/orchestration/implementation.dot" />
-      <rosparam file="$(find turtle_concert)/yaml/implementation.yaml" command="load"/>
-      <param name="auto_start" value="true"/>
-    </node>
-  </group>
+    <include file="$(find concert_master)/launch/concert_master.launch">
+        <arg name="concert_name" value="Turtle Concert"/>
+        <arg name="service_lists" value="turtle_concert/turtle_concert.services"/>
+        <arg name="conductor_auto_invite" value="true" />
+        <arg name="conductor_local_clients_only" value="true" />
+        <arg name="auto_enable_services" value="true" />
+    </include>
 </launch>
