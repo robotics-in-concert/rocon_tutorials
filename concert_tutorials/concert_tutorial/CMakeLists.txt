@@ -16,21 +16,12 @@ catkin_package()
 # Installs
 ##############################################################################
 
-install(
-    PROGRAMS 
-        scripts/view_implementation
-    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-    )
-
 install(DIRECTORY launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
 install(DIRECTORY concert
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
-install(DIRECTORY orchestration
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
-
-install(DIRECTORY yaml
+install(DIRECTORY services
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
   
