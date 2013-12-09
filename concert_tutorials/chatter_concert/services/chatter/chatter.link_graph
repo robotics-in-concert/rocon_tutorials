@@ -6,7 +6,7 @@ name: "Chatter Concert"
 nodes:
   - id: dudes
     tuple: linux.*.ros.pc.rocon_apps/listener
-    min: 1
+    min: 2
     max: 2
   - id: dudette
     tuple: linux.*.ros.pc.rocon_apps/talker
