@@ -1,6 +1,6 @@
 <launch>
   <node pkg="concert_service_roslaunch" name="static_link_graph" type="static_link_graph_service.py">
     <param name="filename" value="$(find chatter_concert)/services/chatter/chatter.link_graph"/>
-    <param name="requester_type" value="original"/>  <!-- original, resource_pool_requester -->
+    <param name="requester_type" value="resource_pool_requester"/>  <!-- original, resource_pool_requester -->
   </node>
 </launch>
