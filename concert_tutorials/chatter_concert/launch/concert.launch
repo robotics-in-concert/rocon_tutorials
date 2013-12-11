@@ -6,6 +6,5 @@
         <arg name="conductor_local_clients_only" value="true" />
         <arg name="auto_enable_services" value="true" />
         <arg name="scheduler_type" value="compatibility_tree"/>
-        <!-- <arg name="gateway_network_interface" value="eth0"/> -->
     </include>
 </launch>
