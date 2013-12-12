@@ -5,6 +5,6 @@
         <arg name="conductor_auto_invite" value="true" />
         <arg name="conductor_local_clients_only" value="true" />
         <arg name="auto_enable_services" value="true" />
-        <arg name="scheduler_type" value="compatibility_tree"/>
+        <arg name="scheduler_type" value="$(optenv CONCERT_SCHEDULER_TYPE compatibility_tree)"/>  <!-- options are demo, compatibility_tree -->
     </include>
 </launch>
