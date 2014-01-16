@@ -30,4 +30,10 @@
     even if it does appeal to us ubuntu eggheads.
   -->
     <run_depend>zeroconf_avahi</run_depend> 
+
+  <export>
+    <rosdoc config="rosdoc.yaml"/>
+    <rocon_app>apps/turtle_stroll/turtle_stroll.rapp</rocon_app>
+    <rocon_app>apps/turtle_stroll_sim/turtle_stroll_sim.rapp</rocon_app>
+  </export>
 </package>
