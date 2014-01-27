@@ -1,6 +1,5 @@
 <launch>
   <node pkg="concert_service_link_graph" name="static_link_graph" type="static_link_graph_service.py">
     <param name="filename" value="$(find turtle_concert)/services/turtles/turtles.link_graph"/>
-    <param name="requester_type" value="$(optenv CONCERT_REQUESTER_TYPE resource_pool_requester)"/>  <!-- options are demo, resource_pool_requester -->
   </node>
 </launch>
