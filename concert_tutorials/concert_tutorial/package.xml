@@ -18,4 +18,8 @@
   <run_depend>rocon_apps</run_depend>
   <run_depend>rospy_tutorials</run_depend>
   <run_depend>zeroconf_avahi</run_depend> 
+
+  <export>
+    <rocon_service>services/admin/admin.service</rocon_service>
+  </export>
 </package>
