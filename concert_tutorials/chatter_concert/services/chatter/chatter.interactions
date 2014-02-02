@@ -1,7 +1,7 @@
 - role: 'Pirate'
   remocon_apps:
     - name: rocon_qt_remocon_apps/listener
-      compatibility: rocon:///pc/*/hydro/*
+      compatibility: rocon:/pc/*/hydro/*
       display_name: Sample Listener
       description: For dudes wanting to listen to dudettes.
       max: -1
@@ -9,7 +9,7 @@
         - remap_from: chatter
           remap_to: /conversation/chatter
     - name: com.github.rosjava.android_apps.listener.Listener
-      compatibility: rocon:///*/*/hydro/jellybean|ice_cream_sandwich|kitkat
+      compatibility: rocon:/*/*/hydro/jellybean|ice_cream_sandwich|kitkat
       display_name: Android Listener
       description: Android listener 
       max: -1

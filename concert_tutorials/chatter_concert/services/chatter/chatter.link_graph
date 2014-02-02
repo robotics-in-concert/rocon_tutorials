@@ -5,11 +5,11 @@
 name: "Chatter Concert"
 nodes:
   - id: dudes
-    uri: rocon:///*/*#rocon_apps/listener
+    uri: rocon:/*/*#rocon_apps/listener
     min: 2
     max: 4
   - id: dudette
-    uri: rocon:///*/dudette#rocon_apps/talker
+    uri: rocon:/*/dudette#rocon_apps/talker
 topics:
   - id: chatter
     type: std_msgs/String
