@@ -5,14 +5,11 @@
 name: "Turtle Concert"
 nodes:
   - id: kobuki
-    tuple: linux.*.ros.pc.turtle_concert/turtle_stroll
-    force_name_matching: true
+    uri: rocon:/pc/kobuki#turtle_concert/turtle_stroll
   - id: guimul
-    tuple: linux.*.ros.pc.turtle_concert/turtle_stroll
-    force_name_matching: true
+    uri: rocon:/pc/guimul#turtle_concert/turtle_stroll
   - id: turtlesim
-    tuple: linux.*.ros.pc.turtle_concert/turtle_stroll_sim
-    force_name_matching: true
+    uri: rocon:/pc/turtlesim#turtle_concert/turtle_stroll_sim
 topics:
   - id: kobuki_cmd_vel
     type: geometry_msgs/Twist

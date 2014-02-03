@@ -23,5 +23,9 @@
     Ideally, I wouldn't hardcode the zeroconf implementation though.
     even if it does appeal to us ubuntu eggheads.
   -->
-    <run_depend>zeroconf_avahi</run_depend> 
+    <run_depend>zeroconf_avahi</run_depend>
+  
+  <export>
+    <rocon_service>services/chatter/chatter.service</rocon_service>
+  </export>
 </package>
