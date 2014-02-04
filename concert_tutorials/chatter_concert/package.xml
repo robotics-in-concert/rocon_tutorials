@@ -27,5 +27,6 @@
   
   <export>
     <rocon_service>services/chatter/chatter.service</rocon_service>
+    <rocon_service>services/admin/admin.service</rocon_service>
   </export>
 </package>

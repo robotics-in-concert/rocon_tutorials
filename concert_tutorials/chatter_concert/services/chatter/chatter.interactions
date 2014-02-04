@@ -1,4 +1,4 @@
-- role: 'Pirate'
+- role: 'Chatter'
   remocon_apps:
     - name: rocon_qt_remocon_apps/listener
       compatibility: rocon:/pc/*/hydro/*
