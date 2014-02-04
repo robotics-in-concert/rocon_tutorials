@@ -1,9 +1,9 @@
 - role: 'Chatter'
   remocon_apps:
-    - name: rocon_qt_remocon_apps/listener
+    - name: chatter_concert/remocon_dude
       compatibility: rocon:/pc/*/hydro/*
-      display_name: Sample Listener
-      description: For dudes wanting to listen to dudettes.
+      display_name: Remocon Dude
+      description: For human dudes who have to listen to nagging dudettes.
       max: -1
       remappings:
         - remap_from: chatter

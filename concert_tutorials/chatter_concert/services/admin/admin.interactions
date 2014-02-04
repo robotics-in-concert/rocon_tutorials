@@ -7,7 +7,7 @@
       max: -1
 - role: 'Admin'
   remocon_apps:
-    - name: rocon_conductor_graph
+    - name: concert_conductor_graph
       compatibility: rocon:/pc/*/hydro/*
       display_name: Conductor Graph
       description: Graph of all elements in a rocon conductor network.
