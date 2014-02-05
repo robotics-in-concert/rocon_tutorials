@@ -1,3 +1,0 @@
-<launch>
-  <node pkg="rqt_graph" name="$(anon rqt_graph)_" type="rqt_graph"/>
-</launch>

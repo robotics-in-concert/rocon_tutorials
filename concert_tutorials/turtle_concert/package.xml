@@ -23,6 +23,7 @@
   <run_depend>rospy</run_depend>
   <run_depend>turtle_stroll</run_depend>
   <run_depend>zeroconf_msgs</run_depend>
+  <run_depend>concert_services</run_depend>
 
   <!-- 
     Hardcode this dependency for now since we only test it on linux 
