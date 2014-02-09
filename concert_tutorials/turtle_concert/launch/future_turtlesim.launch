@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="turtlesim" type="turtlesim_node" name="turtles" required="true">
+  </node>
+  <node pkg="turtle_concert" type="spawn_turtles.py" name="spawn_turtles"/>
+</launch>
