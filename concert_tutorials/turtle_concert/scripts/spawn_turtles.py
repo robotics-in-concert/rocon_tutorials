@@ -12,6 +12,10 @@
 # spawn services directly to instantiate themselves, but since we can't
 # flip service proxies, this is not possible. So this node is the inbetween
 # go-to node and uses a rocon service pair instead.
+#
+# It supplements this relay role with a bit of herd management - sets up
+# random start locations and feeds back aliased names when running with
+# a concert.
 
 ##############################################################################
 # Imports
@@ -27,11 +31,22 @@ import rocon_tutorial_msgs.msg as rocon_tutorial_msgs
 # Classes
 ##############################################################################
 
-class TurtleManagement:
+class TurtleHerder:
+    '''
+      Shepherds the turtles!
+      
+      @todo get alised names from the concert client list if the topic is available
+
+      @todo watchdog for killing turtles that are no longer connected.
+    '''
+    __slots__ = [
+        'turtles',  # Dictionary of string : concert_msgs.RemoconApp[]
+    ]
     
     def __init__(self):
-        rospy.wait_for_service('kill')  # could use timeouts here
-        rospy.wait_for_service('spawn')
+        self.turtles = []
+        rospy.wait_for_service('~kill')  # could use timeouts here
+        rospy.wait_for_service('~spawn')
         self._spawn_turtle_service_client = rospy.ServiceProxy('~spawn', turtlesim_srvs.Spawn, persistent=True)
         self._kill_turtle_service_client = rospy.ServiceProxy('~kill', turtlesim_srvs.Kill, persistent=True)
         # kill the default turtle that turtlesim starts with
@@ -56,13 +71,14 @@ class TurtleManagement:
         internal_service_request = turtlesim_srvs.KillRequest(msg.name)
         try:
             internal_service_response = self._kill_turtle_service_client(internal_service_request)
+            self.turtles.remove(msg.name)
         except rospy.ServiceException:  # communication failed
             rospy.logerr("Spawn Turtles : failed to contact the internal kill turtle service")
         except rospy.ROSInterruptException:
             rospy.loginfo("Spawn Turtles : shutdown while contacting the internal kill turtle service")
             return
         self._kill_turtle_service_pair_server.reply(request_id, response)
-        
+
     def _spawn_turtle_service(self, request_id, msg):
         '''
           @param request_id
@@ -75,12 +91,22 @@ class TurtleManagement:
         internal_service_request = turtlesim_srvs.SpawnRequest(msg.x, msg.y, msg.theta, msg.name)
         try:
             internal_service_response = self._spawn_turtle_service_client(internal_service_request)
+            self.turtles.append(msg.name)
         except rospy.ServiceException:  # communication failed
             rospy.logerr("Spawn Turtles : failed to contact the internal spawn turtle service")
         except rospy.ROSInterruptException:
             rospy.loginfo("Spawn Turtles : shutdown while contacting the internal spawn turtle service")
             return
         self._spawn_turtle_service_pair_server.reply(request_id, response)
+    
+    def shutdown(self):
+        for turtle in self.turtles:
+            try:
+                internal_service_response = self._kill_turtle_service_client(msg.name)
+            except rospy.ServiceException:  # communication failed
+                break  # quietly fail
+            except rospy.ROSInterruptException:
+                break  # quietly fail
 
 ##############################################################################
 # Launch point
@@ -89,11 +115,12 @@ class TurtleManagement:
 if __name__ == '__main__':
     
     rospy.init_node('spawn_turtles')
-    turtle_management = TurtleManagement()
+    turtle_herder = TurtleHerder()
 
     # spawn some turtles for testing.
-    #self.testies = rocon_python_comms.ServicePairClient('testies', rocon_service_pair_msgs.TestiesPair)
+    #self.testies = rocon_python_comms.ServicePairClient('kobuki', rocon_tutorial_msgs.SpawnPair)
     #response = spawn_turtle(5.4,6.4,0.0,"turtle_one")
     #response = spawn_turtle(5.4,4.4,0.3,"turtle_two")
 
     rospy.spin()
+    turtle_herder.shutdown()
