@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+#       
+# License: BSD
+#   https://raw.github.com/robotics-in-concert/rocon_tutorials/license/LICENSE
+#
+##############################################################################
+# Imports
+##############################################################################
+
+import rospy
+import rocon_python_comms
+
+import rocon_tutorial_msgs.msg as rocon_tutorial_msgs
+
+##############################################################################
+# Launch point
+##############################################################################
+
+if __name__ == '__main__':
+    
+    rospy.init_node('spawn_kobuki')
+    # spawn some turtles for testing.
+    spawn_turtle = rocon_python_comms.ServicePairClient('spawn', rocon_tutorial_msgs.SpawnTurtlePair)
+    request = rocon_tutorial_msgs.SpawnTurtleRequest('kobuki')
+    print("Request: %s" % request)
+    response = spawn_turtle(rocon_tutorial_msgs.SpawnTurtleRequest('kobuki'), timeout=rospy.Duration(3.0))
+    print("Response: %s" % response)
+    rospy.spin()

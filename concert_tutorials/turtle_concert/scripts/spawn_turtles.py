@@ -21,6 +21,9 @@
 # Imports
 ##############################################################################
 
+import math
+import random
+
 import rospy
 import rocon_python_comms
 
@@ -88,7 +91,11 @@ class TurtleHerder:
         '''
         response = rocon_tutorial_msgs.SpawnTurtleResponse()
         self._spawn_turtle_service_pair_server.reply(request_id, response)
-        internal_service_request = turtlesim_srvs.SpawnRequest(msg.x, msg.y, msg.theta, msg.name)
+        internal_service_request = turtlesim_srvs.SpawnRequest(
+                                            random.uniform(4.0, 6.0),
+                                            random.uniform(4.0, 6.0),
+                                            random.uniform(0.0, 2.0 * math.pi),
+                                            msg.name)
         try:
             internal_service_response = self._spawn_turtle_service_client(internal_service_request)
             self.turtles.append(msg.name)
@@ -98,7 +105,7 @@ class TurtleHerder:
             rospy.loginfo("Spawn Turtles : shutdown while contacting the internal spawn turtle service")
             return
         self._spawn_turtle_service_pair_server.reply(request_id, response)
-    
+
     def shutdown(self):
         for turtle in self.turtles:
             try:
@@ -116,11 +123,5 @@ if __name__ == '__main__':
     
     rospy.init_node('spawn_turtles')
     turtle_herder = TurtleHerder()
-
-    # spawn some turtles for testing.
-    #self.testies = rocon_python_comms.ServicePairClient('kobuki', rocon_tutorial_msgs.SpawnPair)
-    #response = spawn_turtle(5.4,6.4,0.0,"turtle_one")
-    #response = spawn_turtle(5.4,4.4,0.3,"turtle_two")
-
     rospy.spin()
     turtle_herder.shutdown()
