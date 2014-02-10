@@ -2,8 +2,8 @@
   <group ns="turtlesim">
     <node pkg="turtlesim" type="turtlesim_node" name="turtles" required="true"/>
   </group>
-  <node pkg="turtle_concert" type="spawn_turtles.py" name="spawn_turtles">
-    <remap from="spawn_turtles/kill" to="turtlesim/kill"/>
-    <remap from="spawn_turtles/spawn" to="turtlesim/spawn"/>
+  <node pkg="turtle_concert" type="turtle_herder.py" name="turtle_herder">
+    <remap from="turtle_herder/kill" to="turtlesim/kill"/>
+    <remap from="turtle_herder/spawn" to="turtlesim/spawn"/>
   </node>
 </launch>

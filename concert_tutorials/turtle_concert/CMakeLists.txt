@@ -19,7 +19,7 @@ catkin_package()
 install(
     PROGRAMS 
         scripts/init_turtles.py
-        scripts/spawn_turtles.py
+        scripts/turtle_herder.py
         scripts/view_link_graph
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
     )

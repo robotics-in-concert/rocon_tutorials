@@ -89,27 +89,37 @@ class TurtleHerder:
           @param msg
           @type ServiceRequest
         '''
-        response = rocon_tutorial_msgs.SpawnTurtleResponse()
-        self._spawn_turtle_service_pair_server.reply(request_id, response)
+        # Unique name
+        name = msg.name
+        name_extension = ''
+        count = 0
+        while name + name_extension in self.turtles:
+            name_extension = '_' + str(count)
+            count = count + 1
+        name = name + name_extension
+        # 
         internal_service_request = turtlesim_srvs.SpawnRequest(
                                             random.uniform(4.0, 6.0),
                                             random.uniform(4.0, 6.0),
                                             random.uniform(0.0, 2.0 * math.pi),
-                                            msg.name)
+                                            name)
         try:
             internal_service_response = self._spawn_turtle_service_client(internal_service_request)
-            self.turtles.append(msg.name)
+            self.turtles.append(name)
         except rospy.ServiceException:  # communication failed
             rospy.logerr("Spawn Turtles : failed to contact the internal spawn turtle service")
+            name = ''
         except rospy.ROSInterruptException:
             rospy.loginfo("Spawn Turtles : shutdown while contacting the internal spawn turtle service")
             return
+        response = rocon_tutorial_msgs.SpawnTurtleResponse()
+        response.name = name
         self._spawn_turtle_service_pair_server.reply(request_id, response)
 
     def shutdown(self):
-        for turtle in self.turtles:
+        for name in self.turtles:
             try:
-                internal_service_response = self._kill_turtle_service_client(msg.name)
+                internal_service_response = self._kill_turtle_service_client(name)
             except rospy.ServiceException:  # communication failed
                 break  # quietly fail
             except rospy.ROSInterruptException:
