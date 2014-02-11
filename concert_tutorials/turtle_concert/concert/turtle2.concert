@@ -1,0 +1,6 @@
+<concert>
+  <launch title="concert:11311"   package="turtle_concert" name="concert2.launch" port="11311"/>
+  <launch title="kobuki:11312"    package="turtle_concert" name="turtle2.launch" port="11312">
+    <arg name="turtle_name" value="kobuki" />
+  </launch>
+</concert>
