@@ -1,6 +1,10 @@
 <concert>
   <launch title="concert:11311"   package="turtle_concert" name="concert.launch" port="11311"/>
-  <launch title="kobuki:11312"    package="turtle_concert" name="kobuki.launch" port="11312"/>
-  <launch title="guimul:11313"    package="turtle_concert" name="guimul.launch" port="11313"/>
+  <launch title="kobuki:11312"    package="turtle_concert" name="turtle.launch" port="11312">
+    <arg name="turtle_name" value="kobuki" />
+  </launch>
+  <launch title="guimul:11313"    package="turtle_concert" name="turtle.launch" port="11313">
+    <arg name="turtle_name" value="guimul" />
+  </launch>
   <launch title="turtlesim:11314" package="turtle_concert" name="turtlesim.launch" port="11314"/>
 </concert>

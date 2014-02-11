@@ -1,5 +1,0 @@
-<launch>
-  <include file="$(find turtle_concert)/launch/includes/_turtle.xml">
-    <arg name="turtle_name" value="kobuki" />
-  </include>
-</launch>
