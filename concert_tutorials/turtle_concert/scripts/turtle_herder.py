@@ -134,15 +134,14 @@ class TurtleHerder:
 
 if __name__ == '__main__':
     
-    rospy.init_node('spawn_turtles')
+    rospy.init_node('turtle_herder')
     
     turtle_herder = TurtleHerder()
     spawn_turtle = rocon_python_comms.ServicePairClient('spawn', rocon_tutorial_msgs.SpawnTurtlePair)
     rospy.rostime.wallsleep(0.5)
-    request = rocon_tutorial_msgs.SpawnTurtleRequest('kobuki')
-    print("Request: %s" % request)
-    #response = spawn_turtle(rocon_tutorial_msgs.SpawnTurtleRequest('kobuki'), timeout=rospy.Duration(3.0))
-    #response = spawn_turtle(rocon_tutorial_msgs.SpawnTurtleRequest('guimul'), timeout=rospy.Duration(3.0))
-    #print("Response: %s" % response)
+#     response = spawn_turtle(rocon_tutorial_msgs.SpawnTurtleRequest('kobuki'), timeout=rospy.Duration(3.0))
+#     print("Response: %s" % response)
+#     response = spawn_turtle(rocon_tutorial_msgs.SpawnTurtleRequest('guimul'), timeout=rospy.Duration(3.0))
+#     print("Response: %s" % response)
     rospy.spin()
     turtle_herder.shutdown()

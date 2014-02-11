@@ -27,25 +27,7 @@ import gateway_msgs.msg as gateway_msgs
 import gateway_msgs.srv as gateway_srvs
 import std_msgs.msg as std_msgs
 import rocon_app_manager_msgs.msg as rocon_app_manager_msgs
-
-##############################################################################
-# Methods
-##############################################################################
-
-def resolve_local_gateway():
-    master = rocon_gateway.LocalMaster()
-    gateway_namespace = master.find_gateway_namespace()
-    if not gateway_namespace:
-        raise rocon_gateway.GatewayError("Could not find a local gateway - did you start it?")
-    #console.debug("Found a local gateway at %s"%gateway_namespace)
-    return gateway_namespace
-
-def resolve_gateway_info(gateway_namespace):
-    '''
-      @raise rocon_gateway.GatewayError: if no remote gateways or no matching gateways available. 
-    '''
-    gateway_info = rocon_python_comms.SubscriberProxy(gateway_namespace+'/gateway_info', gateway_msgs.msg.GatewayInfo)()
-    return gateway_info
+import threading
 
 ##############################################################################
 # Classes
@@ -59,7 +41,10 @@ class Hatchling:
         'name',
         'spawn_turtle',
         'kill_turtle',
-        'gateway_flip_service'
+        'gateway_flip_service',
+        'remote_controller',  # cached variable holding the current name of the remote controller
+        'new_remote_controller',  # cached variable holding the new remote controller pending a spawn activity
+        'lock',
     ]
 
     def __init__(self):
@@ -72,7 +57,9 @@ class Hatchling:
         self.name = rocon_gateway.resolve_gateway_info(gateway_namespace).name
         # app manager
         rospy.Subscriber('~remote_controller', std_msgs.String, self._ros_subscriber_remote_controller)
-        rospy.logwarn("initialised")
+        self.remote_controller = ''
+        self.new_remote_controller = None
+        self.lock = threading.Lock()
 
     def _flip_rules(self):
         rules = []
@@ -94,14 +81,16 @@ class Hatchling:
           Callback for the app manager's latched remote controller publisher that informs us of it's
           changes in state.
         '''
+        self.lock.acquire()
+        self.new_remote_controller = msg.data
         request = gateway_srvs.RemoteRequest()
-        request.cancel = False if msg.data else True
+        request.cancel = False if self.new_remote_controller else True
         remote_rule = gateway_msgs.RemoteRule()
-        remote_rule.gateway = msg.data
+        remote_rule.gateway = self.new_remote_controller
         for rule in self._flip_rules():
             remote_rule.rule = rule
             request.remotes.append(copy.deepcopy(remote_rule))
-        rospy.logwarn("Publishing to flip service")
+        self.lock.release()
         try:
             response = self.gateway_flip_service(request)
         except rospy.ServiceException:  # communication failed
@@ -110,7 +99,21 @@ class Hatchling:
         except rospy.ROSInterruptException:
             rospy.loginfo("Hatchling : shutdown while contacting the gateway flip service")
             return
-        #response = spawn_turtle(rocon_tutorial_msgs.SpawnTurtleRequest('kobuki'), timeout=rospy.Duration(3.0))
+
+    def spin(self):
+        '''
+          Loop around checking if there's work to be done registering our hatchling on the turtlesim engine.
+        '''
+        while not rospy.is_shutdown():
+            self.lock.acquire()
+            if self.new_remote_controller is not None:
+                if self.new_remote_controller == '':
+                    response = self.kill_turtle(rocon_tutorial_msgs.KillTurtleRequest(self.name), timeout=rospy.Duration(3.0))
+                else:
+                    response = self.spawn_turtle(rocon_tutorial_msgs.SpawnTurtleRequest(self.name), timeout=rospy.Duration(3.0))
+                self.new_remote_controller = None
+            self.lock.release()
+            rospy.rostime.wallsleep(0.5)
             
 
 ##############################################################################
@@ -121,15 +124,4 @@ if __name__ == '__main__':
     
     rospy.init_node('hatchling')
     hatchling = Hatchling()
-    while not rospy.is_shutdown():
-        rospy.rostime.wallsleep(0.5)
-#     turtle_herder = TurtleHerder()
-#     spawn_turtle = rocon_python_comms.ServicePairClient('spawn', rocon_tutorial_msgs.SpawnTurtlePair)
-#     rospy.rostime.wallsleep(0.5)
-#     request = rocon_tutorial_msgs.SpawnTurtleRequest('kobuki')
-#     print("Request: %s" % request)
-#     response = spawn_turtle(rocon_tutorial_msgs.SpawnTurtleRequest('kobuki'), timeout=rospy.Duration(3.0))
-#     response = spawn_turtle(rocon_tutorial_msgs.SpawnTurtleRequest('guimul'), timeout=rospy.Duration(3.0))
-#     print("Response: %s" % response)
-    rospy.spin()
-    #turtle_herder.shutdown()
+    hatchling.spin()
