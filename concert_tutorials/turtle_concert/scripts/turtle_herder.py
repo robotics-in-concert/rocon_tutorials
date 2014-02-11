@@ -26,9 +26,12 @@ import random
 
 import rospy
 import rocon_python_comms
+import rocon_gateway
 
 import turtlesim.srv as turtlesim_srvs
 import rocon_tutorial_msgs.msg as rocon_tutorial_msgs
+import gateway_msgs.msg as gateway_msgs
+import gateway_msgs.srv as gateway_srvs
 
 ##############################################################################
 # Classes
@@ -44,6 +47,11 @@ class TurtleHerder:
     '''
     __slots__ = [
         'turtles',  # Dictionary of string : concert_msgs.RemoconApp[]
+        '_spawn_turtle_service_client',
+        '_kill_turtle_service_client',
+        '_kill_turtle_service_pair_server',
+        '_spawn_turtle_service_pair_server',
+        '_gateway_flip_service'
     ]
 
     def __init__(self):
@@ -64,6 +72,9 @@ class TurtleHerder:
         # herding frontend
         self._kill_turtle_service_pair_server = rocon_python_comms.ServicePairServer('kill', self._kill_turtle_service, rocon_tutorial_msgs.KillTurtlePair)
         self._spawn_turtle_service_pair_server = rocon_python_comms.ServicePairServer('spawn', self._spawn_turtle_service, rocon_tutorial_msgs.SpawnTurtlePair)
+        # gateway
+        gateway_namespace = rocon_gateway.resolve_local_gateway()
+        self._gateway_flip_service = rospy.ServiceProxy(gateway_namespace + '/flip', gateway_srvs.Remote)
         
 
     def _kill_turtle_service(self, request_id, msg):
@@ -84,6 +95,22 @@ class TurtleHerder:
             rospy.loginfo("Spawn Turtles : shutdown while contacting the internal kill turtle service")
             return
         self._kill_turtle_service_pair_server.reply(request_id, response)
+        # cancel flips
+        rule.name = "/services/turtlesim/%s/cmd_vel" % name
+        remote_rule = gateway_msgs.RemoteRule()
+        remote_rule.gateway = name
+        remote_rule.rule = rule
+        request = gateway_srvs.RemoteRequest()
+        request.remotes.append(remote_rule)
+        request.cancel = True
+        try:
+            self._gateway_flip_service(request)
+        except rospy.ServiceException:  # communication failed
+            rospy.logerr("TurtleHerder : failed to send flip rules")
+            return
+        except rospy.ROSInterruptException:
+            rospy.loginfo("TurtleHerder : shutdown while contacting the gateway flip service")
+            return
 
     def _spawn_turtle_service(self, request_id, msg):
         '''
@@ -110,14 +137,35 @@ class TurtleHerder:
             internal_service_response = self._spawn_turtle_service_client(internal_service_request)
             self.turtles.append(name)
         except rospy.ServiceException:  # communication failed
-            rospy.logerr("Spawn Turtles : failed to contact the internal spawn turtle service")
+            rospy.logerr("TurtleHerder : failed to contact the internal spawn turtle service")
             name = ''
         except rospy.ROSInterruptException:
-            rospy.loginfo("Spawn Turtles : shutdown while contacting the internal spawn turtle service")
+            rospy.loginfo("TurtleHerder : shutdown while contacting the internal spawn turtle service")
             return
         response = rocon_tutorial_msgs.SpawnTurtleResponse()
         response.name = name
         self._spawn_turtle_service_pair_server.reply(request_id, response)
+        # Create flip rules
+        rule = gateway_msgs.Rule()
+        rule.node = ''
+        rule.type = gateway_msgs.ConnectionType.SUBSCRIBER
+        # could resolve this better by looking up the service info
+        rule.name = "/services/turtlesim/%s/cmd_vel" % name
+        remote_rule = gateway_msgs.RemoteRule()
+        remote_rule.gateway = name
+        remote_rule.rule = rule
+        request = gateway_srvs.RemoteRequest()
+        request.remotes.append(remote_rule)
+        request.cancel = False
+        try:
+            self._gateway_flip_service(request)
+        except rospy.ServiceException:  # communication failed
+            rospy.logerr("TurtleHerder : failed to send flip rules")
+            return
+        except rospy.ROSInterruptException:
+            rospy.loginfo("TurtleHerder : shutdown while contacting the gateway flip service")
+            return
+
 
     def shutdown(self):
         for name in self.turtles:
@@ -138,7 +186,7 @@ if __name__ == '__main__':
     
     turtle_herder = TurtleHerder()
     spawn_turtle = rocon_python_comms.ServicePairClient('spawn', rocon_tutorial_msgs.SpawnTurtlePair)
-    rospy.rostime.wallsleep(0.5)
+#     rospy.rostime.wallsleep(0.5)
 #     response = spawn_turtle(rocon_tutorial_msgs.SpawnTurtleRequest('kobuki'), timeout=rospy.Duration(3.0))
 #     print("Response: %s" % response)
 #     response = spawn_turtle(rocon_tutorial_msgs.SpawnTurtleRequest('guimul'), timeout=rospy.Duration(3.0))
