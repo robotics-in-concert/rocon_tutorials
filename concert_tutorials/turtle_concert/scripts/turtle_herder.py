@@ -23,6 +23,7 @@
 
 import math
 import random
+import copy
 
 import rospy
 import rocon_python_comms
@@ -95,22 +96,7 @@ class TurtleHerder:
             rospy.loginfo("Spawn Turtles : shutdown while contacting the internal kill turtle service")
             return
         self._kill_turtle_service_pair_server.reply(request_id, response)
-        # cancel flips
-        rule.name = "/services/turtlesim/%s/cmd_vel" % name
-        remote_rule = gateway_msgs.RemoteRule()
-        remote_rule.gateway = name
-        remote_rule.rule = rule
-        request = gateway_srvs.RemoteRequest()
-        request.remotes.append(remote_rule)
-        request.cancel = True
-        try:
-            self._gateway_flip_service(request)
-        except rospy.ServiceException:  # communication failed
-            rospy.logerr("TurtleHerder : failed to send flip rules")
-            return
-        except rospy.ROSInterruptException:
-            rospy.loginfo("TurtleHerder : shutdown while contacting the gateway flip service")
-            return
+        self._send_flip_rules_request(name=name, cancel=True)
 
     def _spawn_turtle_service(self, request_id, msg):
         '''
@@ -145,18 +131,27 @@ class TurtleHerder:
         response = rocon_tutorial_msgs.SpawnTurtleResponse()
         response.name = name
         self._spawn_turtle_service_pair_server.reply(request_id, response)
-        # Create flip rules
+        self._send_flip_rules_request(name=name, cancel=False)
+
+    def _send_flip_rules_request(self, name, cancel):
+        rules = []
         rule = gateway_msgs.Rule()
         rule.node = ''
         rule.type = gateway_msgs.ConnectionType.SUBSCRIBER
         # could resolve this better by looking up the service info
         rule.name = "/services/turtlesim/%s/cmd_vel" % name
+        rules.append(copy.deepcopy(rule))
+        rule.type = gateway_msgs.ConnectionType.PUBLISHER
+        rule.name = "/services/turtlesim/%s/pose" % name
+        rules.append(copy.deepcopy(rule))
+        # send the request
+        request = gateway_srvs.RemoteRequest()
+        request.cancel = cancel
         remote_rule = gateway_msgs.RemoteRule()
         remote_rule.gateway = name
-        remote_rule.rule = rule
-        request = gateway_srvs.RemoteRequest()
-        request.remotes.append(remote_rule)
-        request.cancel = False
+        for rule in rules:
+            remote_rule.rule = rule
+            request.remotes.append(copy.deepcopy(remote_rule))
         try:
             self._gateway_flip_service(request)
         except rospy.ServiceException:  # communication failed
