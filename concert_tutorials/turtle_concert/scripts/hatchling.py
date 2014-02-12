@@ -43,11 +43,12 @@ class Hatchling:
         'kill_turtle',
         'gateway_flip_service',
         'remote_controller',  # cached variable holding the current name of the remote controller
-        'new_remote_controller',  # cached variable holding the new remote controller pending a spawn activity
-        'lock',
+        'remote_controller_updates',  # cached list holding new remote controller updates pending a spawn activity
+        'event_remote_controller_changed',
     ]
 
     def __init__(self):
+        self.event_remote_controller_changed = threading.Event()
         # could delay this till we have a remote controller and 'sniff' instead of hardcoding
         self.spawn_turtle = rocon_python_comms.ServicePairClient('~spawn', rocon_tutorial_msgs.SpawnTurtlePair)
         self.kill_turtle = rocon_python_comms.ServicePairClient('~kill', rocon_tutorial_msgs.KillTurtlePair)
@@ -57,9 +58,8 @@ class Hatchling:
         self.name = rocon_gateway.resolve_gateway_info(gateway_namespace).name
         # app manager
         rospy.Subscriber('~remote_controller', std_msgs.String, self._ros_subscriber_remote_controller)
-        self.remote_controller = ''
-        self.new_remote_controller = None
-        self.lock = threading.Lock()
+        self.remote_controller = rocon_app_manager_msgs.Constants.NO_REMOTE_CONTROLLER
+        self.remote_controller_updates = []
 
     def _flip_rules(self):
         rules = []
@@ -74,23 +74,21 @@ class Hatchling:
         rule.name = rospy.resolve_name("~spawn/response")
         rules.append(copy.deepcopy(rule))
         rule.name = rospy.resolve_name("~kill/response")
+        rules.append(copy.deepcopy(rule))
         return rules
 
-    def _ros_subscriber_remote_controller(self, msg):
-        '''
-          Callback for the app manager's latched remote controller publisher that informs us of it's
-          changes in state.
-        '''
-        self.lock.acquire()
-        self.new_remote_controller = msg.data
+    def _send_flip_rules(self, remote_controller):
         request = gateway_srvs.RemoteRequest()
-        request.cancel = False if self.new_remote_controller else True
+        request.cancel = True if remote_controller == rocon_app_manager_msgs.Constants.NO_REMOTE_CONTROLLER else False
+        rospy.logwarn("  Cancel Flag: %s" % str(request.cancel))
         remote_rule = gateway_msgs.RemoteRule()
-        remote_rule.gateway = self.new_remote_controller
+        if request.cancel:
+            remote_rule.gateway = self.remote_controller
+        else:
+            remote_rule.gateway = remote_controller
         for rule in self._flip_rules():
             remote_rule.rule = rule
             request.remotes.append(copy.deepcopy(remote_rule))
-        self.lock.release()
         try:
             response = self.gateway_flip_service(request)
         except rospy.ServiceException:  # communication failed
@@ -100,20 +98,51 @@ class Hatchling:
             rospy.loginfo("Hatchling : shutdown while contacting the gateway flip service")
             return
 
+    def _ros_subscriber_remote_controller(self, msg):
+        '''
+          Callback for the app manager's latched remote controller publisher that informs us of it's
+          changes in state.
+        '''
+        rospy.logwarn("New remote controller: %s" % msg.data)
+        # only using thread-safe list operations: http://effbot.org/pyfaq/what-kinds-of-global-value-mutation-are-thread-safe.htm
+        self.remote_controller_updates.append(msg.data)
+        self.event_remote_controller_changed.set()
+
     def spin(self):
         '''
           Loop around checking if there's work to be done registering our hatchling on the turtlesim engine.
         '''
+        interacting_with_remote_controller = None
         while not rospy.is_shutdown():
-            self.lock.acquire()
-            if self.new_remote_controller is not None:
-                if self.new_remote_controller == '':
+            event_is_set = self.event_remote_controller_changed.wait(0.5)
+            if event_is_set:  # clear it so that it blocks again at the next run.
+                self.event_remote_controller_changed.clear()
+            rospy.logwarn("Hatchling: %s" % interacting_with_remote_controller)
+            if interacting_with_remote_controller is None: # check if we have a remote controller state change and send flips
+                # Just send off one set of flips at a time, have to make sure we process kill/spawn
+                if len(self.remote_controller_updates) > 0:
+                    try:
+                        interacting_with_remote_controller = self.remote_controller_updates.pop(0)
+                        rospy.logwarn("Hatchling: new remote controller [%s][%s]" % (interacting_with_remote_controller, self.remote_controller))
+                        if interacting_with_remote_controller == self.remote_controller:
+                            interacting_with_remote_controller = None  # do nothing
+                        else:
+                            self._send_flip_rules(interacting_with_remote_controller)
+                    except IndexError:
+                        rospy.logerr("Hatchling: index error")
+            else:  # see if we can register with turtlesim or not yet.
+                if interacting_with_remote_controller == rocon_app_manager_msgs.Constants.NO_REMOTE_CONTROLLER:
+                    rospy.logwarn("Killing")
                     response = self.kill_turtle(rocon_tutorial_msgs.KillTurtleRequest(self.name), timeout=rospy.Duration(3.0))
                 else:
+                    rospy.logwarn("Spawning")
                     response = self.spawn_turtle(rocon_tutorial_msgs.SpawnTurtleRequest(self.name), timeout=rospy.Duration(3.0))
-                self.new_remote_controller = None
-            self.lock.release()
-            rospy.rostime.wallsleep(0.5)
+                if response:  # didn't time out, probably waiting for the flips to arrive.
+                    rospy.logwarn("  succeeded %s" % response)
+                    self.remote_controller = interacting_with_remote_controller
+                    interacting_with_remote_controller = None
+                else:
+                    rospy.logwarn("  failed %s" % response)
             
 
 ##############################################################################
