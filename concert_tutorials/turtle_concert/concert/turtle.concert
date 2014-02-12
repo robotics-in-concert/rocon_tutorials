@@ -6,5 +6,4 @@
   <launch title="guimul:11313"    package="turtle_concert" name="turtle.launch" port="11313">
     <arg name="turtle_name" value="guimul" />
   </launch>
-  <launch title="turtlesim:11314" package="turtle_concert" name="turtlesim.launch" port="11314"/>
 </concert>

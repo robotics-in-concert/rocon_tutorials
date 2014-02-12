@@ -1,10 +1,12 @@
 #include <boost/bind.hpp>
+#include <string>
 #include <ros/ros.h>
 #include <turtlesim/Pose.h>
 //#include <turtlesim/Velocity.h>
 #include <geometry_msgs/Twist.h>
 #include <turtlesim/Spawn.h>
 #include <std_srvs/Empty.h>
+#include <gateway_msgs/GatewayInfo.h>
 
 turtlesim::PoseConstPtr g_pose;
 turtlesim::Pose g_goal;
@@ -151,22 +153,16 @@ void timerCallback(const ros::TimerEvent&, ros::Publisher twist_pub)
 int main(int argc, char** argv)
 {
   ros::init(argc, argv, "turtle_stroll");
+  std::string simulation_namespace;
+  ros::NodeHandle pnh("~");
+  if ( !pnh.getParam("simulation_namespace", simulation_namespace) ) {
+    ROS_WARN_STREAM("TurtleStroll: simulation_namespace parameter not set.");
+  }
+  ros::NodeHandle snh(simulation_namespace);
+  ros::Subscriber pose_sub = snh.subscribe("pose", 1, poseCallback);
+  ros::Publisher twist_pub = snh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
+
   ros::NodeHandle nh;
-  ros::Subscriber pose_sub = nh.subscribe("pose", 1, poseCallback);
-  ros::Publisher twist_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
-
-  // current app manager can't expose services. master_sync can, am just didn't get around to this
-
-  //  std::string name;
-  //  nh.param<std::string>("name", name, "robot");
-  //  ros::ServiceClient spawn_service = nh.serviceClient<turtlesim::Spawn>("spawn");
-  //  turtlesim::Spawn spawn;
-  //  spawn.request.x = 0;
-  //  spawn.request.y = 0;
-  //  spawn.request.theta = static_cast<float>(rand() % 100)/200; // angle betweeen 0 and 0.5 radians
-  //  spawn.request.name = name;
-  //  spawn_service.call(spawn);
-
   ros::Timer timer = nh.createTimer(ros::Duration(0.016), boost::bind(timerCallback, _1, twist_pub));
 
   ros::spin();

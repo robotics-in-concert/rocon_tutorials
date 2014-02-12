@@ -96,7 +96,7 @@ class TurtleHerder:
             rospy.loginfo("Spawn Turtles : shutdown while contacting the internal kill turtle service")
             return
         self._kill_turtle_service_pair_server.reply(request_id, response)
-        self._send_flip_rules_request(name=name, cancel=True)
+        self._send_flip_rules_request(name=msg.name, cancel=True)
 
     def _spawn_turtle_service(self, request_id, msg):
         '''

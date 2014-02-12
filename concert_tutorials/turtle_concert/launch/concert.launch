@@ -1,7 +1,7 @@
 <launch>
     <include file="$(find concert_master)/launch/concert_master.launch">
         <arg name="concert_name" value="Turtle Concert"/>
-        <arg name="services" value="[turtle_concert/turtles, concert_services/admin]"/>
+        <arg name="services" value="[concert_services/turtlesim, turtle_concert/turtles, concert_services/admin]"/>
         <arg name="conductor_auto_invite" value="true" />
         <arg name="conductor_local_clients_only" value="true" />
         <arg name="auto_enable_services" value="true" />
