@@ -1,0 +1,6 @@
+name: TurtlePond
+description: Turtles wandering around the pond.
+author: Yujin Robot
+priority: 3
+launcher_type: roslaunch
+launcher: turtle_concert/turtle_pond

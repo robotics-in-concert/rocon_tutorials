@@ -37,7 +37,6 @@
 
   <export>
     <rocon_app>apps/turtle_stroll/turtle_stroll.rapp</rocon_app>
-    <rocon_app>apps/turtle_stroll_sim/turtle_stroll_sim.rapp</rocon_app>
-    <rocon_service>services/turtles/turtles.service</rocon_service>
+    <rocon_service>services/turtle_pond/turtle_pond.service</rocon_service>
   </export>
 </package>
