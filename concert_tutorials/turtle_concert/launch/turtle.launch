@@ -14,12 +14,12 @@
         <arg name="local_remote_controllers_only" value="true"/>
         <arg name="screen" value="true" />
     </include>
-    <node pkg="turtle_concert" type="hatchling.py" name="hatchling">
-      <remap from="hatchling/remote_controller" to="app_manager/remote_controller"/>
+    <node pkg="turtle_concert" type="hatchling.py" name="$(anon hatchling)">
+      <remap from="remote_controller" to="app_manager/remote_controller"/>
       <!-- Concert turtlesim service remaps -->
-      <remap from="hatchling/spawn/request" to="services/turtlesim/spawn/request"/>
-      <remap from="hatchling/spawn/response" to="services/turtlesim/spawn/response"/>
-      <remap from="hatchling/kill/request" to="services/turtlesim/kill/request"/>
-      <remap from="hatchling/kill/response" to="services/turtlesim/kill/response"/>
+      <remap from="spawn/request" to="services/turtlesim/spawn/request"/>
+      <remap from="spawn/response" to="services/turtlesim/spawn/response"/>
+      <remap from="kill/request" to="services/turtlesim/kill/request"/>
+      <remap from="kill/response" to="services/turtlesim/kill/response"/>
     </node>
 </launch>
