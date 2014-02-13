@@ -1,9 +1,13 @@
 <concert>
   <launch title="concert:11311"   package="turtle_concert" name="concert.launch" port="11311"/>
-  <launch title="kobuki:11312"    package="turtle_concert" name="turtle.launch" port="11312">
+  <launch title="kobuki:11312"    package="rocon_service_turtlesim" name="turtle.launch" port="11312">
     <arg name="turtle_name" value="kobuki" />
+    <arg name="turtle_concert_whitelist" value="Turtle Concert;Concert Tutorial"/>
+    <arg name="turtle_rapp_whitelist" value="[turtle_concert]"/>
   </launch>
-  <launch title="guimul:11313"    package="turtle_concert" name="turtle.launch" port="11313">
+  <launch title="guimul:11313"    package="rocon_service_turtlesim" name="turtle.launch" port="11313">
     <arg name="turtle_name" value="guimul" />
+    <arg name="turtle_concert_whitelist" value="Turtle Concert;Concert Tutorial"/>
+    <arg name="turtle_rapp_whitelist" value="[turtle_concert]"/>
   </launch>
 </concert>

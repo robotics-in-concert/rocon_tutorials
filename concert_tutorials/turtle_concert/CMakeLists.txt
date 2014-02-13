@@ -16,13 +16,6 @@ catkin_package()
 # Installs
 ##############################################################################
 
-install(
-    PROGRAMS 
-        scripts/turtle_herder.py
-        scripts/hatchling.py
-    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-    )
-
 install(DIRECTORY launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 

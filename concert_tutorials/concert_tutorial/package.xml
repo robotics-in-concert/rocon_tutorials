@@ -9,12 +9,13 @@
   <url type="website">http://ros.org/wiki/concert_tutorial</url>
   <url type="repository">https://github.com/robotics-in-concert/rocon_tutorials</url>
   <url type="bugtracker">https://github.com/robotics-in-concert/rocon_tutorials/issues</url>
-  <author email="d.stonier@gmail.com">Daniel Stonier</author>
+  <author>Daniel Stonier</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
   <run_depend>concert_master</run_depend>
-  <run_depend>concert_services</run_depend>
+  <run_depend>rocon_services_admin</run_depend>
+  <run_depend>rocon_services_turtlesim</run_depend>
   <run_depend>rocon_app_manager</run_depend>
   <run_depend>rocon_apps</run_depend>
   <run_depend>rospy_tutorials</run_depend>
