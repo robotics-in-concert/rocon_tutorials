@@ -4,10 +4,14 @@
     <launch title="dudette:11312"   package="chatter_concert" name="dudette.launch" port="11312"/>
     <launch title="dude:11313"      package="chatter_concert" name="dude.launch" port="11313"/>
     <launch title="dude:11314"      package="chatter_concert" name="dude.launch" port="11314"/>
-    <launch title="kobuki:11315"    package="turtle_concert" name="turtle.launch" port="11315">
+    <launch title="kobuki:11315"    package="rocon_service_turtlesim" name="turtle.launch" port="11315">
         <arg name="turtle_name" value="kobuki" />
+        <arg name="turtle_concert_whitelist" value="Concert Tutorial"/>
+        <arg name="turtle_rapp_whitelist" value="[turtle_concert]"/>
     </launch>
-    <launch title="guimul:11316"    package="turtle_concert" name="turtle.launch" port="11316">
+    <launch title="guimul:11316"    package="rocon_service_turtlesim" name="turtle.launch" port="11316">
         <arg name="turtle_name" value="guimul" />
+        <arg name="turtle_concert_whitelist" value="Concert Tutorial"/>
+        <arg name="turtle_rapp_whitelist" value="[turtle_concert]"/>
     </launch>
 </concert>

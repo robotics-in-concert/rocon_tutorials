@@ -17,7 +17,7 @@
   <run_depend>rocon_app_manager</run_depend>
   <run_depend>rocon_apps</run_depend>
   <run_depend>rospy_tutorials</run_depend>
-  <run_depend>concert_services</run_depend>
+  <run_depend>rocon_service_admin</run_depend>
 
   <!-- 
     Hardcode this dependency for now since we only test it on linux 

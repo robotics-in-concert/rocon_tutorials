@@ -1,7 +1,0 @@
-<launch>
-  <arg name="turtles" default="[kobuki, guimul]"/>
-  
-  <node pkg="turtle_concert" type="turtle_herder.py" name="turtle_herder" output="screen">
-    <rosparam param="turtles" subst_value="True">$(arg turtles)</rosparam>
-  </node>
-</launch>
