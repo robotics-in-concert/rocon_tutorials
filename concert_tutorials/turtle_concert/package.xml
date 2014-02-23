@@ -15,28 +15,21 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <run_depend>concert_conductor</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>concert_master</run_depend>
   <run_depend>gateway_msgs</run_depend>
   <run_depend>rocon_app_manager</run_depend>
   <run_depend>rocon_apps</run_depend>
   <run_depend>rocon_utilities</run_depend>
-  <run_depend>rospy</run_depend>
   <run_depend>turtle_stroll</run_depend>
   <run_depend>zeroconf_msgs</run_depend>
   <run_depend>rocon_service_turtlesim</run_depend>
   <run_depend>rocon_service_admin</run_depend>
-  
-  <!-- For the upgraded turtlesim service structure -->
   <run_depend>rocon_python_comms</run_depend>
-
-  <!-- 
-    Hardcode this dependency for now since we only test it on linux 
-    Ideally, I wouldn't hardcode the zeroconf implementation though.
-    even if it does appeal to us ubuntu eggheads.
-  -->
-    <run_depend>zeroconf_avahi</run_depend> 
+  <run_depend>zeroconf_avahi</run_depend> 
 
   <export>
+    <rocon_app>apps/teleop/teleop.rapp</rocon_app>
     <rocon_app>apps/turtle_stroll/turtle_stroll.rapp</rocon_app>
     <rocon_service>services/turtle_pond/turtle_pond.service</rocon_service>
   </export>
