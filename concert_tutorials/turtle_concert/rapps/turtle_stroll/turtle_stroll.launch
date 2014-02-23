@@ -1,6 +1,6 @@
 <launch>
   <arg name="gateway_name" default="unknown"/>  <!-- gets set by the app manager calling this rapp -->
-  <node pkg="turtle_stroll" type="turtle_stroll" name="turtle_stroll" required="true">
+  <node pkg="turtle_concert" type="turtle_stroll" name="turtle_stroll" required="true">
     <param name="simulation_namespace" value="/services/turtlesim/$(arg gateway_name)"/>
   </node>
 </launch>

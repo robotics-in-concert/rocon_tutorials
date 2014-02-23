@@ -1,7 +1,9 @@
 <launch>
+    <arg name="turtle_services" default="[rocon_service_turtlesim/turtlesim, turtle_concert/turtle_pond, rocon_services_admin/admin]"/>
+
     <include file="$(find concert_master)/launch/concert_master.launch">
         <arg name="concert_name" value="Turtle Concert"/>
-        <arg name="services" value="[rocon_service_turtlesim/turtlesim, turtle_concert/turtle_pond, rocon_services_admin/admin]"/>
+        <arg name="services" value="$(arg turtle_services)"/>
         <arg name="conductor_auto_invite" value="true" />
         <arg name="conductor_local_clients_only" value="true" />
         <arg name="auto_enable_services" value="true" />

@@ -2,7 +2,7 @@
 # We could I suppose flip cmd_vel and pose later if we actually want
 # introspection.
 
-name: "Turtle Stroll"
+name: "Turtle Pond"
 nodes:
   - id: kobuki
     uri: rocon:/pc/kobuki#turtle_concert/turtle_stroll

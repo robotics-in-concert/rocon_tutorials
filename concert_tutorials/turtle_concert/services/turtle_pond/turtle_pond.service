@@ -1,5 +1,5 @@
-name: TurtlePond
-description: Turtles wandering around the pond.
+name: Turtle Pond
+description: Turtles on the pond.
 author: Yujin Robot
 priority: 3
 launcher_type: roslaunch

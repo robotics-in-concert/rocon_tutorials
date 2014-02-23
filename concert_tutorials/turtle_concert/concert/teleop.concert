@@ -1,6 +1,6 @@
 <concert>
   <launch title="concert:11311"   package="turtle_concert" name="concert.launch" port="11311">
-    <arg name="turtle_services" value="[rocon_service_turtlesim/turtlesim, turtle_concert/turtle_pond, rocon_services_admin/admin]"/>
+    <arg name="turtle_services" value="[rocon_service_turtlesim/turtlesim, rocon_service_teleop/teleop, rocon_services_admin/admin]"/>
   </launch>
   <launch title="kobuki:11312"    package="rocon_service_turtlesim" name="turtle.launch" port="11312">
     <arg name="turtle_name" value="kobuki" />
