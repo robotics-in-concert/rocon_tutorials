@@ -1,18 +1,22 @@
-- role: 'Chatter'
-  remocon_apps:
-    - name: chatter_concert/remocon_dude
-      compatibility: rocon:/pc/*/hydro/*
-      display_name: Remocon Dude
-      description: For human dudes who have to listen to nagging dudettes.
-      max: -1
-      remappings:
-        - remap_from: chatter
-          remap_to: /conversation/chatter
-    - name: com.github.rosjava.android_apps.listener.Listener
-      compatibility: rocon:/*/*/hydro/jellybean|ice_cream_sandwich|kitkat
-      display_name: Android Listener
-      description: Android listener 
-      max: -1
-      remappings:
-        - remap_from: chatter
-          remap_to: /conversation/chatter
+###############################################################################
+# Interactions
+###############################################################################
+
+- name: chatter_concert/remocon_dude
+  role: 'Chatter'
+  compatibility: rocon:/pc/*/hydro/*
+  display_name: Dude
+  description: For human dudes who have to listen to nagging dudettes.
+  max: -1
+  remappings:
+    - remap_from: chatter
+      remap_to: /conversation/chatter
+- name: com.github.rosjava.android_apps.listener.Listener
+  role: 'Chatter'
+  compatibility: rocon:/*/*/hydro/jellybean|ice_cream_sandwich|kitkat
+  display_name: Android Listener
+  description: Android listener 
+  max: -1
+  remappings:
+    - remap_from: chatter
+      remap_to: /conversation/chatter
