@@ -2,5 +2,5 @@ display: Turtle Stroll
 description: The turtle strolls around the tank, drawing out a square.
 compatibility: rocon:/pc
 launch: turtle_concert/turtle_stroll.launch
-interface: turtle_concert/turtle_stroll.interface
+public_interface: turtle_concert/turtle_stroll.interface
 icon: turtle_concert/turtle_stroll.png
