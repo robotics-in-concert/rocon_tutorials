@@ -30,7 +30,6 @@
   <run_depend>geometry_msgs</run_depend>
   <run_depend>rocon_app_manager</run_depend>
   <run_depend>rocon_apps</run_depend>
-  <run_depend>rocon_utilities</run_depend>
   <run_depend>zeroconf_msgs</run_depend>
   <run_depend>rocon_service_turtlesim</run_depend>
   <run_depend>rocon_service_admin</run_depend>
