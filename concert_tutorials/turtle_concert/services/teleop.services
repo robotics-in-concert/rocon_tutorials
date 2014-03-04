@@ -1,0 +1,3 @@
+- name: rocon_service_turtlesim/turtlesim
+- name: rocon_service_teleop/teleop
+- name: rocon_services_admin/admin
