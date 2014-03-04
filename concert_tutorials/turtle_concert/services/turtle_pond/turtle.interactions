@@ -1,0 +1,11 @@
+###############################################################################
+# Interactions
+###############################################################################
+
+- name: http://wiki.ros.org/turtle_concert
+  role: 'Docs'
+  compatibility: rocon:/pc
+  display_name: Ros Wiki - Turtle Concert
+  description: A ros turtle style introduction to the concert.
+  icon:
+    resource_name: rocon_interactions/ros.png
