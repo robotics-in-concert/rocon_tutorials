@@ -26,4 +26,4 @@
   display_name: Ros Wiki - Chatter Concert
   description: A ros chatter style introduction to the concert.
   icon:
-    resource_name: rocon_interactions/ros.png
+    resource_name: rocon_bubble_icons/ros.png
