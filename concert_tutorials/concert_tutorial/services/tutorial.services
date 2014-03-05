@@ -1,4 +1,13 @@
-- name: rocon_service_turtlesim/turtlesim
-- name: rocon_service_admin/admin
-- name: turtle_concert/turtle_pond
-- name: chatter_concert/chatter
+- resource: rocon_service_turtlesim/turtlesim
+  override:
+    name: Olleh turtle
+    description: LTE Speed turtle
+    priority: 3
+- resource: rocon_service_admin/admin
+  override:
+    description: This is cool admin
+- resource: turtle_concert/turtle_pond
+  override:
+    name: whoola_pond
+    description: pon-dang pon-dang dol eul duun ji ja
+- resource: chatter_concert/chatter
