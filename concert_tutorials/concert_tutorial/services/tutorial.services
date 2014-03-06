@@ -1,11 +1,11 @@
-- resource: rocon_service_turtlesim/turtlesim
+- resource_name: rocon_service_turtlesim/turtlesim
   override:
     priority: 3
-- resource: rocon_service_admin/admin
+- resource_name: rocon_service_admin/admin
   override:
     name: good admin
     description: This is cool
-- resource: turtle_concert/turtle_pond
+- resource_name: turtle_concert/turtle_pond
   override:
     description: pon-dang pon-dang dol eul duun ji ja
-- resource: chatter_concert/chatter
+- resource_name: chatter_concert/chatter
