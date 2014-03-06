@@ -26,7 +26,8 @@ import rocon_utilities
 
 class TurtleTeleop:
     '''
-      Shepherds the turtles!
+      Shepherds the turtles! This is the implementation node for the
+      turtle_concert/teleop rapp.
 
       @todo get alised names from the concert client list if the topic is available
 
@@ -44,6 +45,7 @@ class TurtleTeleop:
             self.simulation_namespace = rospy.get_param("~simulation_namespace")
         except KeyError:
             rospy.logerr("Turtle Teleop : failed to get the turtle name from the parameter server.")
+        # Set up a simple relay here to the underlying cmd vel handle to the turtlesim engine.
         self.cmd_vel_subscriber = rospy.Subscriber("cmd_vel", geometry_msgs.Twist, self.ros_cmd_vel_callback)
         self.cmd_vel_publisher = rospy.Publisher(self.simulation_namespace + '/cmd_vel', geometry_msgs.Twist)
         self.image_publisher = rospy.Publisher('compressed_image', sensor_msgs.CompressedImage, latch=True)
