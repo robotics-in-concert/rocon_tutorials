@@ -35,7 +35,7 @@ class Window(QtGui.QWidget):
 
     def __init__(self):
         super(Window, self).__init__()
-        self._icon = rocon_python_utils.ros.find_resource_from_string('rocon_interactions/rocon_logo.png')
+        self._icon = rocon_python_utils.ros.find_resource_from_string('rocon_bubble_icons/rocon.png')
         self.initUI()
 
     def initUI(self):
