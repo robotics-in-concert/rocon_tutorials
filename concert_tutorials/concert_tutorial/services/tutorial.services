@@ -3,7 +3,7 @@
     priority: 3
 - resource: rocon_service_admin/admin
   override:
-    name: awesome admin
+    name: good admin
     description: This is cool
 - resource: turtle_concert/turtle_pond
   override:
