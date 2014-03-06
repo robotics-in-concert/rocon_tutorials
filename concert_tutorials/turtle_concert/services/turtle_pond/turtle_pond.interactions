@@ -8,4 +8,4 @@
   display_name: Ros Wiki - Turtle Concert
   description: A ros turtle style introduction to the concert.
   icon:
-    resource_name: rocon_interactions/ros.png
+    resource_name: rocon_bubble_icons/ros.png
