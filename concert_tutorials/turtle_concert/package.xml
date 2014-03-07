@@ -35,6 +35,7 @@
   <run_depend>rocon_service_turtlesim</run_depend>
   <run_depend>rocon_service_admin</run_depend>
   <run_depend>rocon_python_comms</run_depend>
+  <run_depend>rocon_python_utils</run_depend>
   <run_depend>zeroconf_avahi</run_depend> 
 
   <export>
