@@ -1,0 +1,3 @@
+- resource_name: rocon_service_turtlesim/turtlesim
+- resource_name: rocon_service_teleop/teleop
+- resource_name: rocon_services_admin/admin

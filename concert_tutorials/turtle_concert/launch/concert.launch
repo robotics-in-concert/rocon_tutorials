@@ -1,5 +1,5 @@
 <launch>
-    <arg name="turtle_services" default="[rocon_service_turtlesim/turtlesim, turtle_concert/turtle_pond, rocon_service_admin/admin]"/>
+    <arg name="turtle_services" default="turtle_concert/turtle.services"/>
 
     <include file="$(find concert_master)/launch/concert_master.launch">
         <arg name="concert_name" value="Turtle Concert"/>
