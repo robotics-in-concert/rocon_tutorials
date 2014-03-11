@@ -5,3 +5,4 @@ priority: 2
 launcher_type: roslaunch
 launcher: chatter_concert/chatter
 interactions: chatter_concert/chatter
+parameters: chatter_concert/chatter
