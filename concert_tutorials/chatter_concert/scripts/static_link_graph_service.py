@@ -29,12 +29,9 @@ if __name__ == '__main__':
         name = impl_name
 
     # Parameterisations
-    rospy.logwarn("Resolved name: %s" % rospy.resolve_name("topic_name"))
     topic_name = rospy.get_param("topic_name")
-    rospy.logwarn("Topic name: %s" % topic_name)
     for edge in impl.edges:
         edge.remap_to = edge.remap_to.replace('chatter', topic_name)
-    rospy.logwarn("Impl: %s" % impl)
 
     static_link_graph_service = concert_service_link_graph.StaticLinkGraphHandler(name, description, uuid, impl)
     static_link_graph_service.spin()

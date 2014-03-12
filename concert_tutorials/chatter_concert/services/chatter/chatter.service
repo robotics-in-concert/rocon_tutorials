@@ -1,6 +1,6 @@
 name: Chatter
 description: Dudes and dudettes chatting. 
-author: YujinRobot
+author: Daniel Stonier
 priority: 2
 launcher_type: roslaunch
 launcher: chatter_concert/chatter
