@@ -2,7 +2,7 @@
 # Leave it in if you want babbling instead of chatting.
 
 - resource_name: chatter_concert/chatter
-  override:
+  overrides:
     name: Babbler
     description: Dudes and dudettes babbling.
     interactions: chatter_concert/babbler
