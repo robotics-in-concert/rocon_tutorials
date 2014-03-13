@@ -1,5 +1,5 @@
 <launch>
-  <node pkg="concert_service_link_graph" name="static_link_graph" type="static_link_graph_service.py">
+  <node pkg="chatter_concert" name="static_link_graph" type="static_link_graph_service.py">
     <param name="filename" value="$(find chatter_concert)/services/chatter/chatter.link_graph"/>
   </node>
 </launch>

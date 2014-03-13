@@ -42,18 +42,21 @@ target_link_libraries(turtle_stroll ${catkin_LIBRARIES})
 # Installs
 ##############################################################################
 
+install(
+    PROGRAMS 
+        scripts/teleop.py
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+    )
+
 install(TARGETS turtle_stroll RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
-install(DIRECTORY launch
+install(DIRECTORY solutions
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
 install(DIRECTORY concert
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
-install(DIRECTORY apps
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
-
-install(DIRECTORY orchestration
+install(DIRECTORY rapps
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
 install(DIRECTORY services

@@ -21,12 +21,6 @@ import rocon_python_utils
 import time
 
 ##############################################################################
-# Globals
-##############################################################################
-
-topic_name = '/conversation/chatter'
-
-##############################################################################
 # Classes
 ##############################################################################
 
@@ -68,5 +62,5 @@ if __name__ == '__main__':
     window = Window()
     window.show()
     time.sleep(0.5)  # funny, qt window disappears from focus without this.
-    rospy.Subscriber(topic_name, std_msgs.String, window.listener)
+    rospy.Subscriber('chatter', std_msgs.String, window.listener)
     sys.exit(app.exec_())

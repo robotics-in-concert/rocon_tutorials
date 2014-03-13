@@ -3,6 +3,8 @@
 	<name>chatter_concert</name>
 	<comment></comment>
 	<projects>
+		<project>concert_service_link_graph</project>
+		<project>concert_service_utilities</project>
 		<project>rocon_console</project>
 		<project>rocon_python_utils</project>
 	</projects>

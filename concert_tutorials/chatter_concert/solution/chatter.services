@@ -1,2 +1,4 @@
+# The basic chatter concert with default service configuration.
+
 - resource_name: chatter_concert/chatter
 - resource_name: rocon_service_admin/admin
