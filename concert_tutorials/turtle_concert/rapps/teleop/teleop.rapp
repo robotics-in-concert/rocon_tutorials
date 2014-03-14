@@ -3,4 +3,4 @@ description: Take a turtlesim turtle for a teleop.
 compatibility: rocon:/pc
 launch: turtle_concert/teleop.launch
 public_interface: turtle_concert/teleop.interface
-icon: turtle_concert/teleop.png
+icon: rocon_bubble_icons/turtle_teleop.png
