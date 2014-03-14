@@ -64,7 +64,7 @@ class TurtleTeleop:
         msg = sensor_msgs.CompressedImage()
         msg.header.stamp = rospy.Time.now()
         msg.format = 'png'
-        image_filename = rocon_python_utils.ros.find_resource_from_string('turtle_concert/teleop.png')
+        image_filename = rocon_python_utils.ros.find_resource_from_string('rocon_bubble_icons/turtle_teleop.png')
         msg.data = open(image_filename, "rb").read()
         self.image_publisher.publish(msg)
 
