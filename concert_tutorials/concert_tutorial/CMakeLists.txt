@@ -16,12 +16,9 @@ catkin_package()
 # Installs
 ##############################################################################
 
-install(DIRECTORY launch
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
-
 install(DIRECTORY concert
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
-install(DIRECTORY services
+install(DIRECTORY solutions
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
   
