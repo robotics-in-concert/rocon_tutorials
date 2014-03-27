@@ -2,6 +2,7 @@
   <launch title="concert:11311"   package="turtle_concert" name="concert.launch" port="11311">
     <arg name="turtle_services" value="turtle_concert/teleop.services"/>
     <arg name="concert_name" value="Turtle Teleop Concert"/>
+    <arg name="scheduler_type" value="simple"/>
   </launch>
   <launch title="kobuki:11312"    package="rocon_service_turtlesim" name="turtle.launch" port="11312">
     <arg name="turtle_name" value="kobuki" />
