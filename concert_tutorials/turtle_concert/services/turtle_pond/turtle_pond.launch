@@ -1,5 +1,8 @@
 <launch>
+  <!-- 
   <node pkg="concert_service_link_graph" name="static_link_graph" type="static_link_graph_service.py">
     <param name="filename" value="$(find turtle_concert)/services/turtle_pond/turtle_pond.link_graph"/>
   </node>
+   -->
+  <node pkg="turtle_concert" name="turtle_pond" type="turtle_pond.py"/>
 </launch>
