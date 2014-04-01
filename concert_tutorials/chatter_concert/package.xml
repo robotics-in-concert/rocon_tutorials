@@ -20,7 +20,7 @@
   <run_depend>rocon_apps</run_depend>
   <run_depend>rocon_bubble_icons</run_depend>
   <run_depend>rospy_tutorials</run_depend>
-  <run_depend>rocon_service_admin</run_depend>
+  <run_depend>concert_service_admin</run_depend>
   <run_depend>rocon_python_utils</run_depend>
 
   <!-- 
@@ -31,6 +31,6 @@
     <run_depend>zeroconf_avahi</run_depend>
   
   <export>
-    <rocon_service>services/chatter/chatter.service</rocon_service>
+    <concert_service>services/chatter/chatter.service</concert_service>
   </export>
 </package>

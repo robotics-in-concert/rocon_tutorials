@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 # License: BSD
-#   https://raw.github.com/robotics-in-concert/rocon_services/license/LICENSE
+#   https://raw.github.com/robotics-in-concert/concert_services/license/LICENSE
 #
 ##############################################################################
 # About

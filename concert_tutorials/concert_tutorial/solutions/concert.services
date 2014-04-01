@@ -1,4 +1,4 @@
-- resource_name: rocon_service_turtlesim/turtlesim
-- resource_name: rocon_service_admin/admin
+- resource_name: concert_service_turtlesim/turtlesim
+- resource_name: concert_service_admin/admin
 - resource_name: turtle_concert/turtle_pond
 - resource_name: chatter_concert/chatter
