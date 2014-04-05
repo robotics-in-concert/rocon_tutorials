@@ -1,5 +1,8 @@
 <launch>
+  <arg name="local_machine_only" default="true"/>  <!-- only accept invites from local concerts -->
+
   <include file="$(find chatter_concert)/launch/includes/_concert_client.xml">
     <arg name="concert_client_name" value="dude" />
+    <arg name="local_machine_only" value="$(arg local_machine_only)"/>
   </include>
 </launch>
