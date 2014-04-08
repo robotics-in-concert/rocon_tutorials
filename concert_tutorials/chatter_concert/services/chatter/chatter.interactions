@@ -4,14 +4,14 @@
 
 - name: chatter_concert/remocon_dude
   role: 'Chatter'
-  compatibility: rocon:/pc/*/hydro|indigo/*
+  compatibility: rocon:/pc/*/hydro|indigo/precise|quantal|raring|saucy|trusty
   display_name: Dude
   description: For human dudes who have to listen to nagging dudettes.
   max: -1
   remappings:
     - remap_from: chatter
       remap_to: /conversation/chatter
-- name: com.github.rosjava.android_apps.listener.Listener
+- name: com.github.rosjava.android_remocons.listener.Listener
   role: 'Chatter'
   compatibility: rocon:/*/*/hydro/jellybean|ice_cream_sandwich|kitkat
   display_name: Android Listener
