@@ -17,7 +17,7 @@
 import rospy
 import rocon_python_comms
 import concert_service_utilities
-import rocon_scheduler_requests
+import concert_scheduler_requests
 import unique_id
 import scheduler_msgs.msg as scheduler_msgs
 
@@ -64,8 +64,8 @@ class TurtlePond:
         except rocon_python_comms.NotFoundException as e:
             rospy.logerr("TurtlePond : %s" % (str(e)))
             return  # raise an exception here?
-        frequency = rocon_scheduler_requests.common.HEARTBEAT_HZ
-        return rocon_scheduler_requests.Requester(self.requester_feedback, uuid, 0, scheduler_requests_topic_name, frequency)
+        frequency = concert_scheduler_requests.common.HEARTBEAT_HZ
+        return concert_scheduler_requests.Requester(self.requester_feedback, uuid, 0, scheduler_requests_topic_name, frequency)
 
     def request_turtles(self):
         '''
