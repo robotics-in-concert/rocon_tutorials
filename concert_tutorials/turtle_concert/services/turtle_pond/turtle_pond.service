@@ -1,7 +1,8 @@
 name: Turtle Pond
 description: Turtles on the pond.
 author: Yujin Robot
-priority: 3
+# if commented, priority will be scheduler_msgs.Request.DEFAULT_PRIORITY (0), also BACKGROUND, LOW, DEFAULT, HIGH, CRITICAL
+# priority: 0
 launcher_type: roslaunch
 launcher: turtle_concert/turtle_pond
 interactions: turtle_concert/turtle_pond

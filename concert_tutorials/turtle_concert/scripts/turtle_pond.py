@@ -34,6 +34,7 @@ class TurtlePond:
     __slots__ = [
         'service_name',
         'service_description',
+        'service_priority',
         'service_id',
         'requester',
         'pending_requests',   # [uuid.UUID] list of request id's pending feedback from the scheduler
@@ -44,7 +45,7 @@ class TurtlePond:
         ####################
         # Discovery
         ####################
-        (self.service_name, self.service_description, self.service_id) = concert_service_utilities.get_service_info()
+        (self.service_name, self.service_description, self.service_priority, self.service_id) = concert_service_utilities.get_service_info()
 
         ####################
         # Setup
@@ -53,6 +54,7 @@ class TurtlePond:
         self.pending_requests = []
         self.allocated_requests = []
         number_of_turtles = rospy.get_param("turtles", default=1)
+        rospy.sleep(10.0)
         rospy.loginfo("TurtlePond : requesting %s turtles" % number_of_turtles)
         for unused_i in range(0, number_of_turtles):
             self.request_turtles()
@@ -75,7 +77,7 @@ class TurtlePond:
         resource.id = unique_id.toMsg(unique_id.fromRandom())
         resource.rapp = 'turtle_concert/turtle_stroll'
         resource.uri = 'rocon:/'
-        resource_request_id = self.requester.new_request([resource])
+        resource_request_id = self.requester.new_request([resource], priority=self.service_priority)
         self.pending_requests.append(resource_request_id)
         self.requester.send_requests()
 
