@@ -26,18 +26,20 @@
   <run_depend>rospy</run_depend>
   <run_depend>turtlesim</run_depend>
   <run_depend>concert_master</run_depend>
+  <run_depend>concert_msgs</run_depend>
   <run_depend>concert_scheduler_requests</run_depend>
   <run_depend>gateway_msgs</run_depend>
   <run_depend>geometry_msgs</run_depend>
   <run_depend>rocon_app_manager</run_depend>
   <run_depend>rocon_apps</run_depend>
   <run_depend>rocon_bubble_icons</run_depend>
-  <run_depend>zeroconf_msgs</run_depend>
   <run_depend>concert_service_turtlesim</run_depend>
   <run_depend>concert_service_admin</run_depend>
   <run_depend>rocon_python_comms</run_depend>
   <run_depend>rocon_python_utils</run_depend>
+  <run_depend>rocon_uri</run_depend>
   <run_depend>zeroconf_avahi</run_depend> 
+  <run_depend>zeroconf_msgs</run_depend>
 
   <export>
     <rocon_app>rapps/teleop/teleop.rapp</rocon_app>

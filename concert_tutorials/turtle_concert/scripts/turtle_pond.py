@@ -20,6 +20,8 @@ import concert_service_utilities
 import concert_scheduler_requests
 import unique_id
 import scheduler_msgs.msg as scheduler_msgs
+import concert_msgs.msg as concert_msgs
+import rocon_uri
 
 ##############################################################################
 # Classes
@@ -57,7 +59,7 @@ class TurtlePond:
         rospy.sleep(10.0)
         rospy.loginfo("TurtlePond : requesting %s turtles" % number_of_turtles)
         for unused_i in range(0, number_of_turtles):
-            self.request_turtles()
+            self.request_turtle()
 
     def setup_requester(self, uuid):
         try:
@@ -69,7 +71,7 @@ class TurtlePond:
         frequency = concert_scheduler_requests.common.HEARTBEAT_HZ
         return concert_scheduler_requests.Requester(self.requester_feedback, uuid, 0, scheduler_requests_topic_name, frequency)
 
-    def request_turtles(self):
+    def request_turtle(self):
         '''
          Request a turtle.
         '''
@@ -90,12 +92,23 @@ class TurtlePond:
           @param request_set : the modified requests
           @type dic { uuid.UUID : scheduler_msgs.ResourceRequest }
         '''
+        cancelled_requests = 0
         for request_id, request in request_set.requests.iteritems():
             if request_id in self.pending_requests:
                 if request.msg.status == scheduler_msgs.Request.GRANTED:
                     self.pending_requests.remove(request_id)
                     self.allocated_requests.append(request_id)
-        # Need to add logic here for when the request gets released or preempted
+            elif request.msg.status == scheduler_msgs.Request.GRANTED:
+                completely_unallocated = True
+                for resource in request.msg.resources:
+                    if rocon_uri.parse(resource.uri).name.string != concert_msgs.Strings.SCHEDULER_UNALLOCATED_RESOURCE:
+                        completely_unallocated = False
+                if completely_unallocated:
+                    cancelled_requests += 1
+                    request.cancel()
+            # Need to add logic here for when the request gets released
+        for unused_i in range(0, cancelled_requests):
+            self.request_turtle()
 
     def cancel_all_requests(self):
         '''
