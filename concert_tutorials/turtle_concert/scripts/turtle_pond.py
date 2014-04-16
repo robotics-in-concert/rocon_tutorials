@@ -56,7 +56,6 @@ class TurtlePond:
         self.pending_requests = []
         self.allocated_requests = []
         number_of_turtles = rospy.get_param("turtles", default=1)
-        rospy.sleep(10.0)
         rospy.loginfo("TurtlePond : requesting %s turtles" % number_of_turtles)
         for unused_i in range(0, number_of_turtles):
             self.request_turtle()
