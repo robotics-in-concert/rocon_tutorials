@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="concert_conductor" type="concert_conductor_graph" name="concert_conductor_graph" required="true"/>
+</launch>
+  

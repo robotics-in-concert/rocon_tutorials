@@ -4,7 +4,9 @@
   <launch title="concert:11311" package="chatter_concert" name="concert.launch" port="11311">
     <arg name="local_machine_only" value="$(arg local_machine_only)"/>
   </launch>
-
+  <!-- 
+  <launch title="graph:11311"    package="chatter_concert" name="conductor_graph.launch" port="11311"/>
+ -->
   <launch title="dudette:11312"    package="chatter_concert" name="dudette.launch" port="11312"/>
   <launch title="dude:11313"    package="chatter_concert" name="dude.launch" port="11313"/>
   <launch title="dude:11314"    package="chatter_concert" name="dude.launch" port="11314"/>
