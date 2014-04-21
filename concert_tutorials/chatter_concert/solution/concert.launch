@@ -1,6 +1,6 @@
 <launch>
   <arg name="concert_services" default="chatter_concert/chatter.services"/>
-  <arg name="local_machine_only" default="true"/>  <!-- only invite clients if they are on the same pc -->
+  <arg name="local_machine_only" default="false"/>  <!-- only invite clients if they are on the same pc -->
 
   <include file="$(find concert_master)/launch/concert_master.launch">
     <arg name="concert_name" value="Chatter Concert"/>

@@ -6,7 +6,7 @@ name: "Chatter Concert"
 nodes:
   - id: dudes
     uri: rocon:/*/*#rocon_apps/listener
-    min: 2
+    min: 0
     max: 4
   - id: dudette
     uri: rocon:/*/dudette#rocon_apps/talker
