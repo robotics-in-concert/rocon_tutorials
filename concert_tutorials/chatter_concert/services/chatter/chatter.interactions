@@ -20,7 +20,7 @@
   remappings:
     - remap_from: chatter
       remap_to: /conversation/chatter
-- name: http://wiki.ros.org/chatter_concert
+- name: web_url(http://wiki.ros.org/chatter_concert)
   role: 'Docs'
   compatibility: rocon:/pc
   display_name: Ros Wiki - Chatter Concert

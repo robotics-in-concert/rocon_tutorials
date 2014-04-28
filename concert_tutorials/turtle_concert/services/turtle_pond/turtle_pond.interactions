@@ -2,7 +2,7 @@
 # Interactions
 ###############################################################################
 
-- name: http://wiki.ros.org/turtle_concert
+- name: web_url(http://wiki.ros.org/turtle_concert)
   role: 'Docs'
   compatibility: rocon:/pc
   display_name: Ros Wiki - Turtle Concert
