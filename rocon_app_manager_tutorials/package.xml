@@ -1,0 +1,23 @@
+<package>
+  <name>rocon_app_manager_tutorials</name>
+  <version>0.5.6</version>
+  <description>
+    Tutorials for the rocon app manager.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://ros.org/wiki/rocon_app_manager_tutorials</url>
+  <url type="repository">https://github.com/robotics-in-concert/rocon_tutorials</url>
+  <url type="bugtracker">https://github.com/robotics-in-concert/rocon_tutorials/issues</url>
+  <author>Daniel Stonier</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>rocon_apps</run_depend>
+  <run_depend>rocon_app_manager</run_depend>
+  <run_depend>rocon_interactions</run_depend>
+  <run_depend>rocon_master_info</run_depend>
+  <run_depend>rocon_qt_listener</run_depend>
+  <run_depend>rocon_remocon</run_depend>
+
+</package>
