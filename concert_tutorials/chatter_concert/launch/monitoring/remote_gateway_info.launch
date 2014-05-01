@@ -1,3 +1,4 @@
+<!-- Used sometimes inside chatter.concert -->
 <launch>
   <node pkg="rocon_gateway" type="remote_gateway_info" name="remote_gateway_info" args="--loop --loop-period=0.6" required="true"/>
 </launch>
