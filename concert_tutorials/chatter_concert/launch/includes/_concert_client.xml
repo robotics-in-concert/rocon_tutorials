@@ -6,13 +6,12 @@
   <arg name="local_machine_only" default="true"/>  <!-- only accept invites from local concerts -->
 
   <include file="$(find rocon_app_manager)/launch/concert_client.launch">
-    <arg name="robot_name" value="$(arg concert_client_name)"/>
     <arg name="concert_whitelist" value="Chatter Concert;Concert Tutorial"/>
+    <arg name="robot_name" value="$(arg concert_client_name)"/>
     <arg name="robot_type" value="pc"/>
     <arg name="rapp_package_whitelist" value="[rocon_apps]" />
-    <arg name="rapp_package_blacklist" value="[]" />
-    <arg name="gateway_watch_loop_period" value="1"/> <!-- flip faster, convenient -->
-    <arg name="local_remote_controllers_only" value="$(arg local_machine_only)"/>
+    <arg name="concert_watch_period" value="1"/>                       <!-- flip faster, convenient -->
+    <arg name="local_machine_only" value="$(arg local_machine_only)"/>
     <arg name="screen" value="true" />
   </include>
 </launch>
