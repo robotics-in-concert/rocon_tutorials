@@ -4,7 +4,7 @@
 <launch>
   <include file="$(find rocon_app_manager)/launch/standalone.launch">
     <arg name="interactions"           value="true"/>
-    <arg name="interactions_list"      value="[rocon_interactions/pairing, rocon_app_manager_tutorials/pairing]"/>
+    <arg name="interactions_list"      value="[rocon_interactions/pairing]"/>
     <arg name="rapp_package_whitelist" value="[rocon_apps]"/>
     <arg name="robot_name"             value="Cybernetic Pirate"/>
     <arg name="robot_type"             value="pc"/>
