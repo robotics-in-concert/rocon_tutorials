@@ -74,8 +74,8 @@ class TurtleTeleop:
 ##############################################################################
 
 if __name__ == '__main__':
-    
+
     rospy.init_node('turtle_teleop')
-    
+
     turtle_teleop = TurtleTeleop()
     rospy.spin()
