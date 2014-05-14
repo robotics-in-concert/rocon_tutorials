@@ -1,5 +1,5 @@
 <concert>
-  <arg name="scheduler_type" default="compatibility_tree"/> <!-- compatibility_tree, simple -->
+  <arg name="scheduler_type" default="preemptive_compatibility_tree"/> <!-- compatibility_tree, simple -->
 
   <launch title="concert:11311"   package="turtle_concert" name="concert.launch" port="11311">
     <arg name="turtle_services" value="turtle_concert/turtle2.services"/>
