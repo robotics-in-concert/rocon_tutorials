@@ -1,15 +1,20 @@
 <!-- 
    An example that loads up some pairing interactions with a standalone app manager.
+   
+   The turtle teleop pairing is a bit mucked up, we bypass the relay that gets wierdly
+   dropped in because we can't configure the args going in to the rapp yet (will be
+   able to be cleanly do this once we have rapps parsing parameters).
 -->
 <launch>
   <include file="$(find rocon_app_manager)/launch/standalone.launch">
     <arg name="interactions"           value="true"/>
-    <arg name="interactions_list"      value="[rocon_interactions/pairing]"/>
-    <arg name="rapp_package_whitelist" value="[rocon_apps]"/>
+    <arg name="interactions_list"      value="[rocon_app_manager_tutorials/pairing]"/>
+    <arg name="rapp_package_whitelist" value="[rocon_apps, turtle_concert]"/>
     <arg name="robot_name"             value="Cybernetic Pirate"/>
     <arg name="robot_type"             value="pc"/>
     <arg name="robot_icon"             value="rocon_icons/cybernetic_pirate.png"/>
     <arg name="robot_description"      value="A tutorial environment for demonstrating pairing interactions." />
   </include>
+  <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" required="true"/>
 </launch>
 

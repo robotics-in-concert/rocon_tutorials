@@ -1,15 +1,7 @@
 <!-- 
-   An example for testing teleop with a standalone app manager.
-   Just fire up rocon_teleop on the command line. Could do with pairing and interactions, but
-   this is the simplest way to test it.
+   An example for testing teleop directly (no interactions/pairing).
 -->
 <launch>
-  <include file="$(find rocon_app_manager)/launch/standalone.launch">
-    <arg name="robot_name"             value="Cybernetic Pirate"/>
-    <arg name="robot_type"             value="pc"/>
-    <arg name="robot_icon"             value="rocon_icons/cybernetic_pirate.png"/>
-    <arg name="robot_description"      value="A tutorial environment for the rocon teleop 1-1 interaction." />
-  </include>
   <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" required="true"/>
   <node pkg="turtle_concert" type="teleop.py" name="turtle_teleop" required="true">
     <param name="simulation_namespace" value="/turtle1"/>

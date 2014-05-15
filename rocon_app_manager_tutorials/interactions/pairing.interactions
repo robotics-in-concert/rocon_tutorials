@@ -1,0 +1,48 @@
+###############################################################################
+# Pairing - to run/test these interactions see rocon_app_manager_tutorials
+###############################################################################
+
+# A true interaction pair
+- name: rocon_qt_listener/qt_listener.py
+  role: Pairing
+  compatibility: rocon:/pc/*/hydro|indigo/precise|quantal|raring|saucy|trusty
+  display_name: Qt Listener
+  description: A pyqt listener for testing pairing.
+  max: -1
+  remappings:
+    - remap_from: chatter
+      remap_to: /conversation/chatter
+  pairing:
+    rapp: rocon_apps/talker
+    remappings:
+      - remap_from: chatter
+        remap_to: /conversation/chatter
+
+# An interaction which is only triggered by the remocon side.
+- name: 
+  role: Pairing
+  compatibility: rocon:/pc/*/hydro|indigo/precise|quantal|raring|saucy|trusty
+  display_name: Chirp
+  description: A very strange moo sound.....
+  max: -1
+  pairing:
+    rapp: rocon_apps/chirp
+
+# Teleop testing
+- name: rocon_teleop 
+  role: Pairing
+  compatibility: rocon:/pc/*/hydro|indigo/precise|quantal|raring|saucy|trusty
+  display_name: Teleop
+  description: A very strange moo sound.....
+  max: -1
+  parameters:
+    maximum_linear_velocity: 1.0
+    maximum_angular_velocity: 0.78
+  remappings:
+    - remap_from: cmd_vel
+      remap_to: /turtle1/cmd_vel
+    - remap_from: compressed_image
+      remap_to: /cybernetic_pirate/compressed_image
+  pairing:
+    rapp: rocon_apps/teleop
+    
