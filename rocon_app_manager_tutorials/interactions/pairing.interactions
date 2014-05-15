@@ -32,8 +32,8 @@
 - name: rocon_teleop 
   role: Pairing
   compatibility: rocon:/pc/*/hydro|indigo/precise|quantal|raring|saucy|trusty
-  display_name: Teleop
-  description: A very strange moo sound.....
+  display_name: Qt Teleop
+  description: Teleop'ing turtles via an rqt plugin.
   max: -1
   parameters:
     maximum_linear_velocity: 1.0
@@ -45,4 +45,22 @@
       remap_to: /cybernetic_pirate/compressed_image
   pairing:
     rapp: rocon_apps/teleop
-    
+
+# Teleop android testing
+- name: com.github.rosjava.android_apps.teleop.MainActivity 
+  role: Pairing
+  compatibility: rocon:/*/*/hydro|indigo/honeycomb|ice_cream_sandwich|jellybean
+  display_name: Android Teleop
+  description: Teleop'ing turtles via an android app.
+  max: -1
+  parameters:
+    maximum_linear_velocity: 3.0
+    maximum_angular_velocity: 1.57
+  remappings:
+    - remap_from: cmd_vel
+      remap_to: /turtle1/cmd_vel
+    - remap_from: compressed_image
+      remap_to: /cybernetic_pirate/compressed_image
+  pairing:
+    rapp: rocon_apps/teleop
+ 
