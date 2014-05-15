@@ -48,8 +48,8 @@ class TurtleTeleop:
             rospy.logerr("Turtle Teleop : failed to get the turtle name from the parameter server.")
         # Set up a simple relay here to the underlying cmd vel handle to the turtlesim engine.
         self.cmd_vel_subscriber = rospy.Subscriber("cmd_vel", geometry_msgs.Twist, self.ros_cmd_vel_callback)
-        self.cmd_vel_publisher = rospy.Publisher(self.simulation_namespace + '/cmd_vel', geometry_msgs.Twist)
-        self.image_publisher = rospy.Publisher('compressed_image', sensor_msgs.CompressedImage, latch=True)
+        self.cmd_vel_publisher = rospy.Publisher(self.simulation_namespace + '/cmd_vel', geometry_msgs.Twist, queue_size=5)
+        self.image_publisher = rospy.Publisher('compressed_image', sensor_msgs.CompressedImage, latch=True, queue_size=1)
         self.publish_teleop_image()
 
     def ros_cmd_vel_callback(self, msg):
