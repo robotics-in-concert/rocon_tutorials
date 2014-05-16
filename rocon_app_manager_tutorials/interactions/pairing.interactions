@@ -21,7 +21,7 @@
 # An interaction which is only triggered by the remocon side.
 - name: 
   role: Pairing
-  compatibility: rocon:/pc/*/hydro|indigo/precise|quantal|raring|saucy|trusty
+  compatibility: rocon:/
   display_name: Chirp
   description: A very strange moo sound.....
   max: -1
@@ -63,4 +63,21 @@
       remap_to: /cybernetic_pirate/compressed_image
   pairing:
     rapp: rocon_apps/teleop
+ 
+# Teleop android testing
+- name: com.github.rosjava.android_remocons.listener.Listener 
+  role: Pairing
+  compatibility: rocon:/*/*/hydro|indigo/honeycomb|ice_cream_sandwich|jellybean
+  display_name: Android Listener
+  description: An android listener for testing pairing.
+  max: -1
+  remappings:
+    - remap_from: chatter
+      remap_to: /conversation/chatter
+  pairing:
+    rapp: rocon_apps/talker
+    remappings:
+      - remap_from: chatter
+        remap_to: /conversation/chatter
+ 
  
