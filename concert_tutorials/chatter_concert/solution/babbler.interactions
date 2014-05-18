@@ -8,16 +8,16 @@
 ###############################################################################
 
 - name: chatter_concert/remocon_dude
-  role: 'Chatter'
+  role: 'Babbler'
   compatibility: rocon:/pc/*/hydro|indigo/*
-  display_name: Dude
+  display_name: Qt Listener
   description: For human dudes who have to listen to nagging dudettes.
   max: -1
   remappings:
     - remap_from: chatter
       remap_to: /conversation/babbler
 - name: com.github.rosjava.android_apps.listener.Listener
-  role: 'Chatter'
+  role: 'Babbler'
   compatibility: rocon:/*/*/hydro/jellybean|ice_cream_sandwich|kitkat
   display_name: Android Listener
   description: Android listener 
@@ -32,3 +32,12 @@
   description: A ros chatter style introduction to the concert.
   icon:
     resource_name: rocon_bubble_icons/ros.png
+- name: chatter_concert/listener.launch
+  role: 'Babbler'
+  compatibility: rocon:/pc/*/hydro|indigo/precise|quantal|raring|saucy|trusty
+  display_name: Roslaunch Listener
+  description: Another human dude listening to dudette, this time via roslaunch.
+  max: -1
+  parameters:
+    topic: /conversation/babbler
+    

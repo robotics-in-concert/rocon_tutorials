@@ -33,5 +33,5 @@
   display_name: Roslaunch Listener
   description: Another human dude listening to dudette, this time via roslaunch.
   max: -1
-#  args:
-#    topic: /conversation/chatter
+  parameters:
+    topic: /conversation/chatter
