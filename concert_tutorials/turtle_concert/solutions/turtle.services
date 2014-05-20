@@ -7,6 +7,8 @@
 #    priority: 1000
 
 - resource_name: concert_service_turtlesim/turtlesim
+  overrides:
+    parameters: turtle_concert/turtlesim
 - resource_name: turtle_concert/turtle_pond
 - resource_name: concert_service_admin/admin
 - resource_name: concert_service_teleop/teleop
