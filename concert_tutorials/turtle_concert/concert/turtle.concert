@@ -1,5 +1,5 @@
 <concert>
-  <arg name="scheduler_type" default="compatibility_tree"/> <!-- compatibility_tree, simple -->
+  <arg name="scheduler_type" default="preemptive_compatibility_tree"/> <!-- compatibility_tree, simple -->
   <arg name="local_machine_only" default="true"/>  <!-- only invite clients if they are on the same pc -->
 
   <launch title="concert:11311"   package="turtle_concert" name="concert.launch" port="11311">
@@ -7,15 +7,5 @@
     <arg name="concert_name" value="Turtle Concert"/>
     <arg name="scheduler_type" value="$(arg scheduler_type)"/>
     <arg name="local_machine_only" value="$(arg local_machine_only)"/>
-  </launch>
-  <launch title="kobuki:11312"    package="concert_service_turtlesim" name="turtle.launch" port="11312">
-    <arg name="turtle_name" value="kobuki" />
-    <arg name="turtle_concert_whitelist" value="Turtle Concert;Turtle Teleop Concert;Concert Tutorial"/>
-    <arg name="turtle_rapp_whitelist" value="[rocon_apps, turtle_concert]"/>
-  </launch>
-  <launch title="guimul:11313"    package="concert_service_turtlesim" name="turtle.launch" port="11313">
-    <arg name="turtle_name" value="guimul" />
-    <arg name="turtle_concert_whitelist" value="Turtle Concert;Turtle Teleop Concert;Concert Tutorial"/>
-    <arg name="turtle_rapp_whitelist" value="[rocon_apps, turtle_concert]"/>
   </launch>
 </concert>
