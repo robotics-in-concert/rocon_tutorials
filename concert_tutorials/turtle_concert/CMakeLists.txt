@@ -16,7 +16,7 @@ find_package(catkin REQUIRED
            geometry_msgs
            turtlesim
        )
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(SYSTEM ${catkin_INCLUDE_DIRS})
 
 catkin_package(
        CATKIN_DEPENDS
