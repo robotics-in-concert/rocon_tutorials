@@ -11,7 +11,7 @@ project(rocon_gateway_tutorials)
 
 find_package(catkin REQUIRED)
 
-catkin_python_setup()
+#catkin_python_setup()
 catkin_package()
 
 ##############################################################################
