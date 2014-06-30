@@ -21,6 +21,7 @@ import concert_scheduler_requests
 import unique_id
 import scheduler_msgs.msg as scheduler_msgs
 import concert_msgs.msg as concert_msgs
+import rocon_std_msgs.msg as rocon_std_msgs
 import rocon_uri
 
 ##############################################################################
@@ -55,10 +56,15 @@ class TurtlePond:
         self.requester = self.setup_requester(self.service_id)
         self.pending_requests = []
         self.allocated_requests = []
-        number_of_turtles = rospy.get_param("turtles", default=1)
-        rospy.loginfo("TurtlePond : requesting %s turtles" % number_of_turtles)
-        for unused_i in range(0, number_of_turtles):
-            self.request_turtle()
+
+        turtles = rospy.get_param("turtles", default=[{'x_vel':1.0,'z_vel':0.4,'square_scale':1.0}])
+
+        rospy.loginfo("TurtlePond : requesting %s turtles" % len(turtles))
+        for turtle in turtles:
+            x_vel = turtle['x_vel']
+            z_vel = turtle['z_vel']
+            scale = turtle['square_scale']
+            self.request_turtle(x_vel, z_vel, scale)
 
     def setup_requester(self, uuid):
         try:
@@ -70,7 +76,7 @@ class TurtlePond:
         frequency = concert_scheduler_requests.common.HEARTBEAT_HZ
         return concert_scheduler_requests.Requester(self.requester_feedback, uuid, 0, scheduler_requests_topic_name, frequency)
 
-    def request_turtle(self):
+    def request_turtle(self, x_vel, z_vel, scale):
         '''
          Request a turtle.
         '''
@@ -79,8 +85,12 @@ class TurtlePond:
         resource.rapp = 'turtle_concert/turtle_stroll'
         resource.uri = 'rocon:/'
         resource_request_id = self.requester.new_request([resource], priority=self.service_priority)
+        resource.parameters = [rocon_std_msgs.KeyValue('turtle_x_vel', str(x_vel)), rocon_std_msgs.KeyValue('turtle_z_vel', str(z_vel)), rocon_std_msgs.KeyValue('square_scale', str(scale))]
+
         self.pending_requests.append(resource_request_id)
         self.requester.send_requests()
+
+
 
     def requester_feedback(self, request_set):
         '''
@@ -125,6 +135,7 @@ class TurtlePond:
 if __name__ == '__main__':
 
     rospy.init_node('turtle_pond')
+
     turtle_pond = TurtlePond()
     rospy.spin()
     if not rospy.is_shutdown():

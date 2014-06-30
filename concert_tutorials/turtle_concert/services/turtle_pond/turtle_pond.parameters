@@ -1,2 +1,8 @@
 # Number of turtles to capture
-turtles: 2
+turtles: 
+  - x_vel: 3.0
+    z_vel: 1.0
+    square_scale: 1.5 
+  - x_vel: 1.0
+    z_vel: 0.4
+    square_scale: 0.7
