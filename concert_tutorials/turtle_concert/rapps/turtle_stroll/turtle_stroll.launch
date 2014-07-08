@@ -1,6 +1,14 @@
 <launch>
   <arg name="gateway_name" default="unknown"/>  <!-- gets set by the app manager calling this rapp -->
+
+  <!-- Rapp Parameters :  gets set by rapp parameter configuration -->
+  <arg name="turtle_x_vel" default="1.0"/> 
+  <arg name="turtle_z_vel" default="0.4"/> 
+  <arg name="square_scale" default="1.0"/> 
   <node pkg="turtle_concert" type="turtle_stroll" name="turtle_stroll" required="true">
     <param name="simulation_namespace" value="/services/turtlesim/$(arg gateway_name)"/>
+    <param name="turtle_x_vel" value="$(arg turtle_x_vel)"/>
+    <param name="turtle_z_vel" value="$(arg turtle_z_vel)"/>
+    <param name="square_scale" value="$(arg square_scale)"/>
   </node>
 </launch>

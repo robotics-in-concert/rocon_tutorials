@@ -10,6 +10,9 @@
 
 turtlesim::PoseConstPtr g_pose;
 turtlesim::Pose g_goal;
+double x_vel = 1.0;
+double z_vel = 0.4;
+double square_scale = 1.0;
 
 enum State
 {
@@ -77,8 +80,8 @@ void stopTurn(ros::Publisher twist_pub)
   {
     ROS_INFO("Reached goal");
     g_state = FORWARD;
-    g_goal.x = cos(g_pose->theta) * 2 + g_pose->x;
-    g_goal.y = sin(g_pose->theta) * 2 + g_pose->y;
+    g_goal.x = cos(g_pose->theta) * 2 * square_scale + g_pose->x;
+    g_goal.y = sin(g_pose->theta) * 2 * square_scale + g_pose->y;
     g_goal.theta = g_pose->theta;
     printGoal();
   }
@@ -98,7 +101,7 @@ void forward(ros::Publisher twist_pub)
   }
   else
   {
-    commandTurtle(twist_pub, 1.0, 0.0);
+    commandTurtle(twist_pub, x_vel, 0.0);
   }
 }
 
@@ -111,7 +114,7 @@ void turn(ros::Publisher twist_pub)
   }
   else
   {
-    commandTurtle(twist_pub, 0.0, 0.4);
+    commandTurtle(twist_pub, 0.0, z_vel);
   }
 }
 
@@ -126,8 +129,8 @@ void timerCallback(const ros::TimerEvent&, ros::Publisher twist_pub)
   {
     g_first_goal_set = true;
     g_state = FORWARD;
-    g_goal.x = cos(g_pose->theta) * 2 + g_pose->x;
-    g_goal.y = sin(g_pose->theta) * 2 + g_pose->y;
+    g_goal.x = cos(g_pose->theta) * 2 * square_scale + g_pose->x;
+    g_goal.y = sin(g_pose->theta) * 2 * square_scale + g_pose->y;
     g_goal.theta = g_pose->theta;
     printGoal();
   }
@@ -158,6 +161,16 @@ int main(int argc, char** argv)
   if ( !pnh.getParam("simulation_namespace", simulation_namespace) ) {
     ROS_WARN_STREAM("TurtleStroll: simulation_namespace parameter not set.");
   }
+  if ( !pnh.getParam("turtle_x_vel", x_vel) ) {
+    ROS_WARN_STREAM("TurtleStroll: turtle_x_vel parameter not set.");
+  }
+  if ( !pnh.getParam("turtle_z_vel", z_vel) ) {
+    ROS_WARN_STREAM("TurtleStroll: turtle_z_vel parameter not set.");
+  }
+  if ( !pnh.getParam("square_scale", square_scale) ) {
+    ROS_WARN_STREAM("TurtleStroll: square_size parameter not set.");
+  }
+
   ros::NodeHandle snh(simulation_namespace);
   ros::Subscriber pose_sub = snh.subscribe("pose", 1, poseCallback);
   ros::Publisher twist_pub = snh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
