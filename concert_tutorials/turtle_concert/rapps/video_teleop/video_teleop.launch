@@ -2,5 +2,7 @@
   <arg name="gateway_name" default="unknown"/>  <!-- gets set by the app manager calling this rapp -->
   <node pkg="turtle_concert" type="teleop.py" name="turtle_teleop" required="true">
     <param name="simulation_namespace" value="/services/turtlesim/$(arg gateway_name)"/>
+    <remap from="cmd_vel" to="/teleop/cmd_vel"/>
+    <remap from="compressed_image" to="/teleop/compressed_image"/>
   </node>
 </launch>
