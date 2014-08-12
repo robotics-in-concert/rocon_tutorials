@@ -1,6 +1,6 @@
 display: Turtle Teleop
 description: Take a turtlesim turtle for a teleop.
 compatibility: rocon:/pc
-launch: turtle_concert/video_teleop.launch
-icon: rocon_bubble_icons/turtle_teleop.png
+launch: video_teleop.launch
+icon: turtle_teleop.png
 parent_name: rocon_apps/video_teleop
