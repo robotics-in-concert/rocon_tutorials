@@ -2,8 +2,8 @@
 Changelog for package rocon_gateway_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.0 (2014-08-26)
+------------------
 * remove erroneous and unused python setup rules.
 * rocon_gateway_tutorials file setup.py found but no catkin_python_setup() call
 * use proper lists for hubs/concerts now roslaunch can handle it.

@@ -2,8 +2,8 @@
 Changelog for package chatter_concert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.0 (2014-08-26)
+------------------
 * introducing parameters for link graph
 * use proper lists for hubs/concerts now roslaunch can handle it.
 * a roslaunch interaction for show and tell

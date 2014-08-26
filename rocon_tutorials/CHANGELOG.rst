@@ -2,8 +2,8 @@
 Changelog for package rocon_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.0 (2014-08-26)
+------------------
 * rapp manager tutorial package started.
 * transferred concert_solution from rocon_concert to concert_tutorial
 * Contributors: Daniel Stonier
