@@ -2,6 +2,9 @@
 Changelog for package rocon_gateway_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.6.0 (2014-08-26)
 ------------------
 * remove erroneous and unused python setup rules.

@@ -2,6 +2,9 @@
 Changelog for package concert_tutorial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.6.0 (2014-08-26)
 ------------------
 * use proper lists for hubs/concerts now roslaunch can handle it.

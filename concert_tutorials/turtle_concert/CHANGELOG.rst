@@ -2,6 +2,9 @@
 Changelog for package turtle_concert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.6.0 (2014-08-26)
 ------------------
 * relative path rapps

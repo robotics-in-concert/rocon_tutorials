@@ -2,6 +2,11 @@
 Changelog for package rocon_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* remove unnecessary run_depend
+* Contributors: Jihoon Lee
+
 0.6.0 (2014-08-26)
 ------------------
 * rapp manager tutorial package started.
