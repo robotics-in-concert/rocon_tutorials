@@ -2,8 +2,8 @@
 Changelog for package rocon_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.1 (2014-08-26)
+------------------
 * remove unnecessary run_depend
 * Contributors: Jihoon Lee
 
