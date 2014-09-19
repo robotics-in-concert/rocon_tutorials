@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package>
+  <name>gazebo_concert</name>
+  <version>0.0.0</version>
+  <description>
+    A simple software concert describing how multiple robots launched in
+    simulation can be used by the concert framework. This package follows the
+    same pattern as turtle_concert. It is multi typed gazebo robot version of turtle_concert. 
+    Adopted a lot from segbot_gazebo_concert by Piyush Khandelwal 
+  </description>
+
+  <maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
+  <license>BSD</license>
+
+  <!-- <url type="website">http://wiki.ros.org/turtlebot_gazebo_concert</url> -->
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>concert_master</run_depend>
+  <run_depend>concert_msgs</run_depend>
+  <run_depend>concert_scheduler_requests</run_depend>
+  <run_depend>concert_service_admin</run_depend>
+  <run_depend>concert_service_gazebo</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>rocon_app_manager</run_depend>
+  <run_depend>rocon_apps</run_depend>
+  <run_depend>rocon_bubble_icons</run_depend>
+  <run_depend>rocon_python_comms</run_depend>
+  <run_depend>rocon_python_utils</run_depend>
+  <run_depend>rocon_uri</run_depend>
+  <run_depend>rospy</run_depend>
+  
+  <export>
+  </export>
+
+</package>
