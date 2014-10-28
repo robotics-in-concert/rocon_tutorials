@@ -9,3 +9,4 @@
 - resource_name: concert_service_gazebo/gazebo_robot_world
 - resource_name: concert_service_admin/admin
 - resource_name: concert_service_teleop/teleop
+- resource_name: concert_service_initialisation/initialisation
