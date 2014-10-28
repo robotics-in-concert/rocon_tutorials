@@ -5,7 +5,7 @@ find_package(catkin REQUIRED)
 
 catkin_package()
 
-foreach(dir concert rapps services solutions)
+foreach(dir solutions)
   install(DIRECTORY ${dir}
     DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 endforeach()
