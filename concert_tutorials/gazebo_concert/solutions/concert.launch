@@ -14,10 +14,4 @@
       <arg name="auto_enable_services" value="all" />
       <arg name="scheduler_type" value="$(arg scheduler_type)"/>
   </include>
-  <group ns="software">
-    <node ns="world_canvas" pkg="world_canvas_server" type="annotations_server.py" name="world_canvas_server" output="screen">
-    </node>
-  </group>
-
-
 </launch>
