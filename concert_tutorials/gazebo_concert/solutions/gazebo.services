@@ -7,6 +7,8 @@
 #    priority: 1000
 
 - resource_name: concert_service_gazebo/gazebo_robot_world
+  overrides:
+    parameters: gazebo_concert/gazebo.parameters
 - resource_name: concert_service_admin/admin
 - resource_name: concert_service_teleop/teleop
 - resource_name: concert_service_initialisation/initialisation
