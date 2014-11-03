@@ -1,0 +1,11 @@
+robots:
+  - name: guimul
+    type: kobuki 
+    robot_rapp_whitelist: [rocon_apps, kobuki_rapps]
+    location: [0.0, 0.0, 0.0]
+  - name: gamza
+    type: turtlebot
+    robot_rapp_whitelist: [rocon_apps, turtlebot_rapps]
+    location: [0.0, 0.0, 0.0]
+
+world_file: concert_service_gazebo/playground.world
