@@ -27,7 +27,7 @@
       remap_to: /conversation/babbler
 - name: http://wiki.ros.org/chatter_concert
   role: 'Docs'
-  compatibility: rocon:/pc
+  compatibility: rocon:/*/*/*/chrome|firefox|safari|opera|internet_explorer
   display_name: Ros Wiki - Chatter Concert
   description: A ros chatter style introduction to the concert.
   icon:
@@ -40,4 +40,3 @@
   max: -1
   parameters:
     topic: /conversation/babbler
-    
