@@ -19,6 +19,7 @@
   <run_depend>rocon_gateway_tutorials</run_depend>
   <run_depend>turtle_concert</run_depend>
   <run_depend>chatter_concert</run_depend>
+  <run_depend>gazebo_concert</run_depend>
 
   <export>
     <metapackage/>

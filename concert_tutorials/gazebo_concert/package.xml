@@ -12,7 +12,9 @@
   <maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
   <license>BSD</license>
 
-  <!-- <url type="website">http://wiki.ros.org/turtlebot_gazebo_concert</url> -->
+  <url type="website">http://wiki.ros.org/gazebo_concert</url> 
+  <url type="repository">https://github.com/robotics-in-concert/rocon_tutorials</url> 
+  <url type="bugtracker">https://github.com/robotics-in-concert/rocon_tutorials/issues</url> 
 
   <buildtool_depend>catkin</buildtool_depend>
   <run_depend>concert_master</run_depend>
