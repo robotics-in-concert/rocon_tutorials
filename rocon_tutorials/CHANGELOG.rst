@@ -2,8 +2,8 @@
 Changelog for package rocon_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.2 (2014-11-29)
+------------------
 * update package.xml
 * Contributors: Jihoon Lee
 

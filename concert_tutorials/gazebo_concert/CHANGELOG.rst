@@ -2,8 +2,8 @@
 Changelog for package gazebo_concert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.6.2 (2014-11-29)
+------------------
 * update gazebo_concert package version
 * update package.xml
 * local client is now argument
