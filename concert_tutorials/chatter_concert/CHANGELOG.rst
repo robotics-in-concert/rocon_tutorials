@@ -2,6 +2,13 @@
 Changelog for package chatter_concert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* updating compatibility of webapps and weburls closes `#50 <https://github.com/robotics-in-concert/rocon_tutorials/issues/50>`_
+* [chatter_concert] unit test esoteric names.
+* auto_enable_services now use all instead of bool
+* Contributors: Daniel Stonier, Jihoon Lee
+
 0.6.1 (2014-08-26)
 ------------------
 

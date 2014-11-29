@@ -1,23 +1,38 @@
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package rocon_app_manager_tutorials
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Changelog for package gazebo_concert
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Forthcoming
 -----------
+* update gazebo_concert package version
+* update package.xml
+* local client is now argument
+* remove initialisation service
+* add kobuki
+* add prameters for gazebo
+* fix install rule
+* add world_canvas
+* gazebo concert ready
+* add gazebo_concert init
+* Contributors: Jihoon Lee
+
+* update gazebo_concert package version
+* update package.xml
+* local client is now argument
+* remove initialisation service
+* add kobuki
+* add prameters for gazebo
+* fix install rule
+* add world_canvas
+* gazebo concert ready
+* add gazebo_concert init
+* Contributors: Jihoon Lee
 
 0.6.1 (2014-08-26 10:19)
 ------------------------
 
 0.6.0 (2014-08-26 09:53)
 ------------------------
-* update pairing interactions and chatter interactions for testing.
-* android pairing interaction tutorial for teleop.
-* update paring to be able to test teleop.
-* remove accidentally inserted interactions file in the pairing tutorial.
-* rocon_qt_teleop tutorial for the rocon app manager.
-* update concert client launchers for chatter and pairing tutorials.
-* rapp manager tutorial package started.
-* Contributors: Daniel Stonier, DongWook Lee
 
 0.5.6 (2013-08-30)
 ------------------

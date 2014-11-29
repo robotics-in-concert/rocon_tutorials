@@ -2,6 +2,12 @@
 Changelog for package turtle_concert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* updating compatibility of webapps and weburls closes `#50 <https://github.com/robotics-in-concert/rocon_tutorials/issues/50>`_
+* auto_enable_services now use all instead of bool
+* Contributors: Jihoon Lee
+
 0.6.1 (2014-08-26)
 ------------------
 
