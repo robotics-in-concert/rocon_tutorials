@@ -2,6 +2,9 @@
 Changelog for package rocon_gateway_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.6.2 (2014-11-29)
 ------------------
 
