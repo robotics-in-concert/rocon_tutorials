@@ -2,7 +2,7 @@ robots:
   - name: guimul
     type: kobuki 
     robot_rapp_whitelist: [rocon_apps, kobuki_rapps]
-    location: [0.0, 0.0, 0.0]
+    location: [0.0, 0.1, 0.0]
   - name: gamza
     type: turtlebot
     robot_rapp_whitelist: [rocon_apps, turtlebot_rapps]
