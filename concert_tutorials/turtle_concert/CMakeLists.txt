@@ -45,6 +45,7 @@ target_link_libraries(turtle_stroll ${catkin_LIBRARIES})
 install(
     PROGRAMS 
         scripts/teleop.py
+        scripts/turtle_pond.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
     )
 
