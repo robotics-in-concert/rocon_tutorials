@@ -2,6 +2,9 @@
 Changelog for package gazebo_concert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.6.3 (2015-01-05)
 ------------------
 * robots were spawning on same xyz closes `#51 <https://github.com/robotics-in-concert/rocon_tutorials/issues/51>`_

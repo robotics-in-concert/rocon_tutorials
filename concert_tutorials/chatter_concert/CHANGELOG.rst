@@ -2,6 +2,9 @@
 Changelog for package chatter_concert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.6.3 (2015-01-05)
 ------------------
 
