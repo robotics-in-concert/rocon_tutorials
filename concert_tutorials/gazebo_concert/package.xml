@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>gazebo_concert</name>
-  <version>0.6.3</version>
+  <version>0.6.4</version>
   <description>
     A simple software concert describing how multiple robots launched in
     simulation can be used by the concert framework. This package follows the

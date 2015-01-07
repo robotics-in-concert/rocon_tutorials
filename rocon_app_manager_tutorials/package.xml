@@ -1,6 +1,6 @@
 <package>
   <name>rocon_app_manager_tutorials</name>
-  <version>0.6.3</version>
+  <version>0.6.4</version>
   <description>
     Tutorials for the rocon app manager.
   </description>
