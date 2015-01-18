@@ -1,4 +1,12 @@
 # The basic chatter concert with default service configuration.
 
 - resource_name: chatter_concert/chatter
+  overrides:
+    name: hi
+    parameters: chatter_concert/hi
+- resource_name: chatter_concert/chatter
+  overrides:
+    name: hello
+    parameters: chatter_concert/hello
+- resource_name: chatter_concert/chatter
 - resource_name: concert_service_admin/admin

@@ -11,7 +11,7 @@
       <arg name="services" value="$(arg gazebo_services)"/>
       <arg name="conductor_auto_invite" value="true" />
       <arg name="conductor_local_clients_only" value="$(arg local_clients_only)" />
-      <arg name="auto_enable_services" value="all" />
+      <arg name="default_auto_enable_services" value="all" />
       <arg name="scheduler_type" value="$(arg scheduler_type)"/>
   </include>
 </launch>
