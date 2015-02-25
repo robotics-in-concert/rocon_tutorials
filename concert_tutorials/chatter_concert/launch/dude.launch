@@ -1,8 +1,10 @@
 <launch>
     <arg name="local_machine_only" default="true"/>  <!-- only accept invites from local concerts -->
+    <arg name="disable_zeroconf"  default="false"/>
 
     <include file="$(find chatter_concert)/launch/includes/_concert_client.xml">
         <arg name="concert_client_name" value="Bodacious Dude" />
         <arg name="local_machine_only" value="$(arg local_machine_only)"/>
+        <arg name="disable_zeroconf" value="$(arg disable_zeroconf)"/>
     </include>
 </launch>
