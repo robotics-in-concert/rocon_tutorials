@@ -76,7 +76,7 @@ class TurtlePond:
         frequency = concert_scheduler_requests.common.HEARTBEAT_HZ
         return concert_scheduler_requests.Requester(self.requester_feedback, uuid, 0, scheduler_requests_topic_name, frequency)
 
-    def request_turtle(self, x_vel, z_vel, scale):
+    def request_turtle(self, x_vel=0.1, z_vel=0.1, scale=1.0):
         '''
          Request a turtle.
         '''
