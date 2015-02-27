@@ -2,6 +2,11 @@
 Changelog for package turtle_concert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* default values for request turtle closes `#58 <https://github.com/robotics-in-concert/rocon_tutorials/issues/58>`_
+* Contributors: Jihoon Lee
+
 0.6.5 (2015-02-09)
 ------------------
 * change name of auto enable service argument

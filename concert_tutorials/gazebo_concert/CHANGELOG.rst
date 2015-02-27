@@ -2,6 +2,9 @@
 Changelog for package gazebo_concert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.6.5 (2015-02-09)
 ------------------
 * change name of auto enable service argument
