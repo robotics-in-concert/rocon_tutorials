@@ -1,12 +1,20 @@
 <concert>
   <arg name="local_machine_only" default="true"/>  <!-- only invite clients if they are on the same pc -->
+  <arg name="disable_zeroconf" default="false"/>
 
   <launch title="concert:11311" package="chatter_concert" name="concert.launch" port="11311">
     <arg name="local_machine_only" value="$(arg local_machine_only)"/>
+    <arg name="disable_zeroconf" value="$(arg disable_zeroconf)"/>
   </launch>
-  <launch title="dudette:11312"    package="chatter_concert" name="dudette.launch" port="11312"/>
-  <launch title="dude:11313"    package="chatter_concert" name="dude.launch" port="11313"/>
-  <launch title="dude:11314"    package="chatter_concert" name="dude.launch" port="11314"/>
+  <launch title="dudette:11312"    package="chatter_concert" name="dudette.launch" port="11312">
+    <arg name="disable_zeroconf" value="$(arg disable_zeroconf)"/>
+  </launch>
+  <launch title="dude:11313"    package="chatter_concert" name="dude.launch" port="11313">
+    <arg name="disable_zeroconf" value="$(arg disable_zeroconf)"/>
+  </launch>
+  <launch title="dude:11314"    package="chatter_concert" name="dude.launch" port="11314">
+    <arg name="disable_zeroconf" value="$(arg disable_zeroconf)"/>
+  </launch>
 
   <!-- Accessories to Murder (uncomment for some useful debugging shells) -->
   <!--  
