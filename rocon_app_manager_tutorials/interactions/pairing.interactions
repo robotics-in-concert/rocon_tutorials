@@ -44,7 +44,7 @@
     - remap_from: compressed_image
       remap_to: /cybernetic_pirate/compressed_image
   pairing:
-    rapp: rocon_apps/teleop
+    rapp: rocon_apps/video_teleop
 
 # Teleop android testing
 - name: com.github.rosjava.android_apps.teleop.MainActivity 
@@ -62,7 +62,7 @@
     - remap_from: compressed_image
       remap_to: /cybernetic_pirate/compressed_image
   pairing:
-    rapp: rocon_apps/teleop
+    rapp: rocon_apps/video_teleop
  
 # Teleop android testing
 - name: com.github.rosjava.android_remocons.listener.Listener 
