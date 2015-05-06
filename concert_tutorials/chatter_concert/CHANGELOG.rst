@@ -2,6 +2,9 @@
 Changelog for package chatter_concert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.6.6 (2015-02-27)
 ------------------
 * disable zeroconf option

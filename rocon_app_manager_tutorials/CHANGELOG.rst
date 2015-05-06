@@ -2,6 +2,12 @@
 Changelog for package rocon_app_manager_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add web interaction tutorial closes `#63 <https://github.com/robotics-in-concert/rocon_tutorials/issues/63>`_
+* update interactions. add interactions dir in cmake rule closes `#62 <https://github.com/robotics-in-concert/rocon_tutorials/issues/62>`_
+* Contributors: Jihoon Lee
+
 0.6.6 (2015-02-27)
 ------------------
 
