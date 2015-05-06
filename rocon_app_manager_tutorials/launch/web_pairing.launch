@@ -6,15 +6,27 @@
    able to be cleanly do this once we have rapps parsing parameters).
 -->
 <launch>
+  <arg name="rosbridge_address" default="localhost"/>
+  <arg name="rosbridge_port"    default="9090"/>
+  <arg name="webserver_address" default="webapp.robotconcert.org"/>
+
   <include file="$(find rocon_app_manager)/launch/standalone.launch">
     <arg name="interactions"           value="true"/>
-    <arg name="interactions_list"      value="[rocon_app_manager_tutorials/pairing]"/>
+    <arg name="interactions_list"      value="[rocon_app_manager_tutorials/pairing, rocon_app_manager_tutorials/web]"/>
     <arg name="rapp_package_whitelist" value="[rocon_apps, turtle_concert]"/>
     <arg name="robot_name"             value="Cybernetic Pirate"/>
     <arg name="robot_type"             value="pc"/>
     <arg name="robot_icon"             value="rocon_icons/cybernetic_pirate.png"/>
     <arg name="robot_description"      value="A tutorial environment for demonstrating pairing interactions." />
     <arg name="zeroconf"               value="true"/>
+
+    <arg name="rosbridge_address"      value="$(arg rosbridge_address)"/>
+    <arg name="rosbridge_port"         value="$(arg rosbridge_port)"/>
+    <arg name="webserver_address"      value="$(arg webserver_address)"/>
   </include>
-  <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" required="true"/>
+
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+    <arg name="address"     value="$(arg rosbridge_address)"/>
+    <arg name="port"        value="$(arg rosbridge_port)"/>
+  </include>
 </launch>

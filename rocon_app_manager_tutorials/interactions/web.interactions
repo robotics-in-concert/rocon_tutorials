@@ -1,0 +1,30 @@
+###############################################################################
+# Web Pairing - to run/test these interactions see rocon_app_manager_tutorials
+###############################################################################
+
+- name: web_url(http://wiki.ros.org/rocon_interactions)
+  role: 'Web URLs'
+  compatibility: rocon:/*/*/*/chrome|firefox|safari|opera|internet_explorer
+  display_name: Ros Wiki - Interactions
+  description: Documentation for rocon_interactions on the ros wiki
+  icon:
+    resource_name: rocon_bubble_icons/ros.png
+
+- name: web_app(http://webapp.robotconcert.org/rocon_web_common/example/listener.html)
+  role: 'Web Apps'
+  compatibility: rocon:/*/*/hydro|indigo/chrome|firefox
+  display_name: Listener
+  description: Simple listener using rosjs in a web app.
+  icon:
+    resource_name: rocon_bubble_icons/rocon.png
+  parameters: 
+    rosbridge_address: __ROSBRIDGE_ADDRESS__
+    rosbridge_port: __ROSBRIDGE_PORT__
+  remappings:
+    - remap_from: /chatter
+      remap_to: /babbler
+  pairing:
+    rapp: rocon_apps/talker
+    remappings:
+      - remap_from: chatter
+        remap_to: /babbler

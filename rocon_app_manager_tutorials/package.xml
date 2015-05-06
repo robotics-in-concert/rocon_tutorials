@@ -5,6 +5,7 @@
     Tutorials for the rocon app manager.
   </description>
   <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <maintainer email="jihoonlee.in@gmail.com">Jihoon Lee</maintainer>
   <license>BSD</license>
   <url type="website">http://ros.org/wiki/rocon_app_manager_tutorials</url>
   <url type="repository">https://github.com/robotics-in-concert/rocon_tutorials</url>
@@ -21,5 +22,6 @@
   <run_depend>rocon_remocon</run_depend>
   <run_depend>turtle_concert</run_depend>
   <run_depend>turtlesim</run_depend>
+  <run_depend>rosbridge_server</run_depend>
 
 </package>
