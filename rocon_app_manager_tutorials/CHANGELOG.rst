@@ -2,6 +2,10 @@
 Changelog for package rocon_app_manager_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+ignoring tutorials dependencies, as scheduler and services packages are being dropped.
+
 0.6.7 (2015-05-06)
 ------------------
 * add web interaction tutorial closes `#63 <https://github.com/robotics-in-concert/rocon_tutorials/issues/63>`_

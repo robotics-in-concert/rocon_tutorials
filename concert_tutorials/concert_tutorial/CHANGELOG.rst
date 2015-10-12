@@ -2,6 +2,10 @@
 Changelog for package concert_tutorial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+ignoring tutorials dependencies, as scheduler and services packages are being dropped.
+
 0.6.7 (2015-05-06)
 ------------------
 

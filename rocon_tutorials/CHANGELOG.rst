@@ -2,6 +2,9 @@
 Changelog for package rocon_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.6.7 (2015-05-06)
 ------------------
 
