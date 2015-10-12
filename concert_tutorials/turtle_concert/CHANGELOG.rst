@@ -2,8 +2,8 @@
 Changelog for package turtle_concert
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.0 (2015-10-12)
+------------------
 ignoring tutorials dependencies, as scheduler and services packages are being dropped.
 
 0.6.7 (2015-05-06)

@@ -2,8 +2,8 @@
 Changelog for package rocon_gateway_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.7.0 (2015-10-12)
+------------------
 passing the gateway interface to buccaneer launch file.
 
 0.6.7 (2015-05-06)
