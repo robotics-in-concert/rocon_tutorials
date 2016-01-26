@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-#       
+#
 # License: BSD
-#   https://raw.github.com/robotics-in-concert/rocon_multimaster/master/rocon_gateway_tutorials/LICENSE 
+#   https://raw.github.com/robotics-in-concert/rocon_multimaster/master/rocon_gateway_tutorials/LICENSE
 #
 
 import rospy
@@ -12,7 +12,7 @@ import argparse
 import sys
 
 """
-  Tests a single flip rule. See the root readme for usage instructions.
+  Flips everything across. See the root readme for usage instructions.
 """
 
 if __name__ == '__main__':
@@ -33,14 +33,14 @@ if __name__ == '__main__':
     except rocon_gateway.GatewaySampleRuntimeError as e:
         rospy.logerr("Flip Test : %s, aborting."%(str(e)))
         sys.exit(1)
-    
+
     flip_all = rospy.ServiceProxy('/gateway/flip_all',RemoteAll)
-    req = RemoteAllRequest() 
+    req = RemoteAllRequest()
     req.gateway = gateway
     req.cancel = args.cancel
     req.blacklist = []
 
-    rospy.loginfo("Flip All : %s all [%s]."%(action_text,req.gateway)) 
+    rospy.loginfo("Flip All : %s all [%s]."%(action_text,req.gateway))
     resp = flip_all(req)
     if resp.result != 0:
         rospy.logerr("Flip All : %s"%resp.error_message)

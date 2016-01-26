@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-#       
+#
 # License: BSD
-#   https://raw.github.com/robotics-in-concert/rocon_multimaster/master/rocon_gateway_tutorials/LICENSE 
+#   https://raw.github.com/robotics-in-concert/rocon_multimaster/master/rocon_gateway_tutorials/LICENSE
 #
 ##############################################################################
 # Imports
@@ -25,18 +25,18 @@ class Context(object):
         else:
             self.action_text = "advertising"
         self.advertise_service = rospy.ServiceProxy('/gateway/advertise',Advertise)
-        self.req = AdvertiseRequest() 
+        self.req = AdvertiseRequest()
         self.req.cancel = cancel_flag
         self.rule = Rule()
         self.names, self.nodes = rocon_gateway.samples.create_tutorial_dictionaries(use_regex_patterns=regex)
-        
+
     def advertise(self, type):
         self.req.rules = []
         self.rule.name = self.names[type]
         self.rule.type = type
         self.rule.node = self.nodes[type]
-        rospy.loginfo("Advertise : %s [%s,%s,%s]."%(self.action_text,self.rule.type, self.rule.name, self.rule.node or 'None')) 
-        self.req.rules.append(self.rule) 
+        rospy.loginfo("Advertise : %s [%s,%s,%s]."%(self.action_text,self.rule.type, self.rule.name, self.rule.node or 'None'))
+        self.req.rules.append(self.rule)
         resp = self.advertise_service(self.req)
         if resp.result != 0:
             rospy.logerr("Advertise : %s"%resp.error_message)
@@ -44,20 +44,11 @@ class Context(object):
 ##############################################################################
 # Main
 ##############################################################################
-    
+
 """
   Tests advertisements, either for all tutorials (default) or one by one (via args).
-  
-  Usage:
-    1 > roslaunch rocon_gateway_tutorials pirate_hub.launch
-    2a> roslaunch rocon_gateway_tutorials pirate_gateway_tutorials.launch
-    3a> roslaunch rocon_gateway_tutorials pirate_gateway.launch
-    2b> rosrun rocon_gateway_tutorials advertise_tutorials.py
-    2c> rosservice call /gateway/gateway_info
-    3b> rosservice call /gateway/remote_gateway_info []
-    2d> rosrun rocon_gateway_tutorials advertise_tutorials.py --cancel
-    2e> rosrun rocon_gateway_tutorials advertise_tutorials.py --regex
-    2f> rosrun rocon_gateway_tutorials advertise_tutorials.py --regex --cancel
+
+  See the root readme for usage instructions.
 """
 
 if __name__ == '__main__':
