@@ -12,14 +12,7 @@ import argparse
 import sys
 
 """
-  Tests a single flip rule.
-  
-  Usage:
-    1 > roslaunch rocon_gateway_tutorials pirate_hub.launch
-    2a> roslaunch rocon_gateway_tutorials pirate_gateway_tutorials.launch
-    3a> roslaunch rocon_gateway_tutorials pirate_gateway.launch
-    2b> rosrun rocon_gateway_tutorials flip_all.py
-    2c> rosrun rocon_gateway_tutorials flip_all.py --cancel
+  Tests a single flip rule. See the root readme for usage instructions.
 """
 
 if __name__ == '__main__':

@@ -1,14 +1,18 @@
 <!--
-  Works with rocon_gateway_tutorials/buccaneer_hub.launch. 
-  
-  This one does not use zeroconf to assist with discovery of the hub. 
+  Works with rocon_gateway_tutorials/buccaneer_hub.launch.
+
+  This one does not use zeroconf to assist with discovery of the hub.
   Use the /gateway/connect_hub service to provide a uri for connection.
 -->
 <launch>
+  <node pkg="rocon_python_comms" type="connection_cache.py" name="connection_cache"/>
+
   <node pkg="rocon_gateway" type="gateway.py" name="gateway" output="screen">
     <rosparam command="load" file="$(find rocon_gateway)/param/default.yaml" />
     <rosparam command="load" file="$(find rocon_gateway)/param/default_blacklist.yaml" />
     <rosparam param="name">buccaneer_gateway</rosparam>
     <rosparam param="disable_zeroconf">true</rosparam>
+    <remap from="~connections_list" to="/connection_cache/list"/>
+    <remap from="~connections_diff" to="/connection_cache/diff"/>
   </node>
 </launch>

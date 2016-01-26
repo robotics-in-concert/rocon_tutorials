@@ -1,20 +1,21 @@
 <!--
-  Works with rocon_gateway_tutorials/buccaneer_hub.launch 
-  on the same machine (different ROS_MASTER_URI). 
-  
+  Works with rocon_gateway_tutorials/buccaneer_hub.launch
+  on the same machine (different ROS_MASTER_URI).
+
   This one has no auto-discovery mode. Instead it uses direct
-  configuration with the typical default settings for a local ubuntu 
+  configuration with the typical default settings for a local ubuntu
   redis server from the parameter server.
 -->
 <launch>
-  <arg name="gateway_network_interface" default="$(optenv GATEWAY_NETWORK_INTERFACE)"/>  <!-- If you have multiple network interfaces and want to lock it on one (e.g. 'eth0') -->
+  <node pkg="rocon_python_comms" type="connection_cache.py" name="connection_cache"/>
 
   <node pkg="rocon_gateway" type="gateway.py" name="gateway" output="screen">
     <rosparam command="load" file="$(find rocon_gateway)/param/default.yaml" />
     <rosparam command="load" file="$(find rocon_gateway)/param/default_blacklist.yaml" />
     <rosparam param="hub_uri">http://localhost:6380</rosparam>
     <rosparam param="name">buccaneer_gateway</rosparam>
-    <param name="network_interface" value="$(arg gateway_network_interface)"/>
     <rosparam param="disable_zeroconf">true</rosparam>
+    <remap from="~connections_list" to="/connection_cache/list"/>
+    <remap from="~connections_diff" to="/connection_cache/diff"/>
   </node>
 </launch>
