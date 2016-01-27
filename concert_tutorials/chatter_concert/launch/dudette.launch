@@ -1,7 +1,9 @@
 <launch>
-  <arg name="disable_zeroconf" default="false"/>
+  <arg name="zeroconf" default="true"/>
+
   <include file="$(find chatter_concert)/launch/includes/_concert_client.xml">
-    <arg name="concert_client_name" value="dudette" />
-    <arg name="disable_zeroconf" value="$(arg disable_zeroconf)"/>
+    <arg name="concert_client_name" value="Dudette" />
+    <arg name="zeroconf" value="$(arg zeroconf)"/>
+    <arg name="auto_start_pairing" value="Talker"/>
   </include>
 </launch>

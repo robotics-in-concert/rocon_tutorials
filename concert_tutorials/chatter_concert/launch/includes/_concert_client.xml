@@ -1,20 +1,21 @@
 <!--
-  Launches the infrastructure for a talker/listener. 
+  Launches the infrastructure for a talker/listener.
  -->
 <launch>
-  <arg name="concert_client_name" default="dude"/>
-  <arg name="local_machine_only" default="true"/>  <!-- only accept invites from local concerts -->
-  <arg name="disable_zeroconf" default="false"/>
+  <arg name="zeroconf" default="true"/>
+  <arg name="auto_start_pairing" default="Talker"/>
+  <arg name="concert_client_name" default="bob"/>
 
   <include file="$(find rocon_app_manager)/launch/concert_client.launch">
-    <arg name="concert_whitelist" value="[Chatter Concert, Concert Tutorial, Turtle Concert]"/>
-    <arg name="concert_uri"  value="http://localhost:6380"/>
-    <arg name="disable_zeroconf" value="$(arg disable_zeroconf)"/>
-    <arg name="robot_name" value="$(arg concert_client_name)"/>
-    <arg name="robot_type" value="pc"/>
+    <arg name="zeroconf"           value="$(arg zeroconf)"/>
+    <arg name="robot_name"         value="$(arg concert_client_name)"/>
+    <arg name="robot_type"         value="pc"/>
     <arg name="rapp_package_whitelist" value="[rocon_apps]" />
-    <arg name="concert_watch_period" value="1"/>                       <!-- flip faster, convenient -->
-    <arg name="local_machine_only" value="$(arg local_machine_only)"/>
-    <arg name="screen" value="true" />
+    <arg name="screen"             value="true" />
+    <arg name="interactions"       value="true"/>
+    <arg name="interactions_list"  value="[chatter_concert/chatter.interactions]"/>
+    <arg name="auto_start_pairing" value="$(arg auto_start_pairing)"/>
+    <arg name="gateway_uuids"      value="true"/>
+    <arg name="launch_cache"       value="true"/>
   </include>
 </launch>
