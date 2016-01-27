@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-#       
+#
 # License: BSD
-#   https://raw.github.com/robotics-in-concert/rocon_multimaster/master/rocon_gateway_tutorials/LICENSE 
+#   https://raw.github.com/robotics-in-concert/rocon_multimaster/master/rocon_gateway_tutorials/LICENSE
 #
 
 import rospy
@@ -12,14 +12,7 @@ import argparse
 import sys
 
 """
-  Tests a single flip rule.
-  
-  Usage:
-    1 > roslaunch rocon_gateway_tutorials pirate_hub.launch
-    2a> roslaunch rocon_gateway_tutorials pirate_gateway_tutorials.launch
-    3a> roslaunch rocon_gateway_tutorials pirate_gateway.launch
-    2b> rosrun rocon_gateway_tutorials advertise_all.py
-    2c> rosrun rocon_gateway_tutorials advertise_all.py --cancel
+  Advertises everything. See the root readme for usage instructions.
 """
 
 if __name__ == '__main__':
@@ -33,13 +26,13 @@ if __name__ == '__main__':
         action_text = "advertising"
 
     rospy.init_node('advertise_all')
-    
+
     advertise_all = rospy.ServiceProxy('/gateway/advertise_all',AdvertiseAll)
-    req = AdvertiseAllRequest() 
+    req = AdvertiseAllRequest()
     req.cancel = args.cancel
     req.blacklist = []
 
-    rospy.loginfo("Advertise All : %s all."%action_text) 
+    rospy.loginfo("Advertise All : %s all."%action_text)
     resp = advertise_all(req)
     if resp.result != 0:
         rospy.logerr("Advertise All : error occured (todo: no error message yet)")

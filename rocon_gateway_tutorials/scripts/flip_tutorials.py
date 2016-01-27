@@ -1,7 +1,7 @@
 #!/usr/bin/env python
-#       
+#
 # License: BSD
-#   https://raw.github.com/robotics-in-concert/rocon_multimaster/master/rocon_gateway_tutorials/LICENSE 
+#   https://raw.github.com/robotics-in-concert/rocon_multimaster/master/rocon_gateway_tutorials/LICENSE
 #
 ##############################################################################
 # Imports
@@ -26,7 +26,7 @@ class Context(object):
         else:
             self.action_text = "flipping"
         self.flip_service = rospy.ServiceProxy('/gateway/flip',Remote)
-        self.req = RemoteRequest() 
+        self.req = RemoteRequest()
         self.req.cancel = cancel_flag
         self.req.remotes = []
         self.names, self.nodes = rocon_gateway.samples.create_tutorial_dictionaries(use_regex_patterns=regex)
@@ -37,11 +37,11 @@ class Context(object):
         rule.type = type
         rule.node = self.nodes[type]
         self.req.remotes.append(RemoteRule(self.gateway,rule))
-        rospy.loginfo("Flip : %s [%s,%s,%s,%s]."%(self.action_text, 
-                                                  self.gateway, 
-                                                  rule.type, 
-                                                  rule.name, 
-                                                  rule.node or 'None')) 
+        rospy.loginfo("Flip : %s [%s,%s,%s,%s]."%(self.action_text,
+                                                  self.gateway,
+                                                  rule.type,
+                                                  rule.name,
+                                                  rule.node or 'None'))
         resp = self.flip_service(self.req)
         if resp.result != 0:
             rospy.logerr("Flip : %s"%resp.error_message)
@@ -53,14 +53,8 @@ class Context(object):
 
 """
   Tests flips, either for all tutorials (default) or one by one (via args).
-  
-  Usage:
-    > rocon_launch rocon_gateway_tutorials gateway_tutorials.concert
-    2> rosrun rocon_gateway_tutorials flip_tutorials.py
-    3> rostopic list
-    2> rosrun rocon_gateway_tutorials flip_tutorials.py --cancel
-    2> rosrun rocon_gateway_tutorials flip_tutorials.py --regex
-    2> rosrun rocon_gateway_tutorials flip_tutorials.py --regex --cancel
+
+  See the root readme for usage instructions.
 """
 
 if __name__ == '__main__':
@@ -89,7 +83,7 @@ if __name__ == '__main__':
 
     if args.pubonly or flip_all_connection_types:
         context.flip(ConnectionType.PUBLISHER)
-    
+
     if args.subonly or flip_all_connection_types:
         context.flip(ConnectionType.SUBSCRIBER)
 
