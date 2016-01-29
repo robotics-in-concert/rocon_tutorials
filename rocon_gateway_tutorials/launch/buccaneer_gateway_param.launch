@@ -7,7 +7,7 @@
   redis server from the parameter server.
 -->
 <launch>
-  <node pkg="rocon_python_comms" type="connection_cache.py" name="connection_cache"/>
+  <node pkg="rocon_python_comms" type="connection_cache.py" name="connection_cache" required="true"/>
 
   <node pkg="rocon_gateway" type="gateway.py" name="gateway" output="screen">
     <rosparam command="load" file="$(find rocon_gateway)/param/default.yaml" />
