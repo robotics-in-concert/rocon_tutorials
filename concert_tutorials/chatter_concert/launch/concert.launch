@@ -2,7 +2,8 @@
   <arg name="zeroconf" default="true"/>
 
   <include file="$(find concert_master)/launch/concert_master.launch">
-    <arg name="concert_name" value="Chatter Concert"/>
-    <arg name="zeroconf" value="$(arg zeroconf)"/>
+    <arg name="concert_name"                    value="Chatter Concert"/>
+    <arg name="zeroconf"                        value="$(arg zeroconf)"/>
+    <arg name="connection_cache_spin_frequency" value="1"/>
   </include>
 </launch>

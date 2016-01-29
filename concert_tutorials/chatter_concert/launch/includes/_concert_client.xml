@@ -7,15 +7,16 @@
   <arg name="concert_client_name" default="bob"/>
 
   <include file="$(find rocon_app_manager)/launch/concert_client.launch">
-    <arg name="zeroconf"           value="$(arg zeroconf)"/>
-    <arg name="robot_name"         value="$(arg concert_client_name)"/>
-    <arg name="robot_type"         value="pc"/>
-    <arg name="rapp_package_whitelist" value="[rocon_apps]" />
-    <arg name="screen"             value="true" />
-    <arg name="interactions"       value="true"/>
-    <arg name="interactions_list"  value="[chatter_concert/chatter.interactions]"/>
-    <arg name="auto_start_pairing" value="$(arg auto_start_pairing)"/>
-    <arg name="gateway_uuids"      value="true"/>
-    <arg name="launch_cache"       value="true"/>
+    <arg name="zeroconf"                        value="$(arg zeroconf)"/>
+    <arg name="robot_name"                      value="$(arg concert_client_name)"/>
+    <arg name="robot_type"                      value="pc"/>
+    <arg name="rapp_package_whitelist"          value="[rocon_apps]" />
+    <arg name="screen"                          value="true" />
+    <arg name="interactions"                    value="true"/>
+    <arg name="interactions_list"               value="[chatter_concert/chatter.interactions]"/>
+    <arg name="auto_start_pairing"              value="$(arg auto_start_pairing)"/>
+    <arg name="gateway_uuids"                   value="true"/>
+    <arg name="connection_cache"                value="true"/>
+    <arg name="connection_cache_spin_frequency" value="1"/>
   </include>
 </launch>
