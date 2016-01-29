@@ -13,7 +13,5 @@
     <rosparam command="load" file="$(find rocon_gateway)/param/default_blacklist.yaml" />
     <rosparam param="hub_whitelist" subst_value="True">[Buccaneer Hub]</rosparam>
     <rosparam param="name">buccaneer_gateway</rosparam>
-    <remap from="~connections_list" to="/connection_cache/list"/>
-    <remap from="~connections_diff" to="/connection_cache/diff"/>
   </node>
 </launch>
