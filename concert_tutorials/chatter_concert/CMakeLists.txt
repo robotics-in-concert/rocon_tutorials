@@ -17,10 +17,8 @@ catkin_package()
 ##############################################################################
 
 install(
-    PROGRAMS 
-        scripts/view_link_graph
+    PROGRAMS
         scripts/remocon_dude
-        scripts/static_link_graph_service.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
     )
 
