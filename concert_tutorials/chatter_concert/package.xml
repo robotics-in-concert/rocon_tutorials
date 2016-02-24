@@ -14,22 +14,19 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <run_depend>concert_master</run_depend>
-  <run_depend>concert_service_link_graph</run_depend>
-  <run_depend>concert_service_utilities</run_depend>
   <run_depend>rocon_app_manager</run_depend>
   <run_depend>rocon_apps</run_depend>
   <run_depend>rocon_bubble_icons</run_depend>
   <run_depend>rospy_tutorials</run_depend>
-  <run_depend>concert_service_admin</run_depend>
   <run_depend>rocon_python_utils</run_depend>
 
-  <!-- 
-    Hardcode this dependency for now since we only test it on linux 
+  <!--
+    Hardcode this dependency for now since we only test it on linux
     Ideally, I wouldn't hardcode the zeroconf implementation though.
     even if it does appeal to us ubuntu eggheads.
   -->
     <run_depend>zeroconf_avahi</run_depend>
-  
+
   <export>
     <concert_service>services/chatter/chatter.service</concert_service>
   </export>
